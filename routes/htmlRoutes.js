@@ -52,16 +52,23 @@ module.exports = function (app) {
     })
   })
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function (req, res) {
-    // db.Example.findOne({ where: { id: req.params.id } }).then(function (
-    //   dbExample
-    // ) {
-    //   res.render("example", {
-    //     example: dbExample
-    //   });
-    // });
-  });
+  //this is for the purchased memes
+  app.get("/purchased/:id", function (req, res) {
+
+    db.Boughten_Memes.findAll({
+      where: {
+        UserId: req.params.id
+      }
+    }).then(function (data) {
+      res.render("purchased", { meme: data });
+    })
+
+  })
+
+  app.get("/more-points/:id", function (req, res) {
+    res.render("clicker");
+  })
+
 
   //this is perfect for us to use, we can redirect them to the error page if they visit a wrong area
   app.get("*", function (req, res) {

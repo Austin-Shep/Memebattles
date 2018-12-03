@@ -19,8 +19,8 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     points: {
-      type: DataTypes.INTEGER,
-      defaultValue: 500
+      type: DataTypes.DOUBLE,
+      defaultValue: 500.00
     },
     isManager: {
       type: DataTypes.BOOLEAN,
