@@ -37,7 +37,10 @@ module.exports = function (app) {
   app.get("/home/:id", function (req, res) {
     //we will parse out the id later for addition use
     //remember to store the id variable somewhere
-    res.render("home");
+    db.Memes.findAll().then(function (data) {
+      console.log(data);
+      res.render("home", { meme: data });
+    })
   })
 
   // Load example page and pass in an example by id

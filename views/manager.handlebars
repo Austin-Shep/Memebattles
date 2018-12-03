@@ -1,1 +1,59 @@
-WELCOME TO MANAGER PAGE
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manager-page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/manager.css">
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1>MANAGER-PAGE</h1>
+    </div>
+    <div class="container">
+        <form>
+            <div class="form-row">
+                <div class="col-md-12">
+                    <label for="validationDefault01"><strong>Name</strong> </label>
+                    <input type="text" class="form-control name" id="validationDefault01" placeholder="Doge" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationDefault02"><strong>Link to Meme</strong></label>
+                    <input type="text" class="form-control link" id="validationDefault02" placeholder="Http://"
+                        required>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationDefault02"><strong>Attack Power</strong></label>
+                    <input type="text" class="form-control attack-power" id="validationDefault02" placeholder="50"
+                        required>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationDefault02"><strong>Health Points</strong></label>
+                    <input type="text" class="form-control health-points" id="validationDefault02" placeholder="100"
+                        required>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationDefault02"><strong>Cost</strong></label>
+                    <input type="text" class="form-control cost" id="validationDefault02" placeholder="500" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationDefault02"><strong>Dice Value</strong></label>
+                    <input type="text" class="form-control dice-value" id="validationDefault02" placeholder="1"
+                        required>
+                </div>
+
+
+                <button id="submit" class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="../js/manager.js"></script>
+</body>
+
+</html>

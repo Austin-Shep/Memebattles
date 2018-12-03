@@ -1,1 +1,49 @@
-WE ARE HOME
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/home.css">
+
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h1>Meme-Page</h1>
+        <span>Meme Points</span>
+        <span id="meme-points"></span>
+    </div>
+    <div class="container">
+
+        {{#each meme}}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>{{this.name}}</h2>
+                    </div>
+
+                    <div class="card-body">
+                        <p>Cost: {{this.cost}}</p>
+                        <button type="button" class="btn btn-dark buy" data-UserId={{this.id}} name={{this.name}} link={{this.link}}
+                            attack={{this.attack_power}} health={{this.health_points}} dice={{this.dice_value}} cost={{this.cost}}
+                            UserId="">Buy
+                            Meme</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="../js/home.js"></script>
+</body>
+
+</html>
