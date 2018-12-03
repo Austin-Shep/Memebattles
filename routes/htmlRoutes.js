@@ -8,7 +8,8 @@ module.exports = function (app) {
     console.log(req.body);
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      isManager: req.body.isManager
     }).then(function (data) {
 
       res.json(data);
@@ -29,7 +30,15 @@ module.exports = function (app) {
 
   //this will load the manager page
   app.get("/manager/:id", function (req, res) {
-    res.render("manager");
+
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (data) {
+      res.render("manager", { user: data });
+    })
+
   })
 
   //this will load the home page

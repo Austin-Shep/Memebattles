@@ -24,19 +24,44 @@ $(document).ready(function () {
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
   function signUpUser(email, password) {
-    $.post("/signup", {
-      email: email,
-      password: password
-    }).then(function (user) {
+    //if they input a correct manager key
+    if ($(".manager-key").val().trim() === "Treighton") {
+      $.post("/signup", {
+        email: email,
+        password: password,
+        isManager: true
+      }).then(function (user) {
 
-      if (user.isManager === true) {
-        window.location.assign("/manager/" + user.id);
-      } else {
-        window.location.assign("/home/" + user.id);
-      }
+        //takes us back to the login page
+        window.location.assign("/");
 
-      // If there's an error, handle it by throwing up a bootstrap alert
-    }).catch(handleLoginErr);
+        // If there's an error, handle it by throwing up a bootstrap alert
+      }).catch(handleLoginErr);
+
+    }
+    //if they leave manager key blank
+    else if ($(".manager-key").val().trim() === "") {
+      $.post("/signup", {
+        email: email,
+        password: password
+      }).then(function (user) {
+
+        //takes us back to the login page
+        window.location.assign("/");
+
+
+
+        // If there's an error, handle it by throwing up a bootstrap alert
+      }).catch(handleLoginErr);
+
+    }
+    //if they input incorrect manager key
+    else {
+      alert("Incorrect Manger Key");
+    }
+
+
+
   }
 
   function handleLoginErr(err) {
