@@ -62,9 +62,14 @@ $(document).ready(function () {
 
             //give foreign key to all buttons
             $(".buy").attr("UserId", user[0].id);
+
+            //put the id in the purchased nav
+            $(".purchased").attr("href", "/purchased/" + user[0].id);
+            $(".more-points").attr("href", "/more-points/" + user[0].id);
         })
 
     }
+
 
 
 

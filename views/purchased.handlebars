@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/home.css">
-
+    <title>Purchased Memes</title>
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Home Page</a>
+        <a class="navbar-brand home" href="/home">Home Page</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <div id=user>
-                    <a class="nav-item nav-link active" href="#">{{user.email}}<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active home" href="">{{user.email}}<span class="sr-only">(current)</span></a>
                 </div>
 
                 <a class="nav-item nav-link active" href="/">Logout<span class="sr-only">(current)</span></a>
@@ -30,14 +27,9 @@
                 <a class="nav-item nav-link active purchased" href="">Purchased Memes<span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link active more-points" href="">More Points<span class="sr-only">(current)</span></a>
 
-
             </div>
     </nav>
-
-
-    </div>
     <div class="container">
-
         {{#each meme}}
         <div class="row">
             <div class="col-md-12">
@@ -52,20 +44,15 @@
                         <p>Attack Power: {{this.attack_power}}</p>
                         <p>Cost: {{this.cost}}</p>
                         <p>Dice Value {{this.dice_value}}</p>
-                        <button type="button" class="btn btn-dark buy" data-UserId={{this.id}} name={{this.name}} link={{this.link}}
-                            attack={{this.attack_power}} health={{this.health_points}} dice={{this.dice_value}} cost={{this.cost}}
-                            UserId="">Buy
-                            Meme</button>
                     </div>
                 </div>
 
             </div>
         </div>
-        {{/each}}
     </div>
+    {{/each}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script src="../js/home.js"></script>
+    <script src="../js/purchased.js"></script>
 </body>
 
 </html>

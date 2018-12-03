@@ -60,7 +60,7 @@ module.exports = function (app) {
     })
   })
   app.put("/api/user/id", function (req, res) {
-
+    console.log(req.body);
     db.User.update({
       points: req.body.points
     }, {
