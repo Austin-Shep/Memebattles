@@ -28,7 +28,7 @@ $(document).ready(function () {
       email: email,
       password: password
     }).then(function (user) {
-
+      //  console.log(user);
       //if the user that signs in is a manager redirect them to manager page
       if (user.isManager === true) {
         window.location.assign("/manager/" + user.id);
@@ -41,6 +41,9 @@ $(document).ready(function () {
       // If there's an error, log the error
     }).catch(function (err) {
       console.log(err);
+      if (err.status == 401) {
+        alert("INCORRECT EMAIL/PASSWORD OR Sign Up");
+      }
     });
   }
 
