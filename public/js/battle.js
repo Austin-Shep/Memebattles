@@ -18,7 +18,7 @@ $(document).ready(function() {
   };
 
   class Meme {
-    //used to construct the meme that wil battle
+    //used to construct the meme that will battle
     constructor(name, link, ap, hp, diceVal, boo) {
       this.name = name;
       this.imgLink = link;
@@ -45,14 +45,17 @@ $(document).ready(function() {
 
     concede() {
       //loss conditions, discuss with team
+      //lose points/lose this meme
     }
 
     win() {
       //win conditions, discuss with team, will add a certain amount of memecoins based on the power lvl of the opponent
+      //win exp and cooins of equal amt
+      //re-direct to meme page
     }
   }
 
-  $.ajax("/api/", {
+  $.ajax("/api/user/:id", {
     type: "GET"
   }).then(meme => {
     attackMeme = new Meme(

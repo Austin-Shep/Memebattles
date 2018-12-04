@@ -4,11 +4,7 @@ var passport = require("../config/passport");
 
 var currentId;
 
-<<<<<<< HEAD
 module.exports = function(app) {
-=======
-module.exports = function (app) {
->>>>>>> 4537af891bc99cffd4a846458cd1c1a9dc3cc941
   //this portion of code is all for passport to work
 
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
@@ -28,12 +24,7 @@ module.exports = function (app) {
   //^^^^^^^^^^^^^^
 
   //this route is for storing into the database new memes
-<<<<<<< HEAD
   app.post("/api/manager", function(req, res) {
-    console.log(req.body);
-=======
-  app.post("/api/manager", function (req, res) {
->>>>>>> 4537af891bc99cffd4a846458cd1c1a9dc3cc941
     //send this data to the meme table
     db.Memes.create(req.body).then(function(data) {
       res.json(data);
@@ -47,12 +38,8 @@ module.exports = function (app) {
     });
   });
 
-<<<<<<< HEAD
-  app.get("/api/user/id", function(req, res) {
-=======
   //sends back the currently signed in user
-  app.get("/api/user/id", function (req, res) {
->>>>>>> 4537af891bc99cffd4a846458cd1c1a9dc3cc941
+  app.get("/api/user/id", function(req, res) {
     console.log("test " + currentId);
     db.User.findAll({
       where: {
@@ -64,24 +51,14 @@ module.exports = function (app) {
     });
   });
 
-<<<<<<< HEAD
+  //allows us to upadte which meme belongs to a signed in account
   app.post("/api/user/id", function(req, res) {
     db.Boughten_Memes.create(req.body).then(function(data) {
       res.json(data);
     });
   });
-
-  app.put("/api/user/id", function(req, res) {
-=======
-  //allows us to upadte which meme belongs to a signed in account
-  app.post("/api/user/id", function (req, res) {
-    db.Boughten_Memes.create(req.body).then(function (data) {
-      res.json(data);
-    });
-  });
   //allows us to update the currently signed in users points
-  app.put("/api/user/id", function (req, res) {
->>>>>>> 4537af891bc99cffd4a846458cd1c1a9dc3cc941
+  app.put("/api/user/id", function(req, res) {
     console.log(req.body);
     db.User.update(
       {
@@ -92,11 +69,7 @@ module.exports = function (app) {
           id: currentId
         }
       }
-<<<<<<< HEAD
     ).then(function(data) {
-=======
-    ).then(function (data) {
->>>>>>> 4537af891bc99cffd4a846458cd1c1a9dc3cc941
       res.json(data);
     });
   });
