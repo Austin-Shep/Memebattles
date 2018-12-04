@@ -62,6 +62,18 @@ module.exports = function(app) {
   app.get("/more-points/:id", function(req, res) {
     res.render("clicker");
   });
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //renders the clicker page associated with the currently signed in user
+  app.get("/profile/:id", function(req, res) {
+    db.User.findOne({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data) {
+      res.render("profile", { user: data });
+    });
+  });
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   //this is perfect for us to use, we can redirect them to the error page if they visit a wrong area
   app.get("*", function(req, res) {
