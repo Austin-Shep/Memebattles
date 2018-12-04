@@ -47,7 +47,11 @@ module.exports = function(app) {
     });
   });
 
+<<<<<<< HEAD
   //this is for the purchased memes
+=======
+  //this is for the purchased memes, again passing the id so we know which mean belongs to the user
+>>>>>>> 4537af891bc99cffd4a846458cd1c1a9dc3cc941
   app.get("/purchased/:id", function(req, res) {
     db.Boughten_Memes.findAll({
       where: {
@@ -58,6 +62,10 @@ module.exports = function(app) {
     });
   });
 
+<<<<<<< HEAD
+=======
+  //renders the clicker page associated with the currently signed in user
+>>>>>>> 4537af891bc99cffd4a846458cd1c1a9dc3cc941
   app.get("/more-points/:id", function(req, res) {
     res.render("clicker");
   });

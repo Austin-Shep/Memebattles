@@ -7,7 +7,7 @@ $(document).ready(function() {
   function getId() {
     $.ajax("/api/user/id", {
       type: "GET"
-    }).then(function(user) {
+    }).then(function (user) {
       currentPoints = user[0].points;
       id = user[0].id;
       console.log(user[0].id);
@@ -18,9 +18,12 @@ $(document).ready(function() {
     });
   }
 
-  $("#get-points").on("click", function() {
-    const morePoints = 0.01;
+  $("#get-points").on("click", function () {
+    var morePoints = 0.01;
+    morePoints = parseFloat(morePoints);
+    currentPoints = parseFloat(currentPoints);
     currentPoints += morePoints;
+
     var points = {
       points: currentPoints
     };
@@ -28,8 +31,8 @@ $(document).ready(function() {
     $.ajax("/api/user/id", {
       type: "put",
       data: points
-    }).then(function(data) {
-      location.reload();
+    }).then(function () {
+      getId();
     });
   });
 });
