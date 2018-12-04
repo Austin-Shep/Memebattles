@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     link: DataTypes.STRING,
     attack_power: DataTypes.INTEGER,
     health_points: DataTypes.INTEGER,
-    cost: DataTypes.DECIMAL(10, 2),
+    cost: DataTypes.INTEGER,
     dice_value: DataTypes.INTEGER
   });
 

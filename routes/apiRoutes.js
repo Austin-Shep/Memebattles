@@ -50,6 +50,28 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+  // grab the meme for battle, will attach this to a button on the purchased page.
+  app.get("/api/user/memes/:id", function(req, res) {
+    db.Boughten_Memes.findOne({
+      where: {
+        UserId: req.user.id,
+        id: req.params.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  //deletes the meme on lose condition
+  app.delete("/api/user/memes/:id", function(req, res) {
+    db.Boughten_Memes.destroy({
+      where: {
+        UserId: req.user.id,
+        id: req.params.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
 
   //allows us to upadte which meme belongs to a signed in account
   app.post("/api/user/id", function(req, res) {
@@ -74,7 +96,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/logout", function (req, res) {
+  app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
   });

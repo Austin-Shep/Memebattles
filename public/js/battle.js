@@ -55,7 +55,7 @@ $(document).ready(function() {
     }
   }
 
-  $.ajax("/api/user/:id", {
+  $.ajax("/api/user/meme", {
     type: "GET"
   }).then(meme => {
     attackMeme = new Meme(
