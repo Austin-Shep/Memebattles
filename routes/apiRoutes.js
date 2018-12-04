@@ -50,6 +50,7 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
   // grab the meme for battle, will attach this to a button on the purchased page.
   app.get("/api/user/memes/:id", function(req, res) {
     db.Boughten_Memes.findOne({
@@ -61,6 +62,7 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
   //deletes the meme on lose condition
   app.delete("/api/user/memes/:id", function(req, res) {
     db.Boughten_Memes.destroy({

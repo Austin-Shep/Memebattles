@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Memes = sequelize.define("Memes", {
     name: DataTypes.STRING,
     link: DataTypes.STRING,
+    lvl: DataTypes.INTEGER,
     attack_power: DataTypes.INTEGER,
     health_points: DataTypes.INTEGER,
     cost: DataTypes.INTEGER,

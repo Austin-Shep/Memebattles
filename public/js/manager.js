@@ -14,6 +14,9 @@ $(document).ready(function() {
       link: $(".link")
         .val()
         .trim(),
+      lvl: $(".lvl")
+        .val()
+        .trim(),
       attack_power: $(".attack-power")
         .val()
         .trim(),

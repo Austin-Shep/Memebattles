@@ -2,6 +2,7 @@ $(document).ready(function() {
   var attackMeme = {};
   var defendMeme = {};
   var battlestart = false;
+  var battleLvl;
   initBattle = () => {
     attackMeme = {};
     defendMeme = {};
@@ -54,19 +55,37 @@ $(document).ready(function() {
       //re-direct to meme page
     }
   }
+  function fighterSelect(id) {
+    $.ajax({
+      type: "GET",
+      url: `/api/user/memes/${id}`
+    }).then(meme => {
+      attackMeme = new Meme(
+        meme.name,
+        meme.link,
+        meme.attack_power,
+        meme.health_points,
+        meme.dice_value,
+        true
+      );
+    });
+  }
 
-  $.ajax("/api/user/meme", {
-    type: "GET"
-  }).then(meme => {
-    attackMeme = new Meme(
-      meme.name,
-      meme.link,
-      meme.attack_power,
-      meme.health_points,
-      meme.dice_value,
-      true
-    );
-  });
+  function opponentDisplay(id) {
+    $.ajax({
+      type: "GET",
+      url: "/api/manager"
+    }).then(meme => {
+      var applcMemes = meme.filter(meme => (meme.lvl = battleLvl));
+
+      applcMemes.forEach(meme => {
+        //display the memes that the user can select to battle.
+        //post their stats as attributes on the link, so that when they click the meme they can pass it through the class.
+      });
+    });
+  }
+
+  $("#");;
 });
 
 //ajax call to get the users most recent "meme" from the db and a random second meme of the same level; <<
