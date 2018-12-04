@@ -13,7 +13,7 @@ module.exports = function(app) {
     // They won't get this or even be able to access this page if they aren't authed
 
     //we are setting the current ID here because we need to be able to reference the user throughout other pages
-    currentId = req.user.id;
+
     //sent back the current logged in users data
     var user = {
       isManager: req.user.isManager,
@@ -43,7 +43,7 @@ module.exports = function(app) {
     console.log("test " + currentId);
     db.User.findAll({
       where: {
-        id: currentId
+        id: req.user.id
       }
     }).then(function(data) {
       console.log(data);
@@ -66,11 +66,16 @@ module.exports = function(app) {
       },
       {
         where: {
-          id: currentId
+          id: req.user.id
         }
       }
     ).then(function(data) {
       res.json(data);
     });
+  });
+
+  app.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
   });
 };
