@@ -26,10 +26,10 @@ module.exports = function(app) {
   });
 
   //this will load the manager page
-  app.get("/manager/:id", function(req, res) {
+  app.get("/manager", function(req, res) {
     db.User.findOne({
       where: {
-        id: req.params.id
+        id: req.user.id
       }
     }).then(function(data) {
       res.render("manager", { user: data });
@@ -38,7 +38,7 @@ module.exports = function(app) {
 
   //this will load the home page
   //we are passing an a parameter id so we can associate to the right account
-  app.get("/home/:id", function(req, res) {
+  app.get("/home", function(req, res) {
     //we will parse out the id later for addition use
     //remember to store the id variable somewhere
     db.Memes.findAll().then(function(data) {
@@ -48,10 +48,10 @@ module.exports = function(app) {
   });
 
   //this is for the purchased memes, again passing the id so we know which mean belongs to the user
-  app.get("/purchased/:id", function(req, res) {
+  app.get("/purchased", function(req, res) {
     db.Boughten_Memes.findAll({
       where: {
-        UserId: req.params.id
+        UserId: req.user.id
       }
     }).then(function(data) {
       res.render("purchased", { meme: data });
@@ -59,8 +59,16 @@ module.exports = function(app) {
   });
 
   //renders the clicker page associated with the currently signed in user
-  app.get("/more-points/:id", function(req, res) {
-    res.render("clicker");
+  app.get("/more-points", function(req, res) {
+    db.User.findAll({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data) {
+      console.log("\n\nMore Points\n\n");
+      console.log(data);
+      res.render("clicker", { click: data });
+    });
   });
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //renders the clicker page associated with the currently signed in user

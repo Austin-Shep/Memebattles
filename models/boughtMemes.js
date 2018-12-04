@@ -7,10 +7,10 @@ module.exports = function(sequelize, DataTypes) {
     health_points: DataTypes.INTEGER,
     cost: DataTypes.DECIMAL(10, 2),
     dice_value: DataTypes.INTEGER
-  });;
+  });
 
   //this allows multiple users to buy the same meme
-  Boughten_Memes.associate = function (models) {
+  Boughten_Memes.associate = function(models) {
     Boughten_Memes.belongsTo(models.User, {
       forignKey: {
         allowNull: true
@@ -18,4 +18,4 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
   return Boughten_Memes;
-};;
+};

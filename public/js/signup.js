@@ -1,11 +1,11 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function (event) {
+  signUpForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
@@ -25,43 +25,46 @@ $(document).ready(function () {
   // Otherwise we log any errors
   function signUpUser(email, password) {
     //if they input a correct manager key
-    if ($(".manager-key").val().trim() === "Treighton") {
+    if (
+      $(".manager-key")
+        .val()
+        .trim() === "Treighton"
+    ) {
       $.post("/signup", {
         email: email,
         password: password,
         isManager: true
-      }).then(function (user) {
+      })
+        .then(function(user) {
+          //takes us back to the login page
+          window.location.assign("/");
 
-        //takes us back to the login page
-        window.location.assign("/");
-
-        // If there's an error, handle it by throwing up a bootstrap alert
-      }).catch(handleLoginErr);
-
+          // If there's an error, handle it by throwing up a bootstrap alert
+        })
+        .catch(handleLoginErr);
     }
     //if they leave manager key blank
-    else if ($(".manager-key").val().trim() === "") {
+    else if (
+      $(".manager-key")
+        .val()
+        .trim() === ""
+    ) {
       $.post("/signup", {
         email: email,
         password: password
-      }).then(function (user) {
+      })
+        .then(function(user) {
+          //takes us back to the login page
+          window.location.assign("/");
 
-        //takes us back to the login page
-        window.location.assign("/");
-
-
-
-        // If there's an error, handle it by throwing up a bootstrap alert
-      }).catch(handleLoginErr);
-
+          // If there's an error, handle it by throwing up a bootstrap alert
+        })
+        .catch(handleLoginErr);
     }
     //if they input incorrect manager key
     else {
       alert("Incorrect Manger Key");
     }
-
-
-
   }
 
   function handleLoginErr(err) {

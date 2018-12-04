@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>More Points</title>
+    <link rel="stylesheet" href="./styles/clicker.css">
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand home" href="">Home Page</a>
+        <a class="navbar-brand home" href="/home">Home Page</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,15 +23,24 @@
                     <a class="nav-item nav-link active home" href="">{{user.email}}<span class="sr-only">(current)</span></a>
                 </div>
 
-                <a class="nav-item nav-link active" href="/">Logout<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="/logout">Logout<span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link active" href="#">Meme Points: <span id="meme-points"></span></a>
-                <a class="nav-item nav-link active purchased" href="">Purchased Memes<span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link active more-points" href="">More Points<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active purchased" href="/purchased">Purchased Memes<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active more-points" href="/more-points">More Points<span class="sr-only">(current)</span></a>
 
             </div>
     </nav>
     <div class="container">
+        <div class="jumbotron">
+            {{!-- this allows me to pass the click power to the html document --}}
+            {{#click}}
+            <h1>Click Power: {{this.clickPower}}</h1>
+            {{/click}}
+        </div>
         <button id="get-points" type="button" class="btn btn-dark">Click to get points</button>
+        <button id="increase-click-power" type="button" class="btn btn-success"></button>
+
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/clicker.js"></script>
