@@ -4,10 +4,10 @@ var passport = require("../config/passport");
 
 var currentId;
 
-module.exports = function(app) {
+module.exports = function (app) {
   //this portion of code is all for passport to work
 
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
@@ -24,41 +24,41 @@ module.exports = function(app) {
   //^^^^^^^^^^^^^^
 
   //this route is for storing into the database new memes
-  app.post("/api/manager", function(req, res) {
+  app.post("/api/manager", function (req, res) {
     //send this data to the meme table
-    db.Memes.create(req.body).then(function(data) {
+    db.Memes.create(req.body).then(function (data) {
       res.json(data);
     });
   });
 
   //a get route for the memes
-  app.get("/api/manager", function(req, res) {
-    db.Memes.findAll({}).then(function(data) {
+  app.get("/api/manager", function (req, res) {
+    db.Memes.findAll({}).then(function (data) {
       res.json(data);
     });
   });
 
   //sends back the currently signed in user
-  app.get("/api/user/id", function(req, res) {
+  app.get("/api/user/id", function (req, res) {
     console.log("test " + currentId);
     db.User.findAll({
       where: {
         id: req.user.id
       }
-    }).then(function(data) {
+    }).then(function (data) {
       console.log(data);
       res.json(data);
     });
   });
 
   //allows us to upadte which meme belongs to a signed in account
-  app.post("/api/user/id", function(req, res) {
-    db.Boughten_Memes.create(req.body).then(function(data) {
+  app.post("/api/user/id", function (req, res) {
+    db.Boughten_Memes.create(req.body).then(function (data) {
       res.json(data);
     });
   });
   //allows us to update the currently signed in users points
-  app.put("/api/user/id", function(req, res) {
+  app.put("/api/user/id", function (req, res) {
     console.log(req.body);
     db.User.update(
       {
@@ -69,51 +69,52 @@ module.exports = function(app) {
           id: req.user.id
         }
       }
-    ).then(function(data) {
+    ).then(function (data) {
       res.json(data);
     });
   });
 
-  app.get("/logout", function(req, res) {
+  app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
 
   //this route handles upgrading the click power
-  app.put("/upgrade-click", function(req, res) {
+  app.put("/upgrade-click", function (req, res) {
     console.log("\n\n\n\n\n\n\n");
     console.log("clickPower");
     console.log(req.body.clickPower);
 
     db.User.update(
       {
-        clickPower: req.body.clickPower
+        clickPower: req.body.clickPower,
+        points: req.body.points
       },
       {
         where: {
           id: req.user.id
         }
       }
-    ).then(function(data) {
+    ).then(function (data) {
       res.json(data);
     });
   });
 
-  app.get("/api/get-current-power", function(req, res) {
+  app.get("/api/get-current-power", function (req, res) {
     db.User.findAll({
       where: {
         id: req.user.id
       }
-    }).then(function(data) {
+    }).then(function (data) {
       res.json(data);
     });
   });
-  app.get("/api/get-current-user-points", function(req, res) {
+  app.get("/api/get-current-user-points", function (req, res) {
     db.User.findAll({
       where: {
         id: req.user.id
       }
-    }).then(function(data) {
+    }).then(function (data) {
       res.json(data);
     });
   });
