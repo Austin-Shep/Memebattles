@@ -37,25 +37,36 @@ $(document).ready(function () {
 
   function checkButtons(userClickPower) {
     //this checks all the buttons and makes sure to turn off buttons when user is a certain click level
-    for (var i = 2; i <= 5; i++) {
-      if (userClickPower >= $(`button[data-clickPower=${i}]`).data().clickpower) {
-        $(`button[data-clickPower=${i}]`).attr('disabled', "disabled");
-        $(`button[data-clickPower=${i}]`).css("background", "gray");
+
+    //first we are going to do an ajax call to get the list of purchased upgrades
+    $.ajax("/upgrade-click", {
+      type: "GET"
+    }).then(function (data) {
+
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].clickPower == $(`#${data[i].clickPower}`).attr("data-clickPower")) {
+          $(`#${data[i].clickPower}`).css("background", "gray");
+          $(`#${data[i].clickPower}`).css("border-style", "none");
+          $(`#${data[i].clickPower}`).attr("disabled", "disabled");
+        }
       }
-    }
+    })
   }
 
   function buyClickerUpgrade(currentClickedButton) {
-
+    var currentId;
 
     //get current user points
     $.ajax("/api/get-current-user-points", {
       type: "GET"
     }).then(function (data) {
 
+      currentId = data[0].id;
       //I parse variables as floats to prevent string concatination of numbers
       var currentUserPoints = parseFloat(data[0].points);
       var subtractPoints = parseFloat(currentClickedButton.attr("data-cost"));
+      var increaseClickPower = parseInt(data[0].clickPower);
+      increaseClickPower++;
 
       //if user has less money than they can afford
       if ((currentUserPoints - subtractPoints) < 0) {
@@ -69,14 +80,34 @@ $(document).ready(function () {
 
         //send over the new click power
         var upgradeClickPower = {
-          clickPower: currentClickedButton.attr("data-clickPower"),
+          clickPower: increaseClickPower,
           points: temp
         };
+        //
         $.ajax("/upgrade-click", {
           type: "PUT",
           data: upgradeClickPower
         }).then(function (data) {
-          renderPageData();
+          //now we are going to do an association so that click belongs to the user
+          console.log(data);
+
+          var purchasedPointUpgrade = {
+            clickPower: currentClickedButton.attr("data-clickPower"),
+            morePerClick: currentClickedButton.attr("data-morePerClick"),
+            cost: currentClickedButton.attr("data-cost"),
+            UserId: currentId,
+
+          };
+
+          $.ajax("/upgrade-click", {
+            type: "POST",
+            data: purchasedPointUpgrade
+          }).then(function (data) {
+            renderPageData();
+          })
+
+
+
         })
       }
 
@@ -87,51 +118,46 @@ $(document).ready(function () {
   function increaseUserPoints() {
     //holds amount of points to be added on based on users click power
     var morePoints = 0.0;
+    var currentPoints = 0.0;
 
-    $.ajax("/api/get-current-power", {
+    $.ajax("/api/user/id", {
       type: "GET"
     }).then(function (data) {
-      var currentClickPower = data[0].clickPower;
-      var currentPoints = parseFloat(data[0].points);
+      currentPoints = parseFloat(data[0].points);
 
-      //series of if statments checking current users click power
-      //so we can add correct amount of points per click
-      if (currentClickPower == 1) {
-        morePoints = 0.01;
-      }
+      $.ajax("/upgrade-click", {
+        type: "GET"
+      }).then(function (data) {
 
-      if (currentClickPower == 2) {
-        morePoints = 0.05;
-      }
+        for (var i = 0; i < data.length; i++) {
+          morePoints += parseFloat(data[i].morePerClick);
+        }
+        //add .01 to more points so the user has their .01 click point from the start
+        morePoints += .01;
+        if (morePoints === 0) {
+          morePoints = .01;
+        }
+        console.log(morePoints);
 
-      if (currentClickPower == 3) {
-        morePoints = 0.10;
-      }
 
-      if (currentClickPower == 4) {
-        morePoints = 1.00;
-      }
-      if (currentClickPower == 5) {
-        morePoints = 2.00;
-      }
+        //adds points per click to the users current points 
+        currentPoints += morePoints;
 
-      //adds points per click to the users current points 
-      currentPoints += morePoints;
+        //store points as an object because that is how the req.body accepts variables
+        var points = {
+          points: currentPoints
+        };
 
-      //store points as an object because that is how the req.body accepts variables
-      var points = {
-        points: currentPoints
-      };
-
-      //ajax call that updates the databases current points
-      $.ajax("/api/user/id", {
-        type: "put",
-        data: points
-      }).then(function () {
-        //we call this function so we dont have to re render the whole page again to see changed data
-        //this function manually sets text
-        renderPageData();
-      });
-    });
+        //ajax call that updates the databases current points
+        $.ajax("/api/user/id", {
+          type: "put",
+          data: points
+        }).then(function () {
+          //we call this function so we dont have to re render the whole page again to see changed data
+          //this function manually sets text
+          renderPageData();
+        });
+      })
+    })
   }
 });

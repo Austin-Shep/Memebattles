@@ -45,24 +45,13 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <p>Click Upgrade 2
-                            <button type="button" data-cost="500" data-clickPower="2" class="btn btn-success click-upgrade">
-                                Cost:500</button>
+                        {{#each clickUpgrades}}
+                        <p> {{this.morePerClick}} Per Click
+                            <button id={{this.clickPower}} type="button" data-cost={{this.cost}} data-clickPower={{this.clickPower}}
+                                data-morePerClick={{this.morePerClick}} class="btn btn-success click-upgrade">
+                                Cost: {{this.cost}}</button>
                         </p>
-                        <p>Click Upgrade 3
-                            <button type="button" data-cost="505" data-clickPower="3" class="btn btn-success click-upgrade">
-                                Cost:505</button>
-                        </p>
-                        <p>Click Upgrade 4
-                            <button type="button" data-cost="530" data-clickPower="4" class="btn btn-success click-upgrade">
-                                Cost:530</button>
-                        </p>
-                        <p>Click Upgrade 5
-                            <button type="button" data-cost="3000" data-clickPower="5" class="btn btn-success click-upgrade">
-                                Cost:3000</button>
-                        </p>
-
-
+                        {{/each}}
                     </div>
                 </div>
 
