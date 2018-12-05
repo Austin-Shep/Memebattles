@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Upgrade Click Buttons</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/manager">Manager Page</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <div>
+                    <a class="nav-item nav-link active" href="#">{{user.email}}<span class="sr-only">(current)</span></a>
+                </div>
+                <div>
+                    <a class="nav-item nav-link active" href="/manager-buttons"><span class="sr-only">(current)</span>Upgrade
+                        Click
+                        Buttons</a>
+                </div>
+
+                <a class="nav-item nav-link active" href="/logout">Logout<span class="sr-only">(current)</span></a>
+            </div>
+    </nav>
+    <div class="container">
+        <form id="test">
+            <div class="form-row">
+                <div class="col-md-12">
+                    <label for="validationDefault01"><strong>Amount Increased Per Click:</strong> </label>
+                    <input type="text" class="form-control amountIncreasedPerClick" id="validationDefault01"
+                        placeholder=".02" required>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationDefault01"><strong>Cost:</strong> </label>
+                    <input type="text" class="form-control costForUpgrade" id="validationDefault01" placeholder="500"
+                        required>
+                </div>
+            </div>
+
+            <button id="submit" class="btn btn-primary" type="submit">Submit form</button>
+
+        </form>
+
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="./js/manager-click-button-upgrades.js"></script>
+</body>
+
+</html>

@@ -11,4 +11,4 @@ VALUES("chaosdoggs522@gmail.com", "Chaosdo1", true, "2018-12-02 16:25:26", "2018
 INSERT INTO clickerUpgrades
     (clickPower, morePerClick,cost, createdAt, updatedAt)
 VALUES
-    (2 , 0.2 , 500, "2018-12-02 16:25:26", "2018-12-02 16:25:26");
+    (3 , 0.2 , 500, "2018-12-02 16:25:26", "2018-12-02 16:25:26");

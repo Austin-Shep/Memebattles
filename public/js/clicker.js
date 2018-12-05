@@ -132,10 +132,13 @@ $(document).ready(function () {
         for (var i = 0; i < data.length; i++) {
           morePoints += parseFloat(data[i].morePerClick);
         }
+        //add .01 to more points so the user has their .01 click point from the start
+        morePoints += .01;
         if (morePoints === 0) {
           morePoints = .01;
         }
         console.log(morePoints);
+
 
         //adds points per click to the users current points 
         currentPoints += morePoints;
