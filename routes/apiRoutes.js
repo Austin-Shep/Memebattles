@@ -74,8 +74,47 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/logout", function (req, res) {
+  app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
+  });
+
+  //this route handles upgrading the click power
+  app.put("/upgrade-click", function(req, res) {
+    console.log("\n\n\n\n\n\n\n");
+    console.log("clickPower");
+    console.log(req.body.clickPower);
+
+    db.User.update(
+      {
+        clickPower: req.body.clickPower
+      },
+      {
+        where: {
+          id: req.user.id
+        }
+      }
+    ).then(function(data) {
+      res.json(data);
+    });
+  });
+
+  app.get("/api/get-current-power", function(req, res) {
+    db.User.findAll({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  app.get("/api/get-current-user-points", function(req, res) {
+    db.User.findAll({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
   });
 };
