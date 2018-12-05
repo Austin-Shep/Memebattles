@@ -79,6 +79,42 @@ module.exports = function (app) {
     res.redirect("/");
   });
 
+
+
+  app.get("/api/get-current-power", function (req, res) {
+    db.User.findAll({
+      where: {
+        id: req.user.id
+      }
+    }).then(function (data) {
+      res.json(data);
+    });
+  });
+  app.get("/api/get-current-user-points", function (req, res) {
+    db.User.findAll({
+      where: {
+        id: req.user.id
+      }
+    }).then(function (data) {
+      res.json(data);
+    });
+  });
+
+  //all the api's for upgrading click
+  app.get("/upgrade-click", function (req, res) {
+    db.PurchasedClickerUpgrades.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(function (data) {
+      res.json(data);
+    })
+  })
+  app.post("/upgrade-click", function (req, res) {
+    db.PurchasedClickerUpgrades.create(req.body).then(function (data) {
+      res.json(data);
+    })
+  })
   //this route handles upgrading the click power
   app.put("/upgrade-click", function (req, res) {
     console.log("\n\n\n\n\n\n\n");
@@ -96,25 +132,6 @@ module.exports = function (app) {
         }
       }
     ).then(function (data) {
-      res.json(data);
-    });
-  });
-
-  app.get("/api/get-current-power", function (req, res) {
-    db.User.findAll({
-      where: {
-        id: req.user.id
-      }
-    }).then(function (data) {
-      res.json(data);
-    });
-  });
-  app.get("/api/get-current-user-points", function (req, res) {
-    db.User.findAll({
-      where: {
-        id: req.user.id
-      }
-    }).then(function (data) {
       res.json(data);
     });
   });
