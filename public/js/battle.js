@@ -85,9 +85,12 @@ $(document).ready(function() {
       type: "GET",
       url: `/api/user/memes/${id}`
     }).then(meme => {
+      //fix this probably dont need this ajax call, greate another page that is battle select, ya feel?
+
       attackMeme = new Meme(
         meme.name,
         meme.lvl,
+        meme.ac,
         meme.link,
         meme.attack_power,
         meme.health_points,
@@ -130,11 +133,11 @@ $(document).ready(function() {
       inTurn = true;
       attackMeme.confirm(defendMeme);
       if (defendMeme.hp <= 0) {
-        defendMeme.concede;
+        attackMeme.win();
       }
       defendMeme.confirm(attackMeme);
       if (attackMeme.hp <= 0) {
-        attackMeme.concede;
+        attackMeme.concede();
       }
       //maybe put in an animation if we have time, set timeout so there is some sort of dynamics
       inTurn = false;
