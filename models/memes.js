@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     link: DataTypes.STRING,
     lvl: DataTypes.INTEGER,
+    ac: DataTypes.INTEGER,
     attack_power: DataTypes.INTEGER,
     health_points: DataTypes.INTEGER,
     cost: DataTypes.INTEGER,

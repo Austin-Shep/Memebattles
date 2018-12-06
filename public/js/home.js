@@ -13,6 +13,8 @@ $(document).ready(function() {
       var boughtMeme = {
         name: $(this).attr("name"),
         link: $(this).attr("link"),
+        lvl: $(this).attr("lvl"),
+        ac: $(this).attr("ac"),
         attack_power: $(this).attr("attack"),
         health_points: $(this).attr("health"),
         cost: cost,

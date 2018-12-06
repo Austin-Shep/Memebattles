@@ -17,6 +17,9 @@ $(document).ready(function() {
       lvl: $(".lvl")
         .val()
         .trim(),
+      ac: $(".ac")
+        .val()
+        .trim(),
       attack_power: $(".attack-power")
         .val()
         .trim(),
