@@ -65,23 +65,56 @@ module.exports = function(app) {
 
   //this is for the purchased memes, again passing the id so we know which mean belongs to the user
   app.get("/purchased", function(req, res) {
+    //we will parse out the id later for addition use
+    //remember to store the id variable somewhere
+    var purchasedMeme;
+    var user;
     db.Boughten_Memes.findAll({
       where: {
         UserId: req.user.id
       }
     }).then(function(data) {
-      res.render("purchased", { meme: data });
+      purchasedMeme = data;
+      db.User.findOne({
+        where: {
+          id: req.user.id
+        }
+      }).then(function(data) {
+        user = data;
+
+        var pageContent = {
+          meme: purchasedMeme,
+          user: user
+        };
+        res.render("purchased", { page: pageContent });
+      });
     });
   });
 
   //renders the clicker page associated with the currently signed in user
   app.get("/more-points", function(req, res) {
+    var clicker;
+    var user;
     db.ClickerUpgrades.findAll({
       order: [["cost", "ASC"]]
     }).then(function(data) {
-      res.render("clicker", { clickUpgrades: data });
+      clicker = data;
+      db.User.findOne({
+        where: {
+          id: req.user.id
+        }
+      }).then(function(data) {
+        user = data;
+
+        var pageContent = {
+          clickUpgrades: clicker,
+          user: user
+        };
+        res.render("clicker", { page: pageContent });
+      });
     });
   });
+
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //renders the clicker page associated with the currently signed in user
   app.get("/profile", function(req, res) {
