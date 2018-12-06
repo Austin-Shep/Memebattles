@@ -20,8 +20,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <div id=user>
+                <div>
                     <a class="nav-item nav-link active" href="#">{{user.email}}<span class="sr-only">(current)</span></a>
+                </div>
+                <div>
+                    <a class="nav-item nav-link active" href="/manager-buttons"><span class="sr-only">(current)</span>Upgrade
+                        Click
+                        Buttons</a>
                 </div>
 
                 <a class="nav-item nav-link active" href="/logout">Logout<span class="sr-only">(current)</span></a>
@@ -50,23 +55,26 @@
                         required>
                 </div>
                 <div class="col-md-12">
-                    <label for="validationDefault02"><strong>Health Points</strong></label>
-                    <input type="text" class="form-control health-points" id="validationDefault02" placeholder="100"
+                    <label for="validationDefault04"><strong>Health Points</strong></label>
+                    <input type="text" class="form-control health-points" id="validationDefault04" placeholder="100"
                         required>
                 </div>
                 <div class="col-md-12">
-                    <label for="validationDefault02"><strong>Cost</strong></label>
-                    <input type="text" class="form-control cost" id="validationDefault02" placeholder="500" required>
+                    <label for="validationDefault05"><strong>Cost</strong></label>
+                    <input type="text" class="form-control cost" id="validationDefault05" placeholder="500" required>
                 </div>
                 <div class="col-md-12">
-                    <label for="validationDefault02"><strong>Dice Value</strong></label>
-                    <input type="text" class="form-control dice-value" id="validationDefault02" placeholder="1"
+                    <label for="validationDefault06"><strong>Dice Value</strong></label>
+                    <input type="text" class="form-control dice-value" id="validationDefault06" placeholder="1"
                         required>
                 </div>
 
 
                 <button id="submit" class="btn btn-primary" type="submit">Submit form</button>
+
         </form>
+
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

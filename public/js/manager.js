@@ -4,7 +4,6 @@ $(document).ready(function() {
 
   function storeMeme(event) {
     console.log("test");
-    event.preventDefault();
 
     //creates a new meme
     var meme = {
@@ -40,6 +39,8 @@ $(document).ready(function() {
       data: meme
     }).then(function(data) {
       console.log(data);
+      alert("Meme added to database");
+      location.reload();
     });
   }
 });
