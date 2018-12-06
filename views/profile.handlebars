@@ -25,12 +25,12 @@
                     <a class="nav-item nav-link active home" href="">{{user.email}}<span class="sr-only">(current)</span></a>
                 </div>
 
-                <a class="nav-item nav-link active" href="/">Logout<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="/logout">Logout<span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link active" href="#">Meme Points: <span id="meme-points"></span></a>
-                <a class="nav-item nav-link active purchased" href="">Purchased Memes<span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link active more-points" href="">More Points<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active purchased" href="/purchased">Purchased Memes<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active more-points" href="/more-points">More Points<span class="sr-only">(current)</span></a>
                 {{!-- Here! --}}
-                <a class="nav-item nav-link active profile" href="">Your Profile<span class="profile"></span></a>
+                <a class="nav-item nav-link active profile" href="/profile">Your Profile<span class="sr-only">(current)</span></a>
 
 
             </div>
@@ -86,6 +86,56 @@
                         <h5 class="card-title">Meme of the line!</h5>
                         <p class="card-text">the most often picks will show up here?</p>
                         <a href="#" class="btn btn-primary">Back</a>
+                    </div>
+                </div>
+                <div class="card">
+                    {{!-- <div class="card-header">
+
+                    </div> --}}
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">Current Rank: {{user.wins}} / 10</p>
+                        <div class="container">
+                            <h2>Basic Progress Bar</h2>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+                                    aria-valuemax="100" style="width:70%">
+                                    {{!-- aria-valuemax="100" style="width:{{user.wins}}0%"> --}}
+                                    <span class="sr-only">70% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    {{!-- <div class="card-header">
+
+                    </div> --}}
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">Current Click Power: {{user.clickPower}}</p>
+                    </div>
+                </div>
+                <div class="card">
+                    {{!-- <div class="card-header">
+
+                    </div> --}}
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">Total Wins: 
+                            {{!-- {{user.wins}} --}}
+                            </p>
+                    </div>
+                </div>
+                <div class="card">
+                    {{!-- <div class="card-header">
+
+                    </div> --}}
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">Total Losses: 
+                            {{!-- {{user.losses}} --}}
+                            </p>
                     </div>
                 </div>
             </div>
