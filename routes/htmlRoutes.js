@@ -92,7 +92,7 @@ module.exports = function(app) {
   ///build html route to load battle page with the users meme as a data block for handlebars
   app.get("/battle/select", function(req, res) {}).then(function(data) {});
   //build a secondary battlepage route for when the user selects there opponent.
-
+  app.get("/battle/run", function(req, res) {}).then(function(data) {});
   //this is perfect for us to use, we can redirect them to the error page if they visit a wrong area
   app.get("*", function(req, res) {
     res.render("404");

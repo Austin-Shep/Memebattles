@@ -81,23 +81,17 @@ $(document).ready(function() {
   }
   //////////////////////////////////end of meme class////////////////////////////////////////
   function fighterSelect(id) {
-    $.ajax({
-      type: "GET",
-      url: `/api/user/memes/${id}`
-    }).then(meme => {
-      //fix this probably dont need this ajax call, greate another page that is battle select, ya feel?
-
-      attackMeme = new Meme(
-        meme.name,
-        meme.lvl,
-        meme.ac,
-        meme.link,
-        meme.attack_power,
-        meme.health_points,
-        meme.dice_value,
-        true
-      );
-    });
+    //fix this probably dont need this ajax call, create another page that is battle select, ya feel?
+    attackMeme = new Meme(
+      meme.name,
+      meme.lvl,
+      meme.ac,
+      meme.link,
+      meme.attack_power,
+      meme.health_points,
+      meme.dice_value,
+      true
+    );
   }
 
   function opponentDisplay(id) {
