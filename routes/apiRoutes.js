@@ -74,8 +74,81 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/logout", function (req, res) {
+  app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
+  });
+
+  app.get("/api/get-current-power", function(req, res) {
+    db.User.findAll({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  app.get("/api/get-current-user-points", function(req, res) {
+    db.User.findAll({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+
+  //all the api's for upgrading click
+  app.get("/upgrade-click", function(req, res) {
+    db.PurchasedClickerUpgrades.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  app.post("/upgrade-click", function(req, res) {
+    db.PurchasedClickerUpgrades.create(req.body).then(function(data) {
+      res.json(data);
+    });
+  });
+  //this route handles upgrading the click power
+  app.put("/upgrade-click", function(req, res) {
+    console.log("\n\n\n\n\n\n\n");
+    console.log("clickPower");
+    console.log(req.body.clickPower);
+
+    db.User.update(
+      {
+        clickPower: req.body.clickPower,
+        points: req.body.points
+      },
+      {
+        where: {
+          id: req.user.id
+        }
+      }
+    ).then(function(data) {
+      res.json(data);
+    });
+  });
+
+  //this will return the last upgrade button so we can auto increment every time future buttons are
+  //added by the manager, this helps with the purchasing algorithm
+  app.get("/api/manager-click-check", function(req, res) {
+    db.ClickerUpgrades.findAll({
+      limit: 1,
+      order: [["clickPower", "DESC"]]
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  //creates a new upgradable button
+  app.post("/api/manager-click-check", function(req, res) {
+    console.log(req.body);
+    db.ClickerUpgrades.create(req.body).then(function(data) {
+      res.json(data);
+    });
   });
 };

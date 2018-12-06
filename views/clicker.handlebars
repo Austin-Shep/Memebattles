@@ -34,12 +34,33 @@
     <div class="container">
         <div class="jumbotron">
             {{!-- this allows me to pass the click power to the html document --}}
-            {{#click}}
-            <h1>Click Power: {{this.clickPower}}</h1>
-            {{/click}}
+
+            <h1 id="clickPower"></h1>
+
         </div>
-        <button id="get-points" type="button" class="btn btn-dark">Click to get points</button>
-        <button id="increase-click-power" type="button" class="btn btn-success"></button>
+        <div class="row">
+            <div class="col-md-6">
+                <button id="get-points" type="button" class="btn btn-dark">Click to get points</button>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+
+                        {{#each clickUpgrades}}
+                        <p> {{this.morePerClick}} Per Click
+                            <button id={{this.clickPower}} type="button" data-cost={{this.cost}} data-clickPower={{this.clickPower}}
+                                data-morePerClick={{this.morePerClick}} class="btn btn-success click-upgrade">
+                                Cost: {{this.cost}}</button>
+                        </p>
+                        {{/each}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
 
 
     </div>

@@ -60,25 +60,31 @@ module.exports = function(app) {
 
   //renders the clicker page associated with the currently signed in user
   app.get("/more-points", function(req, res) {
-    db.User.findAll({
-      where: {
-        id: req.user.id
-      }
+    db.ClickerUpgrades.findAll({
+      order: [["cost", "ASC"]]
     }).then(function(data) {
-      console.log("\n\nMore Points\n\n");
-      console.log(data);
-      res.render("clicker", { click: data });
+      res.render("clicker", { clickUpgrades: data });
     });
   });
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //renders the clicker page associated with the currently signed in user
-  app.get("/profile/:id", function(req, res) {
+  app.get("/profile", function(req, res) {
     db.User.findOne({
       where: {
         id: req.user.id
       }
     }).then(function(data) {
       res.render("profile", { user: data });
+    });
+  });
+
+  app.get("/manager-buttons", function(req, res) {
+    db.User.findOne({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data) {
+      res.render("upgrade-click-buttons", { user: data });
     });
   });
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
