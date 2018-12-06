@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/nav.css">
+    <link rel="stylesheet" href="../styles/profile.css">
     <title>Purchased Memes</title>
 </head>
 
@@ -36,8 +39,8 @@
 
 
     <div class="container">
-<br>
-<br>
+        <br>
+        <br>
         <div class="row">
             <div class="col-6 col-md-4">
 
@@ -45,14 +48,27 @@
                     <img class="card-img-top" src="https://i.imgflip.com/22jc5z.jpg?text=Image cap" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">The very first BATTLE user!</h5>
-                        <p class="card-text">Really need a meme that work for this baby, and he find them here! Want to beat them all, says the fist~</p>
+                        <p class="card-text">Really need a meme that work for this baby, and he find them here! Want to
+                            beat them all, says the fist~</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><p>Id: {{user.id}}</p></li>
-                        <li class="list-group-item"><p>Email: {{user.email}}</p></li>
-                        <li class="list-group-item"><p>Points: {{user.points}}</p></li>
-                        <li class="list-group-item"><p>Joined at:</p><p> {{user.createdAt}}</p></li>
-                        <li class="list-group-item"><p>Last active at:</p><p>  {{user.updatedAt}}</p></li>
+                        <li class="list-group-item">
+                            <p>Id: {{user.id}}</p>
+                        </li>
+                        <li class="list-group-item">
+                            <p>Email: {{user.email}}</p>
+                        </li>
+                        <li class="list-group-item">
+                            <p>Points: {{user.points}}</p>
+                        </li>
+                        <li class="list-group-item">
+                            <p>Joined at:</p>
+                            <p> {{user.createdAt}}</p>
+                        </li>
+                        <li class="list-group-item">
+                            <p>Last active at:</p>
+                            <p> {{user.updatedAt}}</p>
+                        </li>
                     </ul>
                     <div class="card-body">
                         <a href="#" class="card-link">Card link</a>
