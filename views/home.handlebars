@@ -11,19 +11,17 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/nav.css">
     <link rel="stylesheet" href="../styles/home.css">
-
-
 </head>
 
 <body>
-    <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
+    <div class="navbar navbar-expand-lg navbar-dark justify-content-center ">
         <a class="navbar-brand" href="/home">
             <i class="fas fa-meteor"></i>
             <span class="name-title">meme<b>battles</b></span>
         </a>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark meme-nav">
         <button class="navbar-toggler justify-content-center" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,9 +29,10 @@
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
-                <li class="nav-item" id="user">
+                <li class="nav-item">
                     <div>
-                        <a class="nav-item nav-link active" href="#"><b>{{page.user.email}}</b><span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="#"><b class="meme-email">{{page.user.email}}</b><span
+                                class="sr-only">(current)</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -53,31 +52,27 @@
     </nav>
 
     </div>
-    <div class="container">
+    <div class="container text-center">
 
         {{#each page.meme}}
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>{{this.name}}</h2>
-                    </div>
+        <div class="card text-center">
+            <div class="card-header">
+                <h2>{{this.name}}</h2>
+            </div>
 
-                    <div class="card-body">
-                        <img class="meme-link" src={{this.link}} alt="">
-                        <p>Health Points: {{this.health_points}}</p>
-                        <p>Attack Power: {{this.attack_power}}</p>
-                        <p>Cost: {{this.cost}}</p>
-                        <p>Dice Value {{this.dice_value}}</p>
-                        <button type="button" class="btn btn-dark buy" data-UserId={{this.id}} name={{this.name}} link={{this.link}}
-                            attack={{this.attack_power}} health={{this.health_points}} dice={{this.dice_value}} cost={{this.cost}}
-                            UserId="">Buy
-                            Meme</button>
-                    </div>
-                </div>
-
+            <div class="card-body">
+                <img class="meme-link" src={{this.link}} alt="">
+                <p>Health Points: {{this.health_points}}</p>
+                <p>Attack Power: {{this.attack_power}}</p>
+                <p>Cost: {{this.cost}}</p>
+                <p>Dice Value {{this.dice_value}}</p>
+                <button type="button" class="btn btn-dark buy" data-UserId={{this.id}} name={{this.name}} link={{this.link}}
+                    attack={{this.attack_power}} health={{this.health_points}} dice={{this.dice_value}} cost={{this.cost}}
+                    UserId="">Buy
+                    Meme</button>
             </div>
         </div>
+
         {{/each}}
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

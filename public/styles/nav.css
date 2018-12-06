@@ -10,3 +10,19 @@
     font-size: 75px;
     color:rgb(172, 171, 171);
 }
+
+.navbar-brand {
+    margin-top: 25px;
+}
+
+.meme-nav {
+    margin-bottom: 50px;
+}
+
+.meme-email {
+    color: #30afc5;
+}
+
+.nav-item {
+    opacity: .95;
+}

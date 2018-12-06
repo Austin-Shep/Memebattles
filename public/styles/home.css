@@ -19,3 +19,19 @@ body {
     font-size: 75px;
     color:rgb(172, 171, 171);
 }
+
+.card {
+    width: 30%;
+    height: 540px;
+    float: left;
+    color: whitesmoke;
+    background-color: #30afc5;
+    padding: 30px;
+    margin: 0px 15px 15px 15px;
+    /* border-radius: 150px 3px 150px 3px;
+    -moz-border-radius: 150px 3px 150px 3px;
+    -webkit-border-radius: 150px 3px 150px 3px; */
+    -webkit-box-shadow: -12px 14px 28px 0px rgba(26,26,26,1);
+    -moz-box-shadow: -12px 14px 28px 0px rgba(26,26,26,1);
+    box-shadow: -12px 14px 28px 0px rgba(26,26,26,1);
+}
