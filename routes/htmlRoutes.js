@@ -41,9 +41,25 @@ module.exports = function(app) {
   app.get("/home", function(req, res) {
     //we will parse out the id later for addition use
     //remember to store the id variable somewhere
+    var meme;
+    var user;
     db.Memes.findAll().then(function(data) {
-      console.log(data);
-      res.render("home", { meme: data });
+      console.log(meme);
+
+      meme = data;
+      db.User.findOne({
+        where: {
+          id: req.user.id
+        }
+      }).then(function(data) {
+        user = data;
+
+        var pageContent = {
+          meme: meme,
+          user: user
+        };
+        res.render("home", { page: pageContent });
+      });
     });
   });
 
