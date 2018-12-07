@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
   //calls loadPoints on load
   loadUserData();
 
   //executes if a meme is bought
-  $(".buy").on("click", function() {
+  $(".buy").on("click", function () {
     var currentPoints = $("#meme-points").text();
     var cost = $(this).attr("cost");
     console.log(currentPoints);
@@ -27,7 +27,7 @@ $(document).ready(function() {
       $.ajax("/api/user/id", {
         type: "POST",
         data: boughtMeme
-      }).then(function(data) {
+      }).then(function (data) {
         var newPoints = {
           points: currentPoints - cost
         };
@@ -35,7 +35,7 @@ $(document).ready(function() {
         $.ajax("/api/user/id", {
           type: "PUT",
           data: newPoints
-        }).then(function(data) {
+        }).then(function (data) {
           console.log(data);
           $("#meme-points").text(data.points);
           location.reload();
@@ -47,7 +47,7 @@ $(document).ready(function() {
   function loadUserData() {
     $.ajax("/api/user/id", {
       type: "GET"
-    }).then(function(user) {
+    }).then(function (user) {
       //this needs to be an array because that is what is returned
       console.log(user[0].id);
       //gives data to the points section
