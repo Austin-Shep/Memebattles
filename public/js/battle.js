@@ -41,7 +41,7 @@ $(document).ready(function() {
     confirm(target) {
       dice.sides = 20;
       let confirmVal = dice.roll + this.ap;
-      if (confirmVal >= 10) {
+      if (confirmVal >= target.ac) {
         target.hp -= this.dmg();
       } else {
         console.log(`${this.name} missed!`);

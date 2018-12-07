@@ -87,12 +87,83 @@ module.exports = function(app) {
       res.render("upgrade-click-buttons", { user: data });
     });
   });
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  ///=====BATTLE STUFF=====///
 
   ///build html route to load battle page with the users meme as a data block for handlebars
-  app.get("/battle/select", function(req, res) {}).then(function(data) {});
-  //build a secondary battlepage route for when the user selects there opponent.
-  app.get("/battle/run", function(req, res) {}).then(function(data) {});
+  app.get("/battle/select/:lvl", function(req, res) {
+    var selection;
+    var heros;
+
+    db.Boughten_Memes.findAll({
+      where: {
+        lvl: req.params.lvl,
+        UserId: req.user.id
+      }
+    }).then(function(data) {
+      heros = data;
+    });
+
+    db.Memes.findAll({
+      where: {
+        lvl: req.params.lvl
+      }
+    }).then(function(data) {
+      var enemies = data;
+      selection = {
+        heros: heros,
+        enemies: enemies
+      };
+      res.render("battleSelect", { memes: selection });
+    });
+  });
+  var build = require("./classes/meme");
+  var combatants;
+  //build a secondary battle page route for after the user selects there opponent. will pass the seleted user meme and opponent meme as rquest paramaters
+  app.get("/battle/run/:playerid/:id", function(req, res) {
+    db.Memes.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(data) {
+      var opponent = new build(
+        data.id,
+        data.name,
+        data.lvl,
+        data.ac,
+        data.link,
+        data.attack_power,
+        data.health_points,
+        data.dice_value,
+        false
+      );
+      db.Boughten_Memes.findOne({
+        where: {
+          UserId: req.user.id,
+          id: req.params.playerid
+        }
+      }).then(function(data) {
+        var hero = new build(
+          data.id,
+          data.name,
+          data.lvl,
+          data.ac,
+          data.link,
+          data.attack_power,
+          data.health_points,
+          data.dice_value,
+          true
+        );
+        combatants = {
+          hero: hero,
+          opponent: opponent
+        };
+      });
+      res.render("battle", { combatants: combatants });
+    });
+  });
+
   //this is perfect for us to use, we can redirect them to the error page if they visit a wrong area
   app.get("*", function(req, res) {
     res.render("404");

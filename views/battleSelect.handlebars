@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            {{#each memes.enemies}}
+                <div class="card">
+                    <img src="{{this.link}}" alt="memeimg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <ul class="card-text">
+                            <li>POWER LEVEL: {{this.lvl}}</li>
+                            <li>HEALTH POINTS: {{this.health_points}}</li>
+                        </ul>
+                        <a onclick="assignThisOpponent({{this.id}})" id="{{this.id}}" class="btn btn-primary">FIGHT ME!</a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="col-6">
+            {{#each memes.heros}}
+                <div class="card">
+                    <img src="{{this.link}}" alt="memeimg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <ul class="card-text">
+                            <li>POWER LEVEL: {{this.lvl}}</li>
+                            <li>HEALTH POINTS: {{this.health_points}}</li>
+                        </ul>
+                        <a onclick="assignThisHero({{this.id}})" id="{{this.id}}" class="btn btn-primary">LET ME FIGHT FOR YOU!</a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<script>
+    var heroId;
+  var heroSelected = false;
+  var opponentId;
+  var opponentSelected = false;
+
+  function assignThisOpponent(id) {
+    opponentId = id;
+    opponentSelected = true;
+    console.log(`OPPONENT: ${opponentId}`)
+  }
+
+  function assignThisHero(id) {
+    heroId = id;
+    heroSelected = true;
+    console.log(`HERO: ${heroId}`)
+  }
+
+  if (heroSelected && opponentSelected) {
+    window.location.replace(`./battle/run/:${heroId}/:${opponentId}`);
+  }
+</script>
