@@ -26,7 +26,13 @@ module.exports = function(app) {
   //this route is for storing into the database new memes
   app.post("/api/manager", function(req, res) {
     //send this data to the meme table
+<<<<<<< HEAD
     db.Memes.create(req.body).then(function(data) {
+=======
+    db.Memes.create(req.body).then(function (data) {
+      console.log("================================");
+      console.log(data);
+>>>>>>> 999a1176e5ac0d68dfaef8700fec6e82d38fcf32
       res.json(data);
     });
   });
@@ -39,8 +45,13 @@ module.exports = function(app) {
   });
 
   //sends back the currently signed in user
+<<<<<<< HEAD
   app.get("/api/user/id", function(req, res) {
     console.log("test " + currentId);
+=======
+  app.get("/api/user/id", function (req, res) {
+
+>>>>>>> 999a1176e5ac0d68dfaef8700fec6e82d38fcf32
     db.User.findAll({
       where: {
         id: req.user.id

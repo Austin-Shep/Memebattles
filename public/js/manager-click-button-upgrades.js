@@ -1,7 +1,6 @@
-$(document).ready(function() {
-  //when button is clicked, call function upgradeClick
-  $(document).on("click", "#submit", upgradeClick);
+$(document).ready(function () {
 
+<<<<<<< HEAD
   //takes care of adding the new button to database
   function upgradeClick() {
     //get the current click Power
@@ -19,11 +18,36 @@ $(document).ready(function() {
       } else {
         //holds value of the last button entered into the database
         newButtonClickPower = data[0].clickPower;
+=======
+  $('#form').validator().on('submit', function (e) {
+    if (e.isDefaultPrevented()) {
+      // handle the invalid form...
+    } else {
+      //takes care of adding the new button to database
+      e.preventDefault();
+      //get the current click Power
+      $.ajax("/api/manager-click-check", {
+        type: "GET"
+      }).then(function (data) {
+        //variable that is going to hold the last button entered click power
+        var newButtonClickPower;
+        //validation for when the manager adds there first button to the database
+        if (data.length === 0) {
+          //set to 1 because this number is incremented 1 more time, bringing it to 2 for purchasing purposes
+          newButtonClickPower = 1;
+          //call function and pass over the value
+          pushNewButton(newButtonClickPower);
+        }
+        else {
+          //holds value of the last button entered into the database
+          newButtonClickPower = data[0].clickPower;
+>>>>>>> 999a1176e5ac0d68dfaef8700fec6e82d38fcf32
 
-        pushNewButton(newButtonClickPower);
-      }
-    });
-  }
+          pushNewButton(newButtonClickPower);
+        }
+      })
+    }
+  })
 
   function pushNewButton(newButtonClickPower) {
     //this will act as an auto increment for the click power button for purchasing purposes
@@ -44,6 +68,10 @@ $(document).ready(function() {
       data: newButton
     }).then(function(data) {
       //do like a redirect to a button added
+      alert("button added to home page");
+      setTimeout(function () {
+        location.reload();
+      }, 1000);
     });
   }
 });
