@@ -27,6 +27,8 @@ module.exports = function (app) {
   app.post("/api/manager", function (req, res) {
     //send this data to the meme table
     db.Memes.create(req.body).then(function (data) {
+      console.log("================================");
+      console.log(data);
       res.json(data);
     });
   });
@@ -40,7 +42,7 @@ module.exports = function (app) {
 
   //sends back the currently signed in user
   app.get("/api/user/id", function (req, res) {
-    console.log("test " + currentId);
+
     db.User.findAll({
       where: {
         id: req.user.id
