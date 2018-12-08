@@ -21,12 +21,18 @@ $(document).ready(function() {
   run = () => {
     if (heroSelected === true && opponentSelected === true) {
       battlestart = true;
-      //postAttacker()
-      //postDefender()
+      //postCombatant(attackMeme, "#attackPost")
+      //postCombatant(defendMeme, "#defendPost")
     } else {
       return;
     }
   };
+
+  function postAttacker(meme, postPoint) {
+    var a = postPoint;
+    var b = $("<div/>");
+    $(a).append();
+  }
 
   function fighterSelect(id) {
     //call the api
