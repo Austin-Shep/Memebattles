@@ -110,10 +110,10 @@ $(document).ready(function() {
             data: purchasedPointUpgrade
           }).then(function(data) {
             renderPageData();
-          });;
-        });;
+          });
+        });
       }
-    });;
+    });
   }
   function increaseUserPoints() {
     //holds amount of points to be added on based on users click power

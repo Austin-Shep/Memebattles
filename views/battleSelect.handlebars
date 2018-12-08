@@ -1,4 +1,5 @@
 <div class="container">
+{{#unless battleStart}}
     <div class="row">
         <div class="col-6">
             {{#each memes.enemies}}
@@ -10,7 +11,7 @@
                             <li>POWER LEVEL: {{this.lvl}}</li>
                             <li>HEALTH POINTS: {{this.health_points}}</li>
                         </ul>
-                        <a onclick="assignThisOpponent({{this.id}})" id="{{this.id}}" class="btn btn-primary">FIGHT ME!</a>
+                        <a onclick="defendSelect({{this.id}})" id="{{this.id}}" class="btn btn-primary">FIGHT ME!</a>
                     </div>
                 </div>
             {{/each}}
@@ -25,32 +26,18 @@
                             <li>POWER LEVEL: {{this.lvl}}</li>
                             <li>HEALTH POINTS: {{this.health_points}}</li>
                         </ul>
-                        <a onclick="assignThisHero({{this.id}})" id="{{this.id}}" class="btn btn-primary">LET ME FIGHT FOR YOU!</a>
+                        <a onclick="fighterselect({{this.id}})" id="{{this.id}}" class="btn btn-primary">LET ME FIGHT FOR YOU!</a>
                     </div>
                 </div>
             {{/each}}
         </div>
     </div>
+    {{/unless}}
+    {{#if battleStart}}
+    <div>
+        battle has started 
+    </div>
+    {{/if}}
 </div>
-<script>
-    var heroId;
-  var heroSelected = false;
-  var opponentId;
-  var opponentSelected = false;
-
-  function assignThisOpponent(id) {
-    opponentId = id;
-    opponentSelected = true;
-    console.log(`OPPONENT: ${opponentId}`)
-  }
-
-  function assignThisHero(id) {
-    heroId = id;
-    heroSelected = true;
-    console.log(`HERO: ${heroId}`)
-  }
-
-  if (heroSelected && opponentSelected) {
-    window.location.replace(`./battle/run/:${heroId}/:${opponentId}`);
-  }
-</script>
+<script src="./js/memeconstruct.js"></script>
+<script src="./js/battle.js"></script>

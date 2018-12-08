@@ -170,40 +170,20 @@ module.exports = function(app) {
   var build = require("./classes/meme");
   var combatants;
   //build a secondary battle page route for after the user selects there opponent. will pass the seleted user meme and opponent meme as rquest paramaters
-  app.get("/battle/run/:playerid/:id", function(req, res) {
+  app.get("/battle/run", function(req, res) {
     db.Memes.findOne({
       where: {
         id: req.params.id
       }
     }).then(function(data) {
-      var opponent = new build(
-        data.id,
-        data.name,
-        data.lvl,
-        data.ac,
-        data.link,
-        data.attack_power,
-        data.health_points,
-        data.dice_value,
-        false
-      );
+      var opponent = data;
       db.Boughten_Memes.findOne({
         where: {
           UserId: req.user.id,
           id: req.params.playerid
         }
       }).then(function(data) {
-        var hero = new build(
-          data.id,
-          data.name,
-          data.lvl,
-          data.ac,
-          data.link,
-          data.attack_power,
-          data.health_points,
-          data.dice_value,
-          true
-        );
+        var hero = data;
         combatants = {
           hero: hero,
           opponent: opponent
