@@ -7,7 +7,7 @@ $(document).ready(function() {
     //get the current click Power
     $.ajax("/api/manager-click-check", {
       type: "GET"
-    }).then(function (data) {
+    }).then(function(data) {
       //variable that is going to hold the last button entered click power
       var newButtonClickPower;
       //validation for when the manager adds there first button to the database
@@ -16,8 +16,7 @@ $(document).ready(function() {
         newButtonClickPower = 1;
         //call function and pass over the value
         pushNewButton(newButtonClickPower);
-      }
-      else {
+      } else {
         //holds value of the last button entered into the database
         newButtonClickPower = data[0].clickPower;
 
@@ -32,14 +31,18 @@ $(document).ready(function() {
     //creates an object that holds the new button
     var newButton = {
       clickPower: newButtonClickPower,
-      morePerClick: $(".amountIncreasedPerClick").val().trim(),
-      cost: $(".costForUpgrade").val().trim()
+      morePerClick: $(".amountIncreasedPerClick")
+        .val()
+        .trim(),
+      cost: $(".costForUpgrade")
+        .val()
+        .trim()
     };
     //sends the new button object to the database to create the new button for the user to see
     $.ajax("/api/manager-click-check", {
       type: "POST",
       data: newButton
-    }).then(function (data) {
+    }).then(function(data) {
       //do like a redirect to a button added
     });
   }

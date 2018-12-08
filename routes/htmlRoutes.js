@@ -167,31 +167,6 @@ module.exports = function(app) {
       res.render("battleSelect", { memes: selection });
     });
   });
-  var build = require("./classes/meme");
-  var combatants;
-  //build a secondary battle page route for after the user selects there opponent. will pass the seleted user meme and opponent meme as rquest paramaters
-  app.get("/battle/run", function(req, res) {
-    db.Memes.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(data) {
-      var opponent = data;
-      db.Boughten_Memes.findOne({
-        where: {
-          UserId: req.user.id,
-          id: req.params.playerid
-        }
-      }).then(function(data) {
-        var hero = data;
-        combatants = {
-          hero: hero,
-          opponent: opponent
-        };
-      });
-      res.render("battle", { combatants: combatants });
-    });
-  });
 
   //this is perfect for us to use, we can redirect them to the error page if they visit a wrong area
   app.get("*", function(req, res) {

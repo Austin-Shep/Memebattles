@@ -7,6 +7,7 @@ $(document).ready(function() {
   var heroSelected = false;
   var defenderSelected = false;
 
+  //makes sure the game starts in its correct state
   initBattle = () => {
     attackMeme = {};
     defendMeme = {};
@@ -15,29 +16,37 @@ $(document).ready(function() {
     opponentSelected = false;
   };
   initBattle();
+
+  //will run the functions need to start the battle, only if both have been selected
   run = () => {
     if (heroSelected === true && opponentSelected === true) {
       battlestart = true;
+      //postAttacker()
+      //postDefender()
     } else {
       return;
     }
   };
-  //////////////////////////////////end of meme class////////////////////////////////////////
+
   function fighterSelect(id) {
     //call the api
     if (!heroSelected) {
-      $.ajax(`/heros/${id}`, {});
-      attackMeme = new Meme(
-        meme.name,
-        meme.lvl,
-        meme.ac,
-        meme.link,
-        meme.attack_power,
-        meme.health_points,
-        meme.dice_value,
-        true
-      );
-      run();
+      $.ajax(`/heros/${id}`, {
+        type: "GET"
+      }).then(function(meme) {
+        console.log(`attack meme ${meme}`);
+        attackMeme = new Meme(
+          meme.name,
+          meme.lvl,
+          meme.ac,
+          meme.link,
+          meme.attack_power,
+          meme.health_points,
+          meme.dice_value,
+          true
+        );
+        run();
+      });
     } else {
       return;
     }
@@ -46,17 +55,22 @@ $(document).ready(function() {
   function defendSelect(id) {
     //call api
     if (!defenderSelected) {
-      $.ajax(`/combatants/${id}`, {});
-      defendMeme = new Meme(
-        $(this).attr("data-name"),
-        $(this).attr("data-lvl"),
-        $(this).attr("data-link"),
-        $(this).attr("data-ap"),
-        $(this).attr("data-hp"),
-        $(this).attr("data-dv"),
-        false
-      );
-      run();
+      $.ajax(`/combatants/${id}`, {
+        type: "GET"
+      }).then(function(meme) {
+        console.log(`defend meme ${meme}`);
+        defendMeme = new Meme(
+          meme.name,
+          meme.lvl,
+          meme.ac,
+          meme.link,
+          meme.attack_power,
+          meme.health_points,
+          meme.dice_value,
+          false
+        );
+        run();
+      });
     } else {
       return;
     }
