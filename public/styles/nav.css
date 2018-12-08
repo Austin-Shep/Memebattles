@@ -1,3 +1,7 @@
+.nav-bar {
+    z-index: 999;
+}
+
 .fa-meteor {
     color: #f0933c;
     text-shadow: 3px -2px 7px #30afc5;
@@ -25,4 +29,20 @@
 
 .nav-item {
     opacity: .95;
+}
+
+.dropdown-menu {
+    background-color: #f0933c;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-divider {
+    margin: 10px 20px 10px 20px;
+}
+
+.card {
+    z-index: -100;
 }

@@ -8,19 +8,20 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/nav.css">
     <link rel="stylesheet" href="../styles/profile.css">
-    <title>Purchased Memes</title>
+    <title>profile.</title>
 </head>
 
 <body>
-
-    <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
-        <a class="navbar-brand" href="/home">
-            <i class="fas fa-meteor"></i>
-            <span class="name-title">meme<b>battles</b></span>
-        </a>
+    <div class="container">
+        <div class="navbar navbar-expand-lg navbar-dark justify-content-center ">
+            <a class="navbar-brand" href="/home">
+                <i class="fas fa-meteor"></i>
+                <span class="name-title">meme<b>battles</b></span>
+            </a>
+        </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark meme-nav">
         <button class="navbar-toggler justify-content-center" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,33 +29,28 @@
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
-                <li class="nav-item" id="user">
-                    <div>
-                        <a class="nav-item nav-link active" href="#"><b>{{user.email}}</b><span class="sr-only">(current)</span></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                        aria-expanded="false"><b class="meme-email">{{user.email}}</b><span class="sr-only">(current)</span></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/profile">Profile<span class="sr-only">(current)</span></a>
+                        <a class="dropdown-item purchased" href="/purchased">myMemes<span class="sr-only">(current)</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Logout<span class="sr-only">(current)</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active" href="#">meme<b>Points: </b><span id="meme-points"></span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link active purchased" href="/purchased">meme<b>Library</b><span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="#">meme<b>Tokens: </b><span id="meme-points"></span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-item nav-link active more-points" href="/more-points">meme<b>Mining</b><span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item ml-auto nav-link active" href="/logout">Logout<span class="sr-only">(current)</span></a>
-                </li>
-                {{!-- Profile Here! --}}
-                <li class="nav-item"></li>
-                <a class="nav-item nav-link active profile" href="/profile">Your Profile<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
     </nav>
 
 
-    <div class="container">
+    <div class="container profile-content">
         <br>
         <br>
         <div class="row">
@@ -156,29 +152,30 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
 
 
-        {{!-- {{#each meme}}
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>{{this.name}}</h2>
-                    </div>
-
-                    <div class="card-body">
-                        <img class="meme-link" src={{this.link}} alt="">
-                        <p>Health Points: {{this.health_points}}</p>
-                        <p>Attack Power: {{this.attack_power}}</p>
-                        <p>Cost: {{this.cost}}</p>
-                        <p>Dice Value {{this.dice_value}}</p>
-                    </div>
+    {{!-- {{#each meme}}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2>{{this.name}}</h2>
                 </div>
 
+                <div class="card-body">
+                    <img class="meme-link" src={{this.link}} alt="">
+                    <p>Health Points: {{this.health_points}}</p>
+                    <p>Attack Power: {{this.attack_power}}</p>
+                    <p>Cost: {{this.cost}}</p>
+                    <p>Dice Value {{this.dice_value}}</p>
+                </div>
             </div>
+
         </div>
+    </div>
     </div>
     {{/each}} --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
