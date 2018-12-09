@@ -1,5 +1,5 @@
 <div class="container">
-{{#unless battleStart}}
+<div id="selectScreen">
     <div class="row">
         <div class="col-6">
             {{#each memes.enemies}}
@@ -32,14 +32,37 @@
             {{/each}}
         </div>
     </div>
-    {{/unless}}
-    {{#if battleStart}}
-    <div>
-        <div id="defendPost"></div>
-        <div id="attackPost"></div>
-        battle has started 
+<div id="battleScreen" style="display: none">
+        <div id="defendPost">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <img class="card-img-left col-4"  id="imgPost-En" src="" alt="enemy img">
+                        <div class="col-4"></div>
+                        <div class="card col-4">
+                            <h4 class="card-title" id="name-En"></h4>
+                            <p class="card-text" id="hp-En"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="attackPost">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <img class="card-img-left col-4"  id="imgPost-He" src="" alt="enemy img">
+                        <div class="col-4"></div>
+                        <div class="card col-4">
+                            <h4 class="card-title" id="name-He"></h4>
+                            <p class="card-text" id="hp-He"></p>
+                            <a id="attackButton" class="btn btn-primary">ATTACK!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    {{/if}}
 </div>
 <script src="./js/memeconstruct.js"></script>
 <script src="./js/battle.js"></script>

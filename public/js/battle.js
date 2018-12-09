@@ -21,17 +21,26 @@ $(document).ready(function() {
   run = () => {
     if (heroSelected === true && opponentSelected === true) {
       battlestart = true;
-      //postCombatant(attackMeme, "#attackPost")
-      //postCombatant(defendMeme, "#defendPost")
+      postCombatant(attackMeme, "He");
+      postCombatant(defendMeme, "En");
+      $("#selectScreen").css("display", "none");
+      $("#battleScreen").css("display", "inline");
     } else {
       return;
     }
   };
 
-  function postAttacker(meme, postPoint) {
-    var a = postPoint;
-    var b = $("<div/>");
-    $(a).append();
+  function postCombatant(
+    meme,
+    pos /*pos will be the class that dictates the suffix for post points*/
+  ) {
+    $(`#imgPost-${pos}`).attr("src", meme.imgLink);
+    $(`#hp-${pos}`).text(meme.hp);
+    $(`#name-${pos}`).text(meme.name);
+  }
+
+  function updateHP(meme, pos) {
+    $(`#hp-${pos}`).text(meme.name);
   }
 
   function fighterSelect(id) {
@@ -82,14 +91,16 @@ $(document).ready(function() {
     }
   }
 
-  $(".attackButton").on("click", () => {
+  $("#attackButton").on("click", () => {
     if (battlestart && !inTurn) {
       inTurn = true;
       attackMeme.confirm(defendMeme);
+      updateHP(defendMeme, "En");
       if (defendMeme.hp <= 0) {
         attackMeme.win();
       }
       defendMeme.confirm(attackMeme);
+      updateHP(attackMeme, "He");
       if (attackMeme.hp <= 0) {
         attackMeme.concede();
       }
