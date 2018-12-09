@@ -1,0 +1,20 @@
+{{!-- create a layout that will display each of the applicable defender memes that are determined on the battle page
+each one will have all of the stats attached to an anchor/image with (data-x) so that when the user clicks it will pass the data into the constructor and build the meme, maybe have a {{partial}} that will have the battle state so that the page doesnt have to reload, discuss with esther and jamie what want this beautiful bean footage to look likes. --}}
+<div class="conatainer">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <img class="card-img-left col-4"  id="imgPostEn" src="" alt="enemy img">
+                <div class="col-4"></div>
+                <div class="card col-4">
+                    <h4 class="card-title" id="nameEn"></h4>
+                    <p class="card-text" id="hpEn"></p>
+                    <a href="#" class="btn btn-primary">ATTACK!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    console.log(combatants.hero, combatants.opponent)
+</script>

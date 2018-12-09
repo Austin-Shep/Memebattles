@@ -1,0 +1,68 @@
+<div class="container">
+<div id="selectScreen">
+    <div class="row">
+        <div class="col-6">
+            {{#each memes.enemies}}
+                <div class="card">
+                    <img src="{{this.link}}" alt="memeimg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <ul class="card-text">
+                            <li>POWER LEVEL: {{this.lvl}}</li>
+                            <li>HEALTH POINTS: {{this.health_points}}</li>
+                        </ul>
+                        <a id="{{this.id}}" class="defendSelect btn btn-primary">FIGHT ME!</a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="col-6">
+            {{#each memes.heros}}
+                <div class="card">
+                    <img src="{{this.link}}" alt="memeimg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <ul class="card-text">
+                            <li>POWER LEVEL: {{this.lvl}}</li>
+                            <li>HEALTH POINTS: {{this.health_points}}</li>
+                        </ul>
+                        <a id="{{this.id}}" class="fighterSelect btn btn-primary">LET ME FIGHT FOR YOU!</a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<div id="battleScreen" style="display: none">
+        <div id="defendPost">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <img class="card-img-left col-4"  id="imgPost-En" src="" alt="enemy img">
+                        <div class="col-4"></div>
+                        <div class="card col-4">
+                            <h4 class="card-title" id="name-En"></h4>
+                            <p class="card-text" id="hp-En"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="attackPost">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <img class="card-img-left col-4"  id="imgPost-He" src="" alt="enemy img">
+                        <div class="col-4"></div>
+                        <div class="card col-4">
+                            <h4 class="card-title" id="name-He"></h4>
+                            <p class="card-text" id="hp-He"></p>
+                            <a id="attackButton" class="btn btn-primary">ATTACK!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="../../js/battle.js"></script>
