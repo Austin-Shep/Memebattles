@@ -193,7 +193,7 @@ module.exports = function(app) {
     db.Boughten_Memes.findOne({
       where: {
         id: req.params.heroId,
-        UserId: req.user.userId
+        UserId: req.user.id
       }
     }).then(function(data) {
       res.json(data);

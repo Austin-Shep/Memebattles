@@ -11,7 +11,7 @@
                             <li>POWER LEVEL: {{this.lvl}}</li>
                             <li>HEALTH POINTS: {{this.health_points}}</li>
                         </ul>
-                        <a onclick="defendSelect({{this.id}})" id="{{this.id}}" class="btn btn-primary">FIGHT ME!</a>
+                        <a id="{{this.id}}" class="defendSelect btn btn-primary">FIGHT ME!</a>
                     </div>
                 </div>
             {{/each}}
@@ -26,12 +26,13 @@
                             <li>POWER LEVEL: {{this.lvl}}</li>
                             <li>HEALTH POINTS: {{this.health_points}}</li>
                         </ul>
-                        <a onclick="fighterselect({{this.id}})" id="{{this.id}}" class="btn btn-primary">LET ME FIGHT FOR YOU!</a>
+                        <a id="{{this.id}}" class="fighterSelect btn btn-primary">LET ME FIGHT FOR YOU!</a>
                     </div>
                 </div>
             {{/each}}
         </div>
     </div>
+</div>
 <div id="battleScreen" style="display: none">
         <div id="defendPost">
             <div class="row">
@@ -63,6 +64,5 @@
             </div>
         </div>
     </div>
-</div>
-<script src="./js/memeconstruct.js"></script>
-<script src="./js/battle.js"></script>
+
+<script src="../../js/battle.js"></script>
