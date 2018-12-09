@@ -199,4 +199,22 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
+  //used to add and subtracrt coins and exp for the end of battles
+  app.put("api/user/currency", function(req, res) {
+    db.User.update(
+      {
+        points: req.body.points,
+        exp: req
+      },
+      {
+        where: {
+          id: req.user.id
+        }
+      }
+    ).then(function(data) {
+      res.json(data);
+    });
+  });
+  //make a route that grabsn exp so that i can pass the results back through.
 };

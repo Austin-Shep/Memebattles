@@ -22,22 +22,29 @@ $(document).ready(function() {
 
     //used to get dmg for attack
     dmg() {
+      //take the dice roll, passes through the dice val and adds the users attack power
       return this.diceroll(this.diceVal) + this.ap;
     }
 
+    //takes in the users dice val and uses that to determine how many sides are on the roll
     diceroll(value) {
       var randomNumber = Math.floor(Math.random() * value) + 1;
       return randomNumber;
     }
     //used to see if one hits
     confirm(target) {
+      //to confirm your hit, you roll a 20 sided dice and add your ap to see if you can get higher than the opponents armor class
       let confirmVal = this.diceroll(20) + this.ap;
       console.log(`value to beat: ${target.ac}`, `confirm roll: ${confirmVal}`);
+      //conditional to check and see if you beat ther targets ac.
       if (confirmVal >= target.ac) {
+        //grab the dmg value
         var thisAttk = this.dmg();
         console.log(`${this.name} dealt ${thisAttk} damage!`);
+        //subtract this attack from the targets hp
         target.hp -= thisAttk;
       } else {
+        //unless you miss
         console.log(`${this.name} missed!`);
       }
     }
@@ -45,25 +52,81 @@ $(document).ready(function() {
     //used to determin how many coins and how much exp you get
     expCoinGain(target) {
       var lvlDiff = target.lvl - this.lvl;
-      var newValue = target.lvl * 5 + target.lvl * 2;
-      if (lvlDiff > 0) {
+      var newValue = target.lvl * 5 + this.lvl * 2;
+      if (lvlDiff >= 0) {
         newValue += lvlDiff * 11;
       }
       console.log(`coins value ${newValue}`);
       return newValue;
       //structure this for mysql addition
     }
-
-    concede() {
-      $.ajax({
-        type: "DESTROY",
-        url: `/api/user/memes/${this}`
-      }).then(data => {
-        //display loss modal, display total coin loss and then call update User Profile api through ajax , and then redirect to the profile page
+    //used to grab the current ammount of points in your accou t so that you can subtract fom it
+    getCurrentPoints() {
+      var currentUserPoints;
+      $.ajax("/api/get-current-user-points", {
+        type: "GET"
+      }).then(function(data) {
+        currentUserPoints = parseFloat(data[0].points);
       });
+      return currentUserPoints;
+    }
+    //used to get the current exp so you can add to it later.
+    getCurrentEXP() {
+      var currentUserExp;
+      $.ajax("/api/get-current-user-points", {
+        type: "GET"
+      }).then(function(data) {
+        currentUserExp = parseFloat(data[0].exp);
+      });
+      return currentUserExp;
+    }
+    //add will denote wether or not you won or lost using boolean
+    //used to handle the transfer of points
+    calculatePointChange(add) {
+      var pointChange = this.expCoinGain(defendMeme);
+      var newUserPoints = getCurrentPoints();
+      if (add === true) {
+        //will grab the current and new values and add them
+        newUserPoints += pointChange;
+        return newUserPoints;
+      } else {
+        //will grab the current and new values and find the difference
+        newUserPoints -= pointChange;
+        return newUserPoints;
+      }
     }
 
+    calculateNewEXP() {
+      var currentUserExp = parseFloat(this.getCurrentEXP());
+      var expAdded = this.expCoinGain(defendMeme);
+      currentUserExp += expAdded;
+      return currentUserExp;
+    }
+
+    concede() {
+      var updatePoints = {
+        points: this.calculatePointChange(false),
+        exp: parseFloat(getCurrentEXP())
+      };
+      //destroys the meme you lost with because you dont deserve it
+      $.ajax({
+        type: "DESTROY",
+        url: `/api/user/memes/${this.id}`
+      }).then(data => {
+        console.log(`${data[0].name} destroyed`);
+      });
+
+      $.ajax({
+        type: "PUT",
+        URL: "api/user/currency",
+        data: updatePoints
+      }).then(data => {
+        //display loss modal, display total coin loss and then call update User Profile api through ajax , and then redirect to the profile page on "okay"
+      });
+    } //end of this.concede()
+
     win() {
+      //do all the same stuff as concede but add not subtract
       //re-direct to meme page
       $.ajax({
         type: "PUT",
@@ -108,6 +171,7 @@ $(document).ready(function() {
         type: "GET"
       }).then(function(meme) {
         console.log(`attack meme ${JSON.stringify(meme)}`);
+        //build your fighter
         attackMeme = new Meme(
           meme.id,
           meme.name,
@@ -135,6 +199,7 @@ $(document).ready(function() {
         type: "GET"
       }).then(function(meme) {
         console.log(`defend meme ${JSON.stringify(meme)}`);
+        //build your opponent
         defendMeme = new Meme(
           meme.id,
           meme.name,
