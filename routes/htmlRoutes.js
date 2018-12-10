@@ -136,7 +136,37 @@ module.exports = function(app) {
       res.render("upgrade-click-buttons", { user: data });
     });
   });
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  ///=====BATTLE STUFF=====///
+
+  ///build html route to load battle page with the users meme as a data block for handlebars
+  app.get("/battle/select/:lvl", function(req, res) {
+    var selection;
+    var heros;
+
+    db.Boughten_Memes.findAll({
+      where: {
+        lvl: req.params.lvl,
+        UserId: req.user.id
+      }
+    }).then(function(data) {
+      heros = data;
+    });
+
+    db.Memes.findAll({
+      where: {
+        lvl: req.params.lvl
+      }
+    }).then(function(data) {
+      var enemies = data;
+      selection = {
+        heros: heros,
+        enemies: enemies
+      };
+      res.render("battleSelect", { memes: selection });
+    });
+  });
 
   //this is perfect for us to use, we can redirect them to the error page if they visit a wrong area
   app.get("*", function(req, res) {
