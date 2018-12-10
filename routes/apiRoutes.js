@@ -216,5 +216,4 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-  //make a route that grabsn exp so that i can pass the results back through.
 };

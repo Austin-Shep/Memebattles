@@ -51,15 +51,15 @@ $(document).ready(function() {
 
     //used to determin how many coins and how much exp you get
     expCoinGain(target) {
-      var lvlDiff = target.lvl - this.lvl;
-      var newValue = target.lvl * 5 + this.lvl * 2;
+      var lvlDiff = parseFloat(target.lvl) - parseFloat(this.lvl);
+      var newValue = parseFloat(target.lvl) * 5 + parseFloat(this.lvl) * 2;
       if (lvlDiff >= 0) {
-        newValue += lvlDiff * 11;
+        newValue += parseFloat(lvlDiff) * 11;
       }
       console.log(`coins value ${newValue}`);
       return newValue;
-      //structure this for mysql addition
     }
+
     //used to grab the current ammount of points in your accou t so that you can subtract fom it
     getCurrentPoints() {
       var currentUserPoints;
@@ -70,6 +70,7 @@ $(document).ready(function() {
       });
       return currentUserPoints;
     }
+
     //used to get the current exp so you can add to it later.
     getCurrentEXP() {
       var currentUserExp;
@@ -80,6 +81,7 @@ $(document).ready(function() {
       });
       return currentUserExp;
     }
+
     //add will denote wether or not you won or lost using boolean
     //used to handle the transfer of points
     calculatePointChange(add) {
@@ -103,39 +105,61 @@ $(document).ready(function() {
       return currentUserExp;
     }
 
-    concede() {
+    lossProfileUpdate() {
+      var curLost = this.calculatePointChange(false);
       var updatePoints = {
-        points: this.calculatePointChange(false),
-        exp: parseFloat(getCurrentEXP())
+        points: curLost,
+        exp: getCurrentEXP()
       };
-      //destroys the meme you lost with because you dont deserve it
-      $.ajax({
-        type: "DESTROY",
-        url: `/api/user/memes/${this.id}`
-      }).then(data => {
-        console.log(`${data[0].name} destroyed`);
-      });
 
       $.ajax({
         type: "PUT",
         URL: "api/user/currency",
         data: updatePoints
       }).then(data => {
-        //display loss modal, display total coin loss and then call update User Profile api through ajax , and then redirect to the profile page on "okay"
+        //populate the modal
+        $("#winlossPost").text("You Lost!");
+        $("#expPost").text("You gained: 0exp");
+        $("#coinPost").text(`You Lost: ${curLost}Tokens`);
+        //show the modal
+        $("#myModal").modal("show");
+      });
+    }
+
+    concede() {
+      //destroys the meme you lost with because you dont deserve it
+      $.ajax({
+        type: "DESTROY",
+        url: `/api/user/memes/${this.id}`
+      }).then(data => {
+        console.log(`${data[0].name} destroyed`);
+        this.lossProfileUpdate();
       });
     } //end of this.concede()
 
     win() {
-      //do all the same stuff as concede but add not subtract
-      //re-direct to meme page
+      //calculate the new coin and exp
+      var curGain = this.calculatePointChange(true);
+      var expGain = this.calculateNewEXP();
+      //stor it as json
+      var updatePoints = {
+        points: curGain,
+        exp: expGain
+      };
+      //update the dang thing
       $.ajax({
         type: "PUT",
-        URL: "/api/user/id",
-        data: this.expCoinGain //win exp and coins of equal amt
+        URL: "api/user/currency",
+        data: updatePoints
       }).then(data => {
-        //display win modal with exp and coin gains, then redirect to meme page
+        //populate the modal
+        $("#winlossPost").text("You Won!");
+        $("#expPost").text(`You Gained: ${expGain}exp`);
+        $("#coinPost").text(`You Gained: ${curGain}Tokens`);
+        //show the modal
+        $("#myModal").modal("show");
       });
-    }
+    } //end of win()
   }
 
   //will run the functions need to start the battle, only if both have been selected
@@ -153,7 +177,7 @@ $(document).ready(function() {
 
   function postCombatant(
     meme,
-    pos /*pos will be the class that dictates the suffix for post points*/
+    pos /*pos will be the class that dictates the suffix for post points "He" or "En"*/
   ) {
     $(`#imgPost-${pos}`).attr("src", meme.imgLink);
     $(`#hp-${pos}`).text(meme.hp);
@@ -239,6 +263,7 @@ $(document).ready(function() {
         attackMeme.win();
         return;
       }
+      //maybe break this into distinct turns like jamie was mentioning
       defendMeme.confirm(attackMeme);
       updateHP(attackMeme, "He");
       if (attackMeme.hp <= 0) {
