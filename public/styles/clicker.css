@@ -2,13 +2,23 @@
   background-color: rgb(59, 58, 58);
 } */
 
-button {
+h1 {
+  color: #f0933c;;
+}
+
+.meme-mtn {
   background-color: white;
-  font-size: 500px;
-  -webkit-clip-path: polygon(50% 22%, 24% 70%, 76% 70%);
-  clip-path: polygon(50% 22%, 24% 70%, 76% 70%);
+  margin: 30px;
+  border: none;
+  -webkit-clip-path: polygon(50% 0%, 5% 95%, 95% 95%);
+  clip-path: polygon(50% 0%, 5% 95%, 95% 95%);
 }
 
 .fa-mountain {
+  font-size: 300px;
+  color: #30afc5;
+}
 
+.card {
+  margin: 30px 20px 200px 20px;
 }
