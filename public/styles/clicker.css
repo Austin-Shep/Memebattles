@@ -3,7 +3,8 @@
 } */
 
 h1 {
-  color: #f0933c;;
+  color: #f0933c;
+  margin-bottom: 30px;
 }
 
 .meme-mtn {
@@ -12,6 +13,7 @@ h1 {
   border: none;
   -webkit-clip-path: polygon(50% 0%, 5% 95%, 95% 95%);
   clip-path: polygon(50% 0%, 5% 95%, 95% 95%);
+  text-shadow: 0px 0px 10px black;
 }
 
 .fa-mountain {
@@ -20,5 +22,22 @@ h1 {
 }
 
 .card {
+  height: 250px;
   margin: 30px 20px 200px 20px;
+  background-color: rgb(59, 58, 58);
+  border: none;
+}
+
+.click-upgrade {
+  margin-left: 10px;
+}
+
+.upgrade-btns {
+  /* height: 200px; */
+  /* overflow: scroll; */
+}
+
+p {
+  margin-top: 10px;
+  color: #f0933c;
 }

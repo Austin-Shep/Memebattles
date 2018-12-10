@@ -49,30 +49,46 @@
         </div>
     </nav>
 
-    <div class="container">
-        {{#each page.meme}}
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>{{this.name}}</h2>
-                    </div>
+    <div class="container text-center">
+        <h2 class="lead">Your meme<b>Library</b>:</h2>
+    </div>
 
-                    <div class="card-body">
-                        <img class="meme-link" src={{this.link}} alt="">
-                        <p>Power Level: {{this.lvl}}</p>
-                        <p>Armor Class: {{this.ac}}</p>
-                        <p>Health Points: {{this.health_points}}</p>
-                        <p>Attack Power: {{this.attack_power}}</p>
-                        <p>Cost: {{this.cost}}</p>
-                        <p>Dice Value {{this.dice_value}}</p>
+    <div class="container text-center">
+        {{#each page.meme}}
+        <div class="card text-center">
+            <h2>{{this.name}}</h2>
+
+            {{!-- <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>{{this.name}}</h2>
+                        </div>
+
+                        <div class="card-body">
+                            <img class="meme-link" src={{this.link}} alt="">
+                            <p>Power Level: {{this.lvl}}</p>
+                            <p>Armor Class: {{this.ac}}</p>
+                            <p>Health Points: {{this.health_points}}</p>
+                            <p>Attack Power: {{this.attack_power}}</p>
+                            <p>Cost: {{this.cost}}</p>
+                            <p>Dice Value {{this.dice_value}}</p>
+                        </div>
                     </div>
                 </div>
+            </div> --}}
+
+            <div class="card-body">
+                <img class="meme-link" src={{this.link}} alt="">
+                <p>Health Points: {{this.health_points}}</p>
+                <p>Attack Power: {{this.attack_power}}</p>
+                <p>Cost: {{this.cost}}</p>
+                <p>Dice Value: {{this.dice_value}}</p>
             </div>
         </div>
-
         {{/each}}
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/purchased.js"></script>
 </body>

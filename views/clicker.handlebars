@@ -61,29 +61,26 @@
         <div class="row">
             <div class="col-md-4">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 text-center">
                 <div class="card">
                     <div class="card-body">
-
-                        {{#each page.clickUpgrades}}
-                        <p> {{this.morePerClick}} Per Click
-                            <button id={{this.clickPower}} type="button" data-cost={{this.cost}} data-clickPower={{this.clickPower}}
-                                data-morePerClick={{this.morePerClick}} class="btn btn-success click-upgrade">
-                                Cost: {{this.cost}}</button>
-                        </p>
-                        {{/each}}
+                        <div class="upgrade-btns">
+                            {{#each page.clickUpgrades}}
+                            <p> {{this.morePerClick}} Per Click
+                                <button id={{this.clickPower}} type="button" data-cost={{this.cost}} data-clickPower={{this.clickPower}}
+                                    data-morePerClick={{this.morePerClick}} class="btn btn-outline-light click-upgrade">
+                                    Cost: {{this.cost}}</button>
+                            </p>
+                            {{/each}}
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
             </div>
         </div>
-
-
-
-
-
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/clicker.js"></script>
 </body>
