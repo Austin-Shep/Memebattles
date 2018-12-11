@@ -86,7 +86,7 @@ $(document).ready(function() {
     //used to handle the transfer of points
     calculatePointChange(add) {
       var pointChange = this.expCoinGain(defendMeme);
-      var newUserPoints = getCurrentPoints();
+      var newUserPoints = this.getCurrentPoints();
       if (add === true) {
         //will grab the current and new values and add them
         newUserPoints += pointChange;
@@ -109,7 +109,7 @@ $(document).ready(function() {
       var curLost = this.calculatePointChange(false);
       var updatePoints = {
         points: curLost,
-        exp: getCurrentEXP()
+        exp: this.getCurrentEXP()
       };
 
       $.ajax({
@@ -129,10 +129,10 @@ $(document).ready(function() {
     concede() {
       //destroys the meme you lost with because you dont deserve it
       $.ajax({
-        type: "DESTROY",
+        type: "delete",
         url: `/api/user/memes/${this.id}`
       }).then(data => {
-        console.log(`${data[0].name} destroyed`);
+        console.log(`${this.name} destroyed`);
         this.lossProfileUpdate();
       });
     } //end of this.concede()
