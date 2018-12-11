@@ -22,57 +22,144 @@ $(document).ready(function() {
 
     //used to get dmg for attack
     dmg() {
+      //take the dice roll, passes through the dice val and adds the users attack power
       return this.diceroll(this.diceVal) + this.ap;
     }
 
+    //takes in the users dice val and uses that to determine how many sides are on the roll
     diceroll(value) {
       var randomNumber = Math.floor(Math.random() * value) + 1;
       return randomNumber;
     }
     //used to see if one hits
     confirm(target) {
+      //to confirm your hit, you roll a 20 sided dice and add your ap to see if you can get higher than the opponents armor class
       let confirmVal = this.diceroll(20) + this.ap;
       console.log(`value to beat: ${target.ac}`, `confirm roll: ${confirmVal}`);
+      //conditional to check and see if you beat ther targets ac.
       if (confirmVal >= target.ac) {
+        //grab the dmg value
         var thisAttk = this.dmg();
         console.log(`${this.name} dealt ${thisAttk} damage!`);
+        //subtract this attack from the targets hp
         target.hp -= thisAttk;
       } else {
+        //unless you miss
         console.log(`${this.name} missed!`);
       }
     }
 
     //used to determin how many coins and how much exp you get
     expCoinGain(target) {
-      var lvlDiff = target.lvl - this.lvl;
-      var newValue = target.lvl * 5 + target.lvl * 2;
-      if (lvlDiff > 0) {
-        newValue += lvlDiff * 11;
+      var lvlDiff = parseFloat(target.lvl) - parseFloat(this.lvl);
+      var newValue = parseFloat(target.lvl) * 5 + parseFloat(this.lvl) * 2;
+      if (lvlDiff >= 0) {
+        newValue += parseFloat(lvlDiff) * 11;
       }
       console.log(`coins value ${newValue}`);
       return newValue;
-      //structure this for mysql addition
+    }
+
+    //used to grab the current ammount of points in your accou t so that you can subtract fom it
+    getCurrentPoints() {
+      var currentUserPoints;
+      $.ajax("/api/get-current-user-points", {
+        type: "GET"
+      }).then(function(data) {
+        currentUserPoints = parseFloat(data[0].points);
+      });
+      return currentUserPoints;
+    }
+
+    //used to get the current exp so you can add to it later.
+    getCurrentEXP() {
+      var currentUserExp;
+      $.ajax("/api/get-current-user-points", {
+        type: "GET"
+      }).then(function(data) {
+        currentUserExp = parseFloat(data[0].exp);
+      });
+      return currentUserExp;
+    }
+
+    //add will denote wether or not you won or lost using boolean
+    //used to handle the transfer of points
+    calculatePointChange(add) {
+      var pointChange = this.expCoinGain(defendMeme);
+      var newUserPoints = getCurrentPoints();
+      if (add === true) {
+        //will grab the current and new values and add them
+        newUserPoints += pointChange;
+        return newUserPoints;
+      } else {
+        //will grab the current and new values and find the difference
+        newUserPoints -= pointChange;
+        return newUserPoints;
+      }
+    }
+
+    calculateNewEXP() {
+      var currentUserExp = parseFloat(this.getCurrentEXP());
+      var expAdded = this.expCoinGain(defendMeme);
+      currentUserExp += expAdded;
+      return currentUserExp;
+    }
+
+    lossProfileUpdate() {
+      var curLost = this.calculatePointChange(false);
+      var updatePoints = {
+        points: curLost,
+        exp: getCurrentEXP()
+      };
+
+      $.ajax({
+        type: "PUT",
+        URL: "api/user/currency",
+        data: updatePoints
+      }).then(data => {
+        //populate the modal
+        $("#winlossPost").text("You Lost!");
+        $("#expPost").text("You gained: 0 exp");
+        $("#coinPost").text(`You Lost: ${curLost} Tokens`);
+        //show the modal
+        $("#myModal").modal("show");
+      });
     }
 
     concede() {
+      //destroys the meme you lost with because you dont deserve it
       $.ajax({
         type: "DESTROY",
-        url: `/api/user/memes/${this}`
+        url: `/api/user/memes/${this.id}`
       }).then(data => {
-        //display loss modal, display total coin loss and then call update User Profile api through ajax , and then redirect to the profile page
+        console.log(`${data[0].name} destroyed`);
+        this.lossProfileUpdate();
       });
-    }
+    } //end of this.concede()
 
     win() {
-      //re-direct to meme page
+      //calculate the new coin and exp
+      var curGain = this.calculatePointChange(true);
+      var expGain = this.calculateNewEXP();
+      //stor it as json
+      var updatePoints = {
+        points: curGain,
+        exp: expGain
+      };
+      //update the dang thing
       $.ajax({
         type: "PUT",
-        URL: "/api/user/id",
-        data: this.expCoinGain //win exp and coins of equal amt
+        URL: "api/user/currency",
+        data: updatePoints
       }).then(data => {
-        //display win modal with exp and coin gains, then redirect to meme page
+        //populate the modal
+        $("#winlossPost").text("You Won!");
+        $("#expPost").text(`You Gained: ${expGain} exp`);
+        $("#coinPost").text(`You Gained: ${curGain} Tokens`);
+        //show the modal
+        $("#myModal").modal("show");
       });
-    }
+    } //end of win()
   }
 
   //will run the functions need to start the battle, only if both have been selected
@@ -90,7 +177,7 @@ $(document).ready(function() {
 
   function postCombatant(
     meme,
-    pos /*pos will be the class that dictates the suffix for post points*/
+    pos /*pos will be the class that dictates the suffix for post points "He" or "En"*/
   ) {
     $(`#imgPost-${pos}`).attr("src", meme.imgLink);
     $(`#hp-${pos}`).text(meme.hp);
@@ -108,6 +195,7 @@ $(document).ready(function() {
         type: "GET"
       }).then(function(meme) {
         console.log(`attack meme ${JSON.stringify(meme)}`);
+        //build your fighter
         attackMeme = new Meme(
           meme.id,
           meme.name,
@@ -135,6 +223,7 @@ $(document).ready(function() {
         type: "GET"
       }).then(function(meme) {
         console.log(`defend meme ${JSON.stringify(meme)}`);
+        //build your opponent
         defendMeme = new Meme(
           meme.id,
           meme.name,
@@ -174,6 +263,7 @@ $(document).ready(function() {
         attackMeme.win();
         return;
       }
+      //maybe break this into distinct turns like jamie was mentioning
       defendMeme.confirm(attackMeme);
       updateHP(attackMeme, "He");
       if (attackMeme.hp <= 0) {
