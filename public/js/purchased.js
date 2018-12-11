@@ -16,7 +16,7 @@ $(document).ready(function() {
 });
 
 
-//// for profile survey
+//// for profile survey from https://surveyjs.io/Examples/Builder/
 var json = {
   title: "what's your meme?",
   showProgressBar: "bottom",
@@ -64,20 +64,20 @@ var json = {
        "name": "question2",
        "choices": [
         {
-         "value": "lion",
-         "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/lion.jpg"
+         "value": "transport",
+         "imageLink": "https://66.media.tumblr.com/038b85efe1c30030070609293572f5ab/tumblr_ov6n9gJvDb1tib7mso1_500.png"
         },
         {
-         "value": "giraffe",
-         "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/giraffe.jpg"
+         "value": "tradecart",
+         "imageLink": "https://3.bp.blogspot.com/-_QqewU3bZ7I/UdhZCJukSxI/AAAAAAAAInU/itRgEPBYm_E/w530-h397-p/2_result.jpg"
         },
         {
-         "value": "panda",
-         "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/panda.jpg"
+         "value": "trash",
+         "imageLink": "https://i.imgur.com/oURckuK.jpg"
         },
         {
-         "value": "camel",
-         "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/camel.jpg"
+         "value": "cav_boat",
+         "imageLink": "https://i.imgur.com/dlWMtAh.jpg"
         }
        ]
       }
@@ -91,20 +91,20 @@ var json = {
        "name": "question3",
        "choices": [
         {
-         "value": "lion",
-         "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/lion.jpg"
+         "value": "cal_freeze",
+         "imageLink": "https://www.homesnacks.net/images/2017/05/california-memes/1.jpg"
         },
         {
-         "value": "giraffe",
-         "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/giraffe.jpg"
+         "value": "cal_realEs",
+         "imageLink": "http://www.memepile.com/thumbs.php?src=http://www.memepile.com/uploads/california_housing_meme_price_tent_affordable_california_memes_about_how_expensive__2305183880.jpg&w=600&q=100"
         },
         {
-         "value": "panda",
-         "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/panda.jpg"
+         "value": "cal_dry",
+         "imageLink": "https://img.memecdn.com/oh-california-what-a-miss-you-have-become_o_6141697.jpg"
         },
         {
-         "value": "camel",
-         "imageLink": "https://surveyjs.io/Content/Images/examples/image-picker/camel.jpg"
+         "value": "cal_pod",
+         "imageLink": "https://www.homesnacks.net/images/2017/05/california-memes/22.jpg"
         }
        ]
       }
@@ -116,14 +116,17 @@ var json = {
 
 window.survey = new Survey.Model(json);
 
-survey
-  .onComplete
-  .add(function (result) {
-      document
-          .querySelector('#surveyResult')
-          .innerHTML = "result: " + JSON.stringify(result.data);
-  });
+///uncommon this part to activate result shower
+// survey
+//   .onComplete
+//   .add(function (result) {
+//       document
+//           .querySelector('#surveyResult')
+//           .innerHTML = "result: " + JSON.stringify(result.data);
+//   });
 
 $("#surveyElement").Survey({model: survey});
+///end of result shower
+
 
 //// End of "for profile"
