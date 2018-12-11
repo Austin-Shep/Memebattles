@@ -204,7 +204,7 @@ module.exports = function(app) {
     db.User.update(
       {
         points: req.body.points,
-        exp: req
+        exp: req.body.exp
       },
       {
         where: {
