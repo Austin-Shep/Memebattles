@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var attackMeme = {};
   var defendMeme = {};
   var battlestart = false;
@@ -65,7 +65,7 @@ $(document).ready(function() {
       var currentUserPoints;
       $.ajax("/api/get-current-user-points", {
         type: "GET"
-      }).then(function(data) {
+      }).then(function (data) {
         currentUserPoints = parseFloat(data[0].points);
       });
       return currentUserPoints;
@@ -76,7 +76,7 @@ $(document).ready(function() {
       var currentUserExp;
       $.ajax("/api/get-current-user-points", {
         type: "GET"
-      }).then(function(data) {
+      }).then(function (data) {
         currentUserExp = parseFloat(data[0].exp);
       });
       return currentUserExp;
@@ -163,7 +163,7 @@ $(document).ready(function() {
   }
 
   //will run the functions need to start the battle, only if both have been selected
-  var run = function() {
+  var run = function () {
     if (heroSelected === true && defenderSelected === true) {
       battlestart = true;
       postCombatant(attackMeme, "He");
@@ -193,7 +193,7 @@ $(document).ready(function() {
     if (!heroSelected) {
       $.ajax(`/heros/${id}`, {
         type: "GET"
-      }).then(function(meme) {
+      }).then(function (meme) {
         console.log(`attack meme ${JSON.stringify(meme)}`);
         //build your fighter
         attackMeme = new Meme(
@@ -221,7 +221,7 @@ $(document).ready(function() {
     if (!defenderSelected) {
       $.ajax(`/combatants/${id}`, {
         type: "GET"
-      }).then(function(meme) {
+      }).then(function (meme) {
         console.log(`defend meme ${JSON.stringify(meme)}`);
         //build your opponent
         defendMeme = new Meme(
@@ -244,17 +244,17 @@ $(document).ready(function() {
     }
   }
 
-  $(".fighterSelect").on("click", function() {
+  $(".fighterSelect").on("click", function () {
     var fighterId = $(this).attr("id");
     fighterSelect(fighterId);
   });
 
-  $(".defendSelect").on("click", function() {
+  $(".defendSelect").on("click", function () {
     var defenderId = $(this).attr("id");
     defendSelect(defenderId);
   });
 
-  $("#attackButton").on("click", function() {
+  $("#attackButton").on("click", function () {
     if (battlestart && !inTurn) {
       inTurn = true;
       attackMeme.confirm(defendMeme);

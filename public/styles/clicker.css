@@ -1,3 +1,60 @@
-#get-points:active{
-  padding: 5px;
+/* #get-points:active{
+  background-color: rgb(59, 58, 58);
+} */
+
+h1 {
+  color: #f0933c;
+  margin-bottom: 30px;
+}
+
+.meme-mtn {
+  background-color: white;
+  margin: 30px;
+  border: none;
+  -webkit-clip-path: polygon(50% 0%, 5% 95%, 95% 95%);
+  clip-path: polygon(50% 0%, 5% 95%, 95% 95%);
+  text-shadow: 0px 0px 10px black;
+}
+
+.fa-mountain {
+  font-size: 300px;
+  color: #30afc5;
+  transition: 0.5s;
+}
+
+.fa-mountain:hover {
+  color: #f0933c;
+}
+
+.card {
+  height: 250px;
+  margin: 30px 20px 200px 20px;
+  background-color: rgb(59, 58, 58);
+  border: none;
+  transition: 0.5s;
+}
+
+.card:hover {
+  -webkit-box-shadow: inset 0px 0px 71px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 71px -12px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 71px -12px rgba(0,0,0,0.75);
+}
+
+.click-upgrade {
+  margin-left: 10px;
+}
+
+.upgrade-btns {
+  /* height: 200px; */
+  /* overflow: scroll; */
+}
+
+p {
+  margin-top: 10px;
+  color: #f0933c;
+}
+
+.upgrade-card {
+  z-index: 99;
+  overflow: scroll;
 }
