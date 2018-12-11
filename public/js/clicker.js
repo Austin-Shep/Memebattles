@@ -1,16 +1,17 @@
-$(document).ready(function() {
+$(document).ready(function () {
   //loads data for the page to render all data
   renderPageData();
 
   //everytime the user click the get points button, this executes
-  $("#get-points").on("click", function() {
+  $("#get-points").on("click", function () {
     //calls the function to increase points for the current user
     increaseUserPoints();
   });
 
-  $(".click-upgrade").on("click", function() {
+  $(".click-upgrade").on("click", function () {
     //stores the button clicked in an object and passses it to function so it can be referenced
     var currentClickedButton = $(this);
+    console.log("test");
     //executes the buying process with validation
     buyClickerUpgrade(currentClickedButton);
   });
@@ -19,7 +20,7 @@ $(document).ready(function() {
     //ajax call to grab current user data
     $.ajax("/api/user/id", {
       type: "GET"
-    }).then(function(user) {
+    }).then(function (user) {
       //stores current user points in variable
       var currentPoints = user[0].points;
       //stores current user click power in variable
@@ -40,7 +41,7 @@ $(document).ready(function() {
     //first we are going to do an ajax call to get the list of purchased upgrades
     $.ajax("/upgrade-click", {
       type: "GET"
-    }).then(function(data) {
+    }).then(function (data) {
       for (var i = 0; i < data.length; i++) {
         if (
           data[i].clickPower ==
@@ -59,7 +60,7 @@ $(document).ready(function() {
     //get current user points
     $.ajax("/api/get-current-user-points", {
       type: "GET"
-    }).then(function(data) {
+    }).then(function (data) {
       currentId = data[0].id;
       //I parse variables as floats to prevent string concatination of numbers
       //holds current users points
@@ -96,7 +97,7 @@ $(document).ready(function() {
         $.ajax("/upgrade-click", {
           type: "PUT",
           data: upgradeClickPower
-        }).then(function(data) {
+        }).then(function (data) {
           //now we are going to do an association so that click belongs to the user
           console.log(data);
           var purchasedPointUpgrade = {
@@ -108,7 +109,7 @@ $(document).ready(function() {
           $.ajax("/upgrade-click", {
             type: "POST",
             data: purchasedPointUpgrade
-          }).then(function(data) {
+          }).then(function (data) {
             renderPageData();
           });
         });
@@ -122,12 +123,12 @@ $(document).ready(function() {
     var currentTokensPerClick;
     $.ajax("/api/user/id", {
       type: "GET"
-    }).then(function(data) {
+    }).then(function (data) {
       currentPoints = parseFloat(data[0].points);
       currentTokensPerClick = parseFloat(data[0].tokensPerClick);
       $.ajax("/upgrade-click", {
         type: "GET"
-      }).then(function(data) {
+      }).then(function (data) {
         for (var i = 0; i < data.length; i++) {
           morePoints += parseFloat(data[i].morePerClick);
         }
@@ -147,7 +148,7 @@ $(document).ready(function() {
         $.ajax("/api/user/id", {
           type: "put",
           data: points
-        }).then(function() {
+        }).then(function () {
           //we call this function so we dont have to re render the whole page again to see changed data
           //this function manually sets text
           renderPageData();

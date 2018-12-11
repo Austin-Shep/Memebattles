@@ -1,0 +1,23 @@
+.card {
+    color: whitesmoke;
+    background-color: rgb(114, 114, 114);
+    margin: 0px 15px 15px 15px;
+    /* border-radius: 150px 3px 150px 3px;
+    -moz-border-radius: 150px 3px 150px 3px;
+    -webkit-border-radius: 150px 3px 150px 3px; */
+    /* -webkit-box-shadow: -12px 14px 28px 0px rgba(26,26,26,1);
+    -moz-box-shadow: -12px 14px 28px 0px rgba(26,26,26,1);
+    box-shadow: -12px 14px 28px 0px rgba(26,26,26,1); */
+    -webkit-box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
+    box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
+}
+
+.list-group,
+.list-group-item {
+    background-color: rgb(114, 114, 114);
+}
+
+.card-link {
+    color: #f0933c;
+}
