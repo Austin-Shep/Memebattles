@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/nav.css">
     <link rel="stylesheet" href="../styles/profile.css">
-    <title>Purchased Memes</title>
+     <script src="https://surveyjs.azureedge.net/1.0.59/survey.jquery.js"></script>
+        <link href="https://surveyjs.azureedge.net/1.0.59/survey.css" type="text/css" rel="stylesheet"/>
+        
+    <title>Profile</title>
 </head>
 
 <body>
@@ -150,6 +153,21 @@
                     <div class="card-body">
                         <h5 class="card-title"></h5>
                         <p class="card-text">Total Losses:
+                            {{!-- {{user.losses}} --}}
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    {{!-- <div class="card-header">
+
+                    </div> --}}
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">
+                            <div id="surveyElement"></div>
+                            <div id="surveyResult"></div>
+
+                            <script type="text/javascript" src="../js/purchased.js"></script>
                             {{!-- {{user.losses}} --}}
                         </p>
                     </div>
