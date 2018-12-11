@@ -119,8 +119,8 @@ $(document).ready(function() {
       }).then(data => {
         //populate the modal
         $("#winlossPost").text("You Lost!");
-        $("#expPost").text("You gained: 0exp");
-        $("#coinPost").text(`You Lost: ${curLost}Tokens`);
+        $("#expPost").text("You gained: 0 exp");
+        $("#coinPost").text(`You Lost: ${curLost} Tokens`);
         //show the modal
         $("#myModal").modal("show");
       });
@@ -154,8 +154,8 @@ $(document).ready(function() {
       }).then(data => {
         //populate the modal
         $("#winlossPost").text("You Won!");
-        $("#expPost").text(`You Gained: ${expGain}exp`);
-        $("#coinPost").text(`You Gained: ${curGain}Tokens`);
+        $("#expPost").text(`You Gained: ${expGain} exp`);
+        $("#coinPost").text(`You Gained: ${curGain} Tokens`);
         //show the modal
         $("#myModal").modal("show");
       });
