@@ -1,3 +1,25 @@
+.nav-bar {
+    z-index: 999;
+}
+
+.meme-nav-item::after {
+    content: ' ';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #fff;
+    transition: width 1s;
+}
+
+.meme-nav-item:hover {
+    color: #e3e1df;
+}
+
+.meme-nav-item:hover::after {
+    color: #e3e1df;
+    width: 100%;
+}
+
 .fa-meteor {
     color: #f0933c;
     text-shadow: 3px -2px 7px #30afc5;
@@ -9,4 +31,37 @@
 .name-title {
     font-size: 75px;
     color:rgb(172, 171, 171);
+}
+
+.navbar-brand {
+    margin-top: 25px;
+}
+
+.meme-nav {
+    margin-bottom: 50px;
+}
+
+.meme-email {
+    color: #30afc5;
+}
+
+.nav-item {
+    opacity: .95;
+    margin: 0px 5px 0px 5px;
+}
+
+.dropdown-menu {
+    background-color: #f0933c;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-divider {
+    margin: 10px 20px 10px 20px;
+}
+
+.card {
+    z-index: -100;
 }

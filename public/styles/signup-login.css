@@ -34,6 +34,10 @@ h2 {
     text-shadow: 0px 1px 7px #353b3b;
 }
 
+.here-link {
+    color: #f0933c;
+}
+
 .card {
     width: 70%;
     color: whitesmoke;

@@ -25,7 +25,7 @@ body {
     height: 500px;
     float: left;
     color: whitesmoke;
-    background-color: #30afc5;
+    background-color: #f0933c;
     padding: 30px;
     margin: 0px 0px 50px 0px;
     /* border-radius: 150px 3px 150px 3px;
@@ -37,7 +37,6 @@ body {
     -webkit-box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
     box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
-    z-index: 99;
 }
 
 p {
@@ -45,6 +44,8 @@ p {
 }
 
 img {
+    width: 100%;
+    height: auto;
     margin-bottom: 20px;
     -webkit-box-shadow: -7px 7px 54px -6px rgba(0,0,0,0.75);
     -moz-box-shadow: -7px 7px 54px -6px rgba(0,0,0,0.75);

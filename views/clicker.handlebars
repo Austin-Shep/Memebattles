@@ -5,21 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>More Points</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-
+    <title>mining.</title>
     <link rel="stylesheet" href="../styles/nav.css">
-    <link rel="stylesheet" href="./styles/clicker.css">
+    <link rel="stylesheet" href="../styles/clicker.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
-    <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
-        <a class="navbar-brand" href="/home">
-            <i class="fas fa-meteor"></i>
-            <span class="name-title">meme<b>battles</b></span>
-        </a>
+    <div class="container">
+        <div class="navbar navbar-expand-lg navbar-dark justify-content-center ">
+            <a class="navbar-brand" href="/home">
+                <i class="fas fa-meteor"></i>
+                <span class="name-title">meme<b>battles</b></span>
+            </a>
+        </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+
+    <nav class="navbar navbar-expand-lg navbar-dark meme-nav">
         <button class="navbar-toggler justify-content-center" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,62 +29,57 @@
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
-                <li class="nav-item" id="user">
-                    <div>
-                        <a class="nav-item nav-link active" href="#"><b>{{page.user.email}}</b><span class="sr-only">(current)</span></a>
+                <li class="nav-item dropdown meme-nav-item">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                        aria-expanded="false"><b class="meme-email">{{page.user.email}}</b><span class="sr-only">(current)</span></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/profile">Profile<span class="sr-only">(current)</span></a>
+                        <a class="dropdown-item purchased" href="/purchased">myMemes<span class="sr-only">(current)</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Logout<span class="sr-only">(current)</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active" href="#">meme<b>Points: </b><span id="meme-points"></span></a>
+                    <a class="nav-item nav-link active" href="#">meme<b>Tokens: </b><span id="meme-points"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active purchased" href="/purchased">meme<b>Library</b><span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link active more-points" href="/more-points">meme<b>Mining</b><span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item ml-auto nav-link active" href="/logout">Logout<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item"></li>
-                <a class="nav-item nav-link active profile" href="/profile">Your Profile<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active more-points meme-nav-item" href="/more-points">meme<b>Mining</b><span
+                            class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
     </nav>
+
     <div class="container">
-        <div class="jumbotron">
-            {{!-- this allows me to pass the click power to the html document --}}
-
-            <h1 id="tokensPerClick"></h1>
-
-        </div>
+        {{!-- this allows me to pass the click power to the html document --}}
+        <h1 class="text-center" id="tokensPerClick"></h1>
         <div class="row">
-            <div class="col-md-6">
-                <button id="get-points" type="button" class="btn btn-dark">Click to get points</button>
+            <div class="col text-center">
+                <button id="get-points" type="button" class="text-center meme-mtn"><i class="fas fa-mountain"></i></button>
             </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
+        </div>
 
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card upgrade-card">
+                    <div class="card-body">
                         {{#each page.clickUpgrades}}
                         <p> {{this.morePerClick}} Per Click
                             <button id={{this.clickPower}} type="button" data-cost={{this.cost}} data-clickPower={{this.clickPower}}
-                                data-morePerClick={{this.morePerClick}} class="btn btn-success click-upgrade">
+                                data-morePerClick={{this.morePerClick}} class="btn btn-outline-light click-upgrade">
                                 Cost: {{this.cost}}</button>
                         </p>
                         {{/each}}
                     </div>
                 </div>
-
+            </div>
+            <div class="col-md-4">
             </div>
         </div>
-
-
-
-
-
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../js/clicker.js"></script>
 </body>
