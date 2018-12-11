@@ -19,6 +19,11 @@ h1 {
 .fa-mountain {
   font-size: 300px;
   color: #30afc5;
+  transition: 0.5s;
+}
+
+.fa-mountain:hover {
+  color: #f0933c;
 }
 
 .card {
@@ -26,6 +31,13 @@ h1 {
   margin: 30px 20px 200px 20px;
   background-color: rgb(59, 58, 58);
   border: none;
+  transition: 0.5s;
+}
+
+.card:hover {
+  -webkit-box-shadow: inset 0px 0px 71px -12px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 71px -12px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 71px -12px rgba(0,0,0,0.75);
 }
 
 .click-upgrade {
@@ -40,4 +52,9 @@ h1 {
 p {
   margin-top: 10px;
   color: #f0933c;
+}
+
+.upgrade-card {
+  z-index: 99;
+  overflow: scroll;
 }

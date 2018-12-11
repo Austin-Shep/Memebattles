@@ -11,6 +11,7 @@ $(document).ready(function () {
   $(".click-upgrade").on("click", function () {
     //stores the button clicked in an object and passses it to function so it can be referenced
     var currentClickedButton = $(this);
+    console.log("test");
     //executes the buying process with validation
     buyClickerUpgrade(currentClickedButton);
   });
