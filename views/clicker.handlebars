@@ -64,15 +64,13 @@
             <div class="col-md-4 text-center">
                 <div class="card">
                     <div class="card-body">
-                        <div class="upgrade-btns">
-                            {{#each page.clickUpgrades}}
-                            <p> {{this.morePerClick}} Per Click
-                                <button id={{this.clickPower}} type="button" data-cost={{this.cost}} data-clickPower={{this.clickPower}}
-                                    data-morePerClick={{this.morePerClick}} class="btn btn-outline-light click-upgrade">
-                                    Cost: {{this.cost}}</button>
-                            </p>
-                            {{/each}}
-                        </div>
+                        {{#each page.clickUpgrades}}
+                        <p> {{this.morePerClick}} Per Click
+                            <button id={{this.clickPower}} type="button" data-cost={{this.cost}} data-clickPower={{this.clickPower}}
+                                data-morePerClick={{this.morePerClick}} class="btn btn-outline-light click-upgrade">
+                                Cost: {{this.cost}}</button>
+                        </p>
+                        {{/each}}
                     </div>
                 </div>
             </div>
