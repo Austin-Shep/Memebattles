@@ -13,7 +13,7 @@
     box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
 }
 
-.topdog{
+.topdog {
     z-index: 99;
 }
 
@@ -24,4 +24,15 @@
 
 .card-link {
     color: #f0933c;
+}
+
+.profile-content {
+    margin-bottom: 50px;
+}
+
+.lead {
+    color: rgb(172, 171, 171);
+    font-size: 25px;
+    margin: 0;
+    margin-top: 70px;
 }

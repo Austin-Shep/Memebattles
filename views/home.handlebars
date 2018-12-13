@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>home.</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/nav.css">
     <link rel="stylesheet" href="../styles/home.css">
@@ -63,38 +61,16 @@
                 <div class="card text-center home-cards">
                     <h2>{{this.name}}</h2>
 
-                    {{!-- <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h2>{{this.name}}</h2>
-                            </div>
-
-                            <div class="card-body">
-                                <img class="meme-link" src={{this.link}} alt="">
-                                <p>Power Level: {{this.lvl}}</p>
-                                <p>Armor Class: {{this.ac}}</p>
-                                <p>Health Points: {{this.health_points}}</p>
-                                <p>Attack Power: {{this.attack_power}}</p>
-                                <p>Cost: {{this.cost}}</p>
-                                <p>Dice Value {{this.dice_value}}</p>
-                                <button type="button" class="btn btn-dark buy" data-UserId={{this.id}} name="{{this.name}}"
-                                    link={{this.link}} lvl={{this.lvl}} ac={{this.ac}} attack={{this.attack_power}}
-                                    health={{this.health_points}} dice={{this.dice_value}} cost={{this.cost}} UserId="">Buy
-                                    Meme</button>
-                            </div>
-                        </div> --}}
-
-                        <div class="card-body">
-                            <img class="meme-link" src={{this.link}} alt="">
-                            <p>Health Points: {{this.health_points}}</p>
-                            <p>Attack Power: {{this.attack_power}}</p>
-                            <p>Cost: {{this.cost}}</p>
-                            <p>Dice Value: {{this.dice_value}}</p>
-                            <button type="button" class="btn btn-outline-dark buy" data-UserId={{this.id}} name="{{this.name}}"
-                                link={{this.link}} lvl={{this.lvl}} ac={{this.ac}} attack={{this.attack_power}} health={{this.health_points}} dice={{this.dice_value}}
-                                cost={{this.cost}} UserId="">Buy
-                                Meme</button>
-                        </div>
+                    <div class="card-body">
+                        <img class="meme-link" src={{this.link}} alt="">
+                        <p>Health Points: {{this.health_points}}</p>
+                        <p>Attack Power: {{this.attack_power}}</p>
+                        <p>Cost: {{this.cost}}</p>
+                        <p>Dice Value: {{this.dice_value}}</p>
+                        <button type="button" class="btn btn-outline-dark buy" data-UserId={{this.id}} name="{{this.name}}"
+                            link={{this.link}} lvl={{this.lvl}} ac={{this.ac}} attack={{this.attack_power}} health={{this.health_points}}
+                            dice={{this.dice_value}} cost={{this.cost}} UserId="">Buy
+                            Meme</button>
                     </div>
                 </div>
             </div>
