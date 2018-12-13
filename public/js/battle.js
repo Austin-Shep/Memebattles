@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   var attackMeme = {};
   var defendMeme = {};
   var battlestart = false;
@@ -65,7 +65,7 @@ $(document).ready(function () {
       var currentUserPoints;
       $.ajax("/api/get-current-user-points", {
         type: "GET"
-      }).then(function (data) {
+      }).then(function(data) {
         currentUserPoints = parseFloat(data[0].points);
       });
       return currentUserPoints;
@@ -76,7 +76,7 @@ $(document).ready(function () {
       var currentUserExp;
       $.ajax("/api/get-current-user-points", {
         type: "GET"
-      }).then(function (data) {
+      }).then(function(data) {
         currentUserExp = parseFloat(data[0].exp);
       });
       return currentUserExp;
@@ -86,7 +86,7 @@ $(document).ready(function () {
     //used to handle the transfer of points
     calculatePointChange(add) {
       var pointChange = this.expCoinGain(defendMeme);
-      var newUserPoints = getCurrentPoints();
+      var newUserPoints = this.getCurrentPoints();
       if (add === true) {
         //will grab the current and new values and add them
         newUserPoints += pointChange;
@@ -109,7 +109,7 @@ $(document).ready(function () {
       var curLost = this.calculatePointChange(false);
       var updatePoints = {
         points: curLost,
-        exp: getCurrentEXP()
+        exp: this.getCurrentEXP()
       };
 
       $.ajax({
@@ -122,17 +122,17 @@ $(document).ready(function () {
         $("#expPost").text("You gained: 0 exp");
         $("#coinPost").text(`You Lost: ${curLost} Tokens`);
         //show the modal
-        $("#myModal").modal("show");
+        $("#myModal").modal("toggle");
       });
     }
 
     concede() {
       //destroys the meme you lost with because you dont deserve it
       $.ajax({
-        type: "DESTROY",
+        type: "delete",
         url: `/api/user/memes/${this.id}`
       }).then(data => {
-        console.log(`${data[0].name} destroyed`);
+        console.log(`${this.name} destroyed`);
         this.lossProfileUpdate();
       });
     } //end of this.concede()
@@ -157,13 +157,13 @@ $(document).ready(function () {
         $("#expPost").text(`You Gained: ${expGain} exp`);
         $("#coinPost").text(`You Gained: ${curGain} Tokens`);
         //show the modal
-        $("#myModal").modal("show");
+        $("#myModal").modal("toggle");
       });
     } //end of win()
   }
 
   //will run the functions need to start the battle, only if both have been selected
-  var run = function () {
+  var run = function() {
     if (heroSelected === true && defenderSelected === true) {
       battlestart = true;
       postCombatant(attackMeme, "He");
@@ -193,7 +193,7 @@ $(document).ready(function () {
     if (!heroSelected) {
       $.ajax(`/heros/${id}`, {
         type: "GET"
-      }).then(function (meme) {
+      }).then(function(meme) {
         console.log(`attack meme ${JSON.stringify(meme)}`);
         //build your fighter
         attackMeme = new Meme(
@@ -221,7 +221,7 @@ $(document).ready(function () {
     if (!defenderSelected) {
       $.ajax(`/combatants/${id}`, {
         type: "GET"
-      }).then(function (meme) {
+      }).then(function(meme) {
         console.log(`defend meme ${JSON.stringify(meme)}`);
         //build your opponent
         defendMeme = new Meme(
@@ -244,17 +244,17 @@ $(document).ready(function () {
     }
   }
 
-  $(".fighterSelect").on("click", function () {
+  $(".fighterSelect").on("click", function() {
     var fighterId = $(this).attr("id");
     fighterSelect(fighterId);
   });
 
-  $(".defendSelect").on("click", function () {
+  $(".defendSelect").on("click", function() {
     var defenderId = $(this).attr("id");
     defendSelect(defenderId);
   });
 
-  $("#attackButton").on("click", function () {
+  $("#attackButton").on("click", function() {
     if (battlestart && !inTurn) {
       inTurn = true;
       attackMeme.confirm(defendMeme);
