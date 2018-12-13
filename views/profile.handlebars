@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/nav.css">
     <link rel="stylesheet" href="../styles/profile.css">
+    
     <script src="https://surveyjs.azureedge.net/1.0.59/survey.jquery.js"></script>
     <link href="https://surveyjs.azureedge.net/1.0.59/survey.css" type="text/css" rel="stylesheet" />
 
@@ -69,7 +70,7 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <p>Id: {{user.id}}</p>
+                            {{!-- <p>Current Level: {{user.level}}</p> --}}
                         </li>
                         <li class="list-group-item">
                             <p>Email: {{user.email}}</p>
@@ -86,10 +87,10 @@
                             <p> {{user.updatedAt}}</p>
                         </li>
                     </ul>
-                    <div class="card-body">
+                    {{!-- <div class="card-body">
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="col-12 col-md-8">
@@ -107,16 +108,17 @@
                                 Enter Level to BATTLE!!!
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="../battle/select/1" value="1" >Lv. 1</a>
-                                <a class="dropdown-item" href="../battle/select/2" value="2" link="/battle/select/2">Lv. 2</a>
-                                <a class="dropdown-item" href="../battle/select/3" value="3" >Lv. 3</a>
-                                <a class="dropdown-item" href="../battle/select/4" value="4" >Lv. 4</a>
-                                <a class="dropdown-item" href="../battle/select/5" value="5" >Lv. 5</a>
-                                <a class="dropdown-item" href="../battle/select/6" value="6" >Lv. 6</a>
-                                <a class="dropdown-item" href="../battle/select/7" value="7" >Lv. 7</a>
-                                <a class="dropdown-item" href="../battle/select/8" value="8" >Lv. 8</a>
-                                <a class="dropdown-item" href="../battle/select/9" value="9" >Lv. 9</a>
-                                <a class="dropdown-item" href="../battle/select/10" value="10" >Lv. 10</a>
+                                <a class="dropdown-item" href="../battle/select/1" value="1">Lv. 1</a>
+                                <a class="dropdown-item" href="../battle/select/2" value="2" link="/battle/select/2">Lv.
+                                    2</a>
+                                <a class="dropdown-item" href="../battle/select/3" value="3">Lv. 3</a>
+                                <a class="dropdown-item" href="../battle/select/4" value="4">Lv. 4</a>
+                                <a class="dropdown-item" href="../battle/select/5" value="5">Lv. 5</a>
+                                <a class="dropdown-item" href="../battle/select/6" value="6">Lv. 6</a>
+                                <a class="dropdown-item" href="../battle/select/7" value="7">Lv. 7</a>
+                                <a class="dropdown-item" href="../battle/select/8" value="8">Lv. 8</a>
+                                <a class="dropdown-item" href="../battle/select/9" value="9">Lv. 9</a>
+                                <a class="dropdown-item" href="../battle/select/10" value="10">Lv. 10</a>
                             </div>
                         </div>
                     </div>
@@ -160,23 +162,13 @@
                         </p>
                     </div>
                 </div>
-                <div class="card">
+        
+                <div class="card2">
                     {{!-- <div class="card-header">
 
                     </div> --}}
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text">Total Losses:
-                            {{!-- {{user.losses}} --}}
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    {{!-- <div class="card-header">
-
-                    </div> --}}
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
+                    <div class="card-body2">
+                        <h5 class="card-title2"></h5>
                         <p class="card-text">
                             <div id="surveyElement"></div>
                             <div id="surveyResult"></div>
