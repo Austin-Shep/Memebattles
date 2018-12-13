@@ -44,7 +44,11 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active" href="#">meme<b>Tokens: </b><span id="meme-points"></span></a>
+                    <a class="nav-item nav-link active" href="#"><i class="fas fa-coins meme-tokens"></i> : </b><span
+                            id="meme-points"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active meme-nav-item" href="/home">meme<b>Mart</b><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-item nav-link active more-points meme-nav-item" href="/more-points">meme<b>Mining</b><span
@@ -72,9 +76,9 @@
                         <p class="card-text">meme quote needed.</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                        {{!-- <li class="list-group-item">
                             <p><b>Id:</b> {{user.id}}</p>
-                        </li>
+                        </li> --}}
                         <li class="list-group-item">
                             <p><b>Email:</b> {{user.email}}</p>
                         </li>

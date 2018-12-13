@@ -40,7 +40,11 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active" href="#">meme<b>Tokens: </b><span id="meme-points"></span></a>
+                    <a class="nav-item nav-link active" href="#"><i class="fas fa-coins meme-tokens"></i> : </b><span
+                            id="meme-points"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active meme-nav-item" href="/home">meme<b>Mart</b><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-item nav-link active more-points meme-nav-item" href="/more-points">meme<b>Mining</b><span
@@ -60,13 +64,15 @@
             {{#each page.meme}}
             <div class="col-md-4">
                 <div class="card text-center">
-                    <h2>{{this.name}}</h2>
+                    <h2 class="meme-title">{{this.name}}</h2>
                     <div class="card-body">
                         <img class="meme-link" src={{this.link}} alt="">
-                        <p>Health Points: {{this.health_points}}</p>
-                        <p>Attack Power: {{this.attack_power}}</p>
-                        <p>Cost: {{this.cost}}</p>
-                        <p>Dice Value: {{this.dice_value}}</p>
+                        <p class="meme-deets"><b class="meme-stats">HP</b> <i class="fas fa-heart"></i> :
+                            {{this.health_points}}</p>
+                        <p class="meme-deets"><b class="meme-stats">AP</b> <i class="fas fa-fist-raised"></i> :
+                            {{this.attack_power}}</p>
+                        {{!-- <p>Cost: {{this.cost}}</p> --}}
+                        <p class="meme-deets"><i class="fas fa-dice"></i> : {{this.dice_value}}</p>
                     </div>
                 </div>
             </div>

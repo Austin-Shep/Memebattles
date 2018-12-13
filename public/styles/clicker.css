@@ -3,17 +3,46 @@
 } */
 
 h1 {
-  color: #f0933c;
-  margin-bottom: 30px;
+  color: whitesmoke;
+  opacity: .95;
+  margin: 0px;
+  z-index: -10000;
 }
+
+.mining-points {
+  color: #29ff82;
+}
+
+.mining-tokens {
+  font-size: 45px;
+  color: #f0933c;
+  margin-right: 10px;
+}
+
+.mining-text {
+  color: #f0933c;
+}
+
 
 .meme-mtn {
   background-color: white;
   margin: 30px;
   border: none;
-  -webkit-clip-path: polygon(50% 0%, 5% 95%, 95% 95%);
-  clip-path: polygon(50% 0%, 5% 95%, 95% 95%);
-  text-shadow: 0px 0px 10px black;
+  -webkit-clip-path: polygon(50% 5%, 10% 90%, 90% 90%);
+  clip-path: polygon(50% 5%, 10% 90%, 90% 90%);
+  text-shadow: 0px 0px 10px rgb(54, 54, 54);
+}
+
+.meme-mtn:active { 
+  -webkit-clip-path: polygon(50% 0%, 5% 92%, 95% 92%);
+  clip-path: polygon(50% 0%, 5% 92%, 95% 92%);
+  text-shadow: 0px 0px 70px #30afc5;
+  transition: .7s;
+}
+
+.fa-mountain:active {
+  font-size: 360px;
+  transition: .7s;
 }
 
 .fa-mountain {
@@ -42,14 +71,28 @@ h1 {
 
 .click-upgrade {
   margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 p {
-  margin-top: 10px;
+  margin-top: 5px;
   color: #f0933c;
+}
+
+.meme-plus {
+  color: #fff;
+  opacity: .9;
 }
 
 .upgrade-card {
   z-index: 99;
   overflow: scroll;
+}
+
+.col {
+  margin: 10px;
+}
+
+.fa-coins:before {
+  z-index: -10000;
 }

@@ -35,6 +35,7 @@
 
 .navbar-brand {
     margin-top: 25px;
+    transition: 1s;
 }
 
 .meme-nav {
@@ -56,8 +57,18 @@
 
 .dropdown-item {
     color: white;
+    transition: .2s;
 }
 
 .dropdown-divider {
     margin: 10px 20px 10px 20px;
+}
+
+#meme-points {
+    color: #29ff82;
+}
+
+.meme-tokens {
+    color: #f0933c;
+    font-size: 20px;
 }
