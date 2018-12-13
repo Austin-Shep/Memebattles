@@ -90,13 +90,6 @@ module.exports = function(app) {
   });
 
 
-
-
-
-
-
-
-
   
 
   //this is for the purchased memes, again passing the id so we know which mean belongs to the user
