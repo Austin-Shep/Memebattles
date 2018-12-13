@@ -36,7 +36,7 @@ h1 {
 .meme-mtn:active { 
   -webkit-clip-path: polygon(50% 0%, 5% 92%, 95% 92%);
   clip-path: polygon(50% 0%, 5% 92%, 95% 92%);
-  text-shadow: 0px 0px 70px #30afc5;
+  text-shadow: 0px 0px 70px #29ff82;
   transition: .7s;
 }
 
@@ -52,7 +52,7 @@ h1 {
 }
 
 .fa-mountain:hover {
-  color: #f0933c;
+  color: #29ff82;
 }
 
 .card {

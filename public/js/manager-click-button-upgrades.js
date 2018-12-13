@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
   $("#form")
     .validator()
-    .on("submit", function(e) {
+    .on("submit", function (e) {
       if (e.isDefaultPrevented()) {
         // handle the invalid form...
       } else {
@@ -10,7 +10,7 @@ $(document).ready(function() {
         //get the current click Power
         $.ajax("/api/manager-click-check", {
           type: "GET"
-        }).then(function(data) {
+        }).then(function (data) {
           //variable that is going to hold the last button entered click power
           var newButtonClickPower;
           //validation for when the manager adds there first button to the database
@@ -46,10 +46,10 @@ $(document).ready(function() {
     $.ajax("/api/manager-click-check", {
       type: "POST",
       data: newButton
-    }).then(function(data) {
+    }).then(function (data) {
       //do like a redirect to a button added
       alert("button added to home page");
-      setTimeout(function() {
+      setTimeout(function () {
         location.reload();
       }, 1000);
     });
