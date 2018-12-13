@@ -1,6 +1,52 @@
-.jumbotron{
-    text-align: center;
+.meme-link{
+    height: 200px;
+    width: 200px;
 }
-.col-md-12{
-    margin-bottom: 10px;
+
+body {
+    background-color: rgb(59, 58, 58);
+}
+
+.fa-meteor {
+    color: #f0933c;
+    text-shadow: 3px -2px 7px #30afc5;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    font-size: 60px;
+}
+
+.name-title {
+    font-size: 75px;
+    color:rgb(172, 171, 171);
+}
+
+p {
+    margin: 0;
+}
+.card {
+    padding: 10px;
+    color: whitesmoke;
+    -webkit-box-shadow: -7px 7px 54px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: -7px 7px 54px -6px rgba(0,0,0,0.75);
+    box-shadow: -7px 7px 54px -6px rgba(0,0,0,0.75);
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+.add-meme-card {
+    background-color: #30afc5;
+}
+
+.meme-button-card {
+    background: #f0933c;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+.btn {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
