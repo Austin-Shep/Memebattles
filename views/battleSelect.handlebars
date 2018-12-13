@@ -34,13 +34,13 @@
     </div>
 </div>
 <div id="battleScreen" style="display: none">
-        <div id="defendPost">
+        <div id="defendPost defenderBlock" class="d-flex align-items-start">
             <div class="row">
-                <div class="col-12">
+                <div class="col-10 d-flex justify-content-start">
                     <div class="card">
                         <img class="card-img-left col-4"  id="imgPost-En" src="" alt="enemy img">
                         <div class="col-4"></div>
-                        <div class="card col-4">
+                        <div class="card col-4" id="defenderStats">
                             <h4 class="card-title" id="name-En"></h4>
                             <p class="card-text" id="hp-En"></p>
                         </div>
@@ -48,13 +48,13 @@
                 </div>
             </div>
         </div>
-        <div id="attackPost">
+        <div id="attackPost attackerblock" class="d-flex align-items-end">
             <div class="row">
-                <div class="col-12">
+                <div class="col-10 d-flex justify-content-start">
                     <div class="card">
                         <img class="card-img-left col-4"  id="imgPost-He" src="" alt="enemy img">
                         <div class="col-4"></div>
-                        <div class="card col-4">
+                        <div class="card col-4" id="attackerStats">
                             <h4 class="card-title" id="name-He"></h4>
                             <p class="card-text" id="hp-He"></p>
                             <a id="attackButton" class="btn btn-primary">ATTACK!</a>
@@ -67,8 +67,8 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" {{!tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true"}}>
-  <div class="modal-dialog modal-dialog-centered" {{!role="document"}}>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="winlossPost">{{!-- You won/lost! --}}</h5>
@@ -89,5 +89,5 @@
     </div>
   </div>
 </div>
-
+</div>
 <script src="../../js/battle.js"></script>
