@@ -62,6 +62,35 @@ module.exports = function(app) {
       });
     });
   });
+//route to filter out the memes based on lvl
+  app.get("/home/:lvl",function(req,res){
+    var meme;
+    var user;
+    db.Memes.findAll({
+      where:{
+        lvl: req.params.lvl
+      }
+    }).then(function(data) {
+      
+      meme = data;
+      db.User.findOne({
+        where: {
+          id: req.user.id
+        }
+      }).then(function(data) {
+        user = data;
+
+        var pageContent = {
+          meme: meme,
+          user: user
+        };
+        res.render("home", { page: pageContent });
+      });
+    });
+  });
+
+
+  
 
   //this is for the purchased memes, again passing the id so we know which mean belongs to the user
   app.get("/purchased", function(req, res) {
