@@ -59,4 +59,23 @@ $(document).ready(function () {
       //put the id in the purchased nav
     });
   }
+
+//refreshes the submit button so it filters out the memes based on the meme lvl
+  $("#refreshButton").on("click",function(e){
+    e.preventDefault();
+
+    var lvl = $("input[name=exampleRadios1]:checked").val();
+
+    window.location.assign(`/home/${lvl}`);
+  });
 });
+
+
+
+
+
+
+
+
+
+

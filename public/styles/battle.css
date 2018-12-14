@@ -1,29 +1,13 @@
-.meme-link{
-    height: 200px;
-    width: 200px;
-}
-
-body {
-    background-color: rgb(59, 58, 58);
-}
-
-.fa-meteor {
-    color: #f0933c; 
-    text-shadow: 3px -2px 7px #30afc5;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    font-size: 60px;
-}
-
 .name-title {
     font-size: 75px;
     color:rgb(172, 171, 171);
+
 }
 
-.card {
+.selectCard {
     width: 100%;
     height: 500px;
-    float: left;
+    /* float: left; */
     color: whitesmoke;
     background-color: #f0933c;
     padding: 30px;
@@ -38,11 +22,10 @@ body {
     -moz-box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
     box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
 }
+h3{
+    color:rgb(172, 171, 171);
 
-p {
-    margin: 0;
 }
-
 img {
     width: 100%;
     height: auto;
@@ -51,14 +34,14 @@ img {
     -moz-box-shadow: -7px 7px 54px -6px rgba(0,0,0,0.75);
     box-shadow: -7px 7px 54px -6px rgba(0,0,0,0.75);
 }
-
-.buy {
-    margin-top: 20px;
+ul{
+    list-style: none;
 }
+body{
+    background-color: rgb(59, 58, 58);
+}
+.defendSelect, .fighterSelect {
+    background-color: #30afc5;
+    border-color: #f0933c;
 
-.lead {
-    color: rgb(172, 171, 171);
-    font-size: 25px;
-    margin-top: 70px;
-    margin-bottom: 50px;
 }

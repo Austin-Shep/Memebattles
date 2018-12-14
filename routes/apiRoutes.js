@@ -2,8 +2,6 @@ var db = require("../models");
 
 var passport = require("../config/passport");
 
-var currentId;
-
 module.exports = function(app) {
   //this portion of code is all for passport to work
 
@@ -76,7 +74,7 @@ module.exports = function(app) {
     });
   });
 
-  //allows us to upadte which meme belongs to a signed in account
+  //allows us to update which meme belongs to a signed in account
   app.post("/api/user/id", function(req, res) {
     db.Boughten_Memes.create(req.body).then(function(data) {
       res.json(data);
@@ -177,7 +175,19 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
+  app.get("/user/level", function(req, res) {
+    db.User.findOne({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(data) {
+      res.json(data[0].lvl);
+    });
+  });
+
   //=====================================BATTLE STUFFFFFFFF====================//////////////////
+  //used to grab the enemy meme from the battle select screen, queries the whole meme database
   app.get("/combatants/:opId", function(req, res) {
     db.Memes.findOne({
       where: {
@@ -187,7 +197,7 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-
+  //used to grab the hero meme from the battle select screen, queries the list of purchased memes
   app.get("/heros/:heroId", function(req, res) {
     db.Boughten_Memes.findOne({
       where: {
@@ -200,11 +210,28 @@ module.exports = function(app) {
   });
 
   //used to add and subtracrt coins and exp for the end of battles
-  app.put("api/user/currency", function(req, res) {
+
+  app.put("/api/user/wins", function(req, res) {
     db.User.update(
       {
         points: req.body.points,
-        exp: req.body.exp
+        wins: req.body.points
+      },
+      {
+        where: {
+          id: req.user.id
+        }
+      }
+    ).then(function(data) {
+      res.json(data);
+    });
+  });
+
+  app.put("/api/user/loss", function(req, res) {
+    db.User.update(
+      {
+        points: req.body.points,
+        loss: req.body.points
       },
       {
         where: {
