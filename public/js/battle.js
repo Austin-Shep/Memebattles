@@ -15,15 +15,19 @@ $(document).ready(function() {
       }).then(function(data) {
         console.log("got current values on win");
         var currentWins = parseFloat(data[0].wins);
+        currentWins += 1;
+        console.log(`current profile wins: ${currentWins}`);
+
         var currentPoints = parseFloat(data[0].points);
-        currentWins++;
         var pointChange = attackMeme.expCoinGain(defendMeme);
         currentPoints += pointChange;
+
         var update = {
           wins: currentWins,
           points: currentPoints
         };
         console.log(update);
+
         $.ajax({
           url: "/api/user/wins",
           type: "PUT",
@@ -48,10 +52,13 @@ $(document).ready(function() {
       }).then(function(data) {
         console.log("got current values on loss");
         var currentLoss = parseFloat(data[0].loss);
+        currentLoss += 1;
+        console.log(`current profile loss: ${currentLoss}`);
+
         var currentPoints = parseFloat(data[0].points);
-        currentLoss++;
         var pointChange = attackMeme.expCoinGain(defendMeme);
         currentPoints -= pointChange;
+
         var update = {
           loss: currentLoss,
           points: currentPoints
@@ -235,6 +242,10 @@ $(document).ready(function() {
     }
   }
   /////these functions are the event listeners to trigger the combatant set
+  $("#postBattleDismiss").on("click", function() {
+    window.location.replace("../../profile");
+  });
+
   $(".fighterSelect").on("click", function() {
     var fighterId = $(this).attr("id");
     fighterSelect(fighterId);

@@ -1,33 +1,44 @@
-<link rel="stylesheet" href="./styles/battle.css">
+<link rel="stylesheet" href="../../styles/battle.css">
+
 <div class="container">
 <div id="selectScreen">
+    <h1 class="name-title text-center">CHOOSE YOUR CONTENDERS</h1>
+    <hr>
     <div class="row">
         <div class="col-4 offset-md-1">
-            {{#each memes.enemies}}
+            <h3 class="text-center">HEROS</h3>
+            <hr>
+            {{#each memes.heros}}
                 <div class="card selectCard">
+                    <h4 class="card-title text-center">{{this.name}}</h5>
                     <img src="{{this.link}}" alt="memeimg" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title"></h5>
                         <ul class="card-text">
-                            <li>POWER LEVEL: {{this.lvl}}</li>
                             <li>HEALTH POINTS: {{this.health_points}}</li>
+                            <li>ARMOR CLASS: {{this.ac}}</li>
+                            <li>ATTACK DICE: 1d{{this.dice_value}}</li>
+                            <li>ATTACK POWER: +{{this.attack_power}}</li>
                         </ul>
-                        <a id="{{this.id}}" class="defendSelect btn btn-primary">FIGHT ME!</a>
+                        <a id="{{this.id}}" class="fighterSelect btn btn-primary btn-block">LET ME FIGHT FOR YOU!</a>
                     </div>
                 </div>
             {{/each}}
         </div>
         <div class="col-4  offset-md-2">
-            {{#each memes.heros}}
+            <h3 class="text-center">ENEMIES</h3>
+            <hr>
+            {{#each memes.enemies}}
                 <div class="card selectCard">
+                    <h4 class="card-title text-center">{{this.name}}</h5>
                     <img src="{{this.link}}" alt="memeimg" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title"></h5>
                         <ul class="card-text">
-                            <li>POWER LEVEL: {{this.lvl}}</li>
                             <li>HEALTH POINTS: {{this.health_points}}</li>
+                            <li>ARMOR CLASS: {{this.ac}}</li>
+                            <li>ATTACK DICE: 1d{{this.dice_value}}</li>
+                            <li>ATTACK POWER: +{{this.attack_power}}</li>
                         </ul>
-                        <a id="{{this.id}}" class="fighterSelect btn btn-primary">LET ME FIGHT FOR YOU!</a>
+                        <a id="{{this.id}}" class="defendSelect btn btn-primary btn-block">FIGHT ME!</a>
                     </div>
                 </div>
             {{/each}}
@@ -84,7 +95,7 @@
         </ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="postBattleDismiss "data-dismiss="modal"><a href="../../profile">Done</a></button>
+        <button type="button" class="btn btn-secondary" id="postBattleDismiss" >Done</button>
         {{!this should redirect to the meme page?}}
       </div>
     </div>

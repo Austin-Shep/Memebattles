@@ -8,7 +8,7 @@ body {
 }
 
 .fa-meteor {
-    color: #f0933c;
+    color: #f0933c; 
     text-shadow: 3px -2px 7px #30afc5;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
