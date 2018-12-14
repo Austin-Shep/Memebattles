@@ -22,9 +22,17 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DECIMAL(10, 2),
       defaultValue: 500.0
     },
-    exp: {
+    wins: {
       type: DataTypes.INTEGER,
       defaultValue: 0
+    },
+    loss: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
+    level: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1
     },
     isManager: {
       type: DataTypes.BOOLEAN,
