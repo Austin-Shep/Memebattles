@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>home.</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/nav.css">
     <link rel="stylesheet" href="../styles/home.css">
@@ -56,6 +54,25 @@
         <h2 class="lead">Welcome to the meme<b>Mart</b>!! Shop for your memes here.</h2>
     </div>
 
+    <div class="container">
+    <div class= "form-check">
+        <form>
+            <input type="radio" name="exampleRadios1" value="1"> Level 1
+            <input type="radio" name="exampleRadios1" value="2"> Level 2
+            <input type="radio" name="exampleRadios1" value="3"> Level 3
+            <input type="radio" name="exampleRadios1" value="4"> Level 4
+            <input type="radio" name="exampleRadios1" value="5"> Level 5
+            <input type="radio" name="exampleRadios1" value="6"> Level 6
+            <input type="radio" name="exampleRadios1" value="7"> Level 7
+            <input type="radio" name="exampleRadios1" value="8"> Level 8
+            <input type="radio" name="exampleRadios1" value="9"> Level 9
+            <input type="radio" name="exampleRadios1" value="10"> Level 10
+            
+            <input id="refreshButton" type="submit" value="Submit">
+        </form>
+    </div>
+    </div>
+
     <div class="container text-center">
         <div class="row">
             {{#each page.meme}}
@@ -63,38 +80,16 @@
                 <div class="card text-center home-cards">
                     <h2>{{this.name}}</h2>
 
-                    {{!-- <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h2>{{this.name}}</h2>
-                            </div>
-
-                            <div class="card-body">
-                                <img class="meme-link" src={{this.link}} alt="">
-                                <p>Power Level: {{this.lvl}}</p>
-                                <p>Armor Class: {{this.ac}}</p>
-                                <p>Health Points: {{this.health_points}}</p>
-                                <p>Attack Power: {{this.attack_power}}</p>
-                                <p>Cost: {{this.cost}}</p>
-                                <p>Dice Value {{this.dice_value}}</p>
-                                <button type="button" class="btn btn-dark buy" data-UserId={{this.id}} name="{{this.name}}"
-                                    link={{this.link}} lvl={{this.lvl}} ac={{this.ac}} attack={{this.attack_power}}
-                                    health={{this.health_points}} dice={{this.dice_value}} cost={{this.cost}} UserId="">Buy
-                                    Meme</button>
-                            </div>
-                        </div> --}}
-
-                        <div class="card-body">
-                            <img class="meme-link" src={{this.link}} alt="">
-                            <p>Health Points: {{this.health_points}}</p>
-                            <p>Attack Power: {{this.attack_power}}</p>
-                            <p>Cost: {{this.cost}}</p>
-                            <p>Dice Value: {{this.dice_value}}</p>
-                            <button type="button" class="btn btn-outline-dark buy" data-UserId={{this.id}} name="{{this.name}}"
-                                link={{this.link}} lvl={{this.lvl}} ac={{this.ac}} attack={{this.attack_power}} health={{this.health_points}} dice={{this.dice_value}}
-                                cost={{this.cost}} UserId="">Buy
-                                Meme</button>
-                        </div>
+                    <div class="card-body">
+                        <img class="meme-link" src={{this.link}} alt="">
+                        <p>Health Points: {{this.health_points}}</p>
+                        <p>Attack Power: {{this.attack_power}}</p>
+                        <p>Cost: {{this.cost}}</p>
+                        <p>Dice Value: {{this.dice_value}}</p>
+                        <button type="button" class="btn btn-outline-dark buy" data-UserId={{this.id}} name="{{this.name}}"
+                            link={{this.link}} lvl={{this.lvl}} ac={{this.ac}} attack={{this.attack_power}} health={{this.health_points}}
+                            dice={{this.dice_value}} cost={{this.cost}} UserId="">Buy
+                            Meme</button>
                     </div>
                 </div>
             </div>
