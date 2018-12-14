@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../../styles/battle.css">
 
-<div class="container">
+<div class="container d-flex">
 <div id="selectScreen">
     <h1 class="name-title text-center">CHOOSE YOUR CONTENDERS</h1>
     <hr>
@@ -45,26 +45,27 @@
         </div>
     </div>
 </div>
-<div id="battleScreen" style="display: none">
-        <div id="defendPost defenderBlock" class="d-flex align-items-start">
-            <div class="row">
-                <div class="col-10 d-flex justify-content-start">
+<div id="battleScreen" style="display: none; width:100%; height: 100%;">
+        <div class="row align-items-start">
+            <div id="defendPost defenderBlock" class="col-10 justify-content-start">
                     <div class="card">
-                        <img class="card-img-left col-4"  id="imgPost-En" src="" alt="enemy img">
+                        <div class="card-img-left col-4">
+                        <img id="imgPost-En" src="" alt="enemy img">
+                        </div>
                         <div class="col-4"></div>
                         <div class="card col-4" id="defenderStats">
                             <h4 class="card-title" id="name-En"></h4>
                             <p class="card-text" id="hp-En"></p>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
-        <div id="attackPost attackerblock" class="d-flex align-items-end">
-            <div class="row">
-                <div class="col-10 d-flex justify-content-start">
+        <div class="row align-items-end">
+            <div id="attackPost attackerblock"  class="col-10 justify-content-start">
                     <div class="card">
-                        <img class="card-img-left col-4"  id="imgPost-He" src="" alt="enemy img">
+                        <div class="card-img-left col-4">
+                        <img id="imgPost-He" src="" alt="enemy img">
+                        </div>
                         <div class="col-4"></div>
                         <div class="card col-4" id="attackerStats">
                             <h4 class="card-title" id="name-He"></h4>
@@ -72,7 +73,6 @@
                             <a id="attackButton" class="btn btn-primary">ATTACK!</a>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
