@@ -15,6 +15,29 @@ $(document).ready(function() {
   }
 });
 
+/// for avatar upload
+ // Getting references to our form and input
+ var signUpForm = $("form.signup");
+ var PaInput = $("input#profileAvatar");
+ 
+
+ // When the signup button is clicked, we validate the email and password are not blank
+ signUpForm.on("submitPa", function(event) {
+   event.preventDefault();
+   var userData = {
+     avatar: PaInput.val().trim(),
+   };
+
+   if (!userData.avatar) {
+     return;
+   }
+   // If we have an avatar address, run the signUpUser function
+   signUpUser(userData.avatar);
+   PaInput.val("");
+   
+ });
+
+
 //// for profile survey from https://surveyjs.io/Examples/Builder/
 var json = {
   title: "what's your meme?",
