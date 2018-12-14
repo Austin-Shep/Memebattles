@@ -23,7 +23,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 500.0
     },
     avatar: {
-      type: DataTypes.STRINGS
+      type: DataTypes.STRINGS,
+      defaultValue: "https://i3.wp.com/media1.tenor.com/images/f69b9aa3e004ddbb4664934b12c8d6a6/tenor.gif?resize=450,300"
     },
     wins: {
       type: DataTypes.INTEGER,
