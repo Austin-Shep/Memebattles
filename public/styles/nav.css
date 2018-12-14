@@ -31,6 +31,7 @@
 .name-title {
     font-size: 75px;
     color:rgb(172, 171, 171);
+    font-family: "ChakraPetch-Light";
 }
 
 .navbar-brand {
@@ -49,6 +50,7 @@
 .nav-item {
     opacity: .95;
     margin: 0px 5px 0px 5px;
+    font-family: "ChakraPetch-Light";
 }
 
 .dropdown-menu {
@@ -68,7 +70,60 @@
     color: #29ff82;
 }
 
+.token-points {
+    color: #29ff82;
+}
+
 .meme-tokens {
     color: #f0933c;
     font-size: 20px;
+}
+
+
+/* SHADOW */
+.shady {
+    text-shadow: 0px 0px 10px black;
+}
+
+
+
+/* FONT STYLING */
+.font-bold {
+    font-family: "ChakraPetch-Bold";
+}
+
+.font-bold-italic {
+    font-family: "ChakraPetch-BoldItalic";
+}
+
+.font-semi {
+    font-family: "ChakraPetch-SemiBold";
+}
+
+.font-semi-italic {
+    font-family: "ChakraPetch-SemiBoldItalic";
+}
+
+.font-light {
+    font-family: "ChakraPetch-Light";
+}
+
+.font-light-italic {
+    font-family: "ChakraPetch-LightItalic";
+}
+
+.font-med {
+    font-family: "ChakraPetch-Medium";
+}
+
+.font-med-italic {
+    font-family: "ChakraPetch-MediumItalic";
+}
+
+.font-reg {
+    font-family: "ChakraPetch-Regular";
+}
+
+.font-italic {
+    font-family: "ChakraPetch-Italic";
 }

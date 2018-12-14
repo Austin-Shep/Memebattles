@@ -4,6 +4,7 @@
 
 h2 {
     color: whitesmoke;
+    font-family: "ChakraPetch-Bold"
 }
 
 .brand-name {
@@ -21,7 +22,17 @@ h2 {
 }
 
 .name-title {
-    font-size: 75px;
+    font-size: 65px;
+    font-family: "ChakraPetch-Light";
+}
+
+.font-bold {
+    font-family: "ChakraPetch-Bold";
+}
+
+.font-light {
+    font-family: "ChakraPetch-Light";
+    text-decoration: none;
 }
 
 .lead {
@@ -36,6 +47,13 @@ h2 {
 
 .here-link {
     color: #f0933c;
+    transition: .3s;
+    font-family: "ChakraPetch-SemiBold";
+}
+
+.here-link:hover {
+    color: #29ff82;
+    text-decoration: none;
 }
 
 .card {

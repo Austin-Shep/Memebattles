@@ -48,7 +48,7 @@ $(document).ready(function () {
       data: newButton
     }).then(function (data) {
       //do like a redirect to a button added
-      alert("button added to home page");
+      alert("BUTTON ADDED SUCCESSFULLY.");
       setTimeout(function () {
         location.reload();
       }, 1000);

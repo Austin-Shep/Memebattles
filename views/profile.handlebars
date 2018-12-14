@@ -20,7 +20,7 @@
         <div class="navbar navbar-expand-lg navbar-dark justify-content-center ">
             <a class="navbar-brand" href="/home">
                 <i class="fas fa-meteor"></i>
-                <span class="name-title">meme<b>battles</b></span>
+                <span class="name-title">meme<b class="font-bold">battles</b></span>
             </a>
         </div>
     </div>
@@ -33,25 +33,27 @@
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
-                <li class="nav-item dropdown topdog meme-nav-item">
+                <li class="nav-item dropdown meme-nav-item">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                        aria-expanded="false"><b class="meme-email">{{user.email}}</b><span class="sr-only">(current)</span></a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/profile">Profile<span class="sr-only">(current)</span></a>
-                        <a class="dropdown-item purchased" href="/purchased">myMemes<span class="sr-only">(current)</span></a>
+                        aria-expanded="false"><b class="meme-email font-semi">{{user.email}}</b><span class="sr-only">(current)</span></a>
+                    <div class="dropdown-menu font-reg">
+                        <a class="dropdown-item" href="/profile">meme<b class="font-bold">profile</b><span class="sr-only">(current)</span></a>
+                        <a class="dropdown-item purchased" href="/purchased">meme<b class="font-bold">library</b><span
+                                class="sr-only">(current)</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                        <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active" href="#"><i class="fas fa-coins meme-tokens"></i> : </b><span
-                            id="meme-points"></span></a>
+                    <a class="nav-item nav-link active font-med" href="#"><i class="fas fa-coins meme-tokens"></i> :
+                        <span id="meme-points"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active meme-nav-item" href="/home">meme<b>Mart</b><span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active meme-nav-item" href="/home">meme<b class="font-bold">mart</b><span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active more-points meme-nav-item" href="/more-points">meme<b>Mining</b><span
+                    <a class="nav-item nav-link active more-points meme-nav-item" href="/more-points">meme<b class="font-bold">mining</b><span
                             class="sr-only">(current)</span></a>
                 </li>
             </ul>
@@ -59,11 +61,12 @@
     </nav>
 
     <div class="container text-center">
-        <h2 class="lead">Your meme<b>Profile</b>:</h2>
+        <h2 class="lead font-light">Your meme<b class="font-bold">profile</b>: <span class="font-semi-italic">All about
+                memes. I mean... you.</span> (nope. I meant memes.)</h2>
     </div>
 
 
-    <div class="container profile-content">
+    <div class="container profile-content font-reg">
         <br>
         <br>
         <div class="row">
@@ -72,25 +75,27 @@
                 <div class="card card-profile" style="width: 22rem;">
                     <img class="card-img-top" src="https://i.imgflip.com/22jc5z.jpg?text=Image cap" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Welcome to meme<b>battles</b>!</h5>
-                        <p class="card-text">meme quote needed.</p>
+                        <h5 class="card-title shady">Greetings meme<b class="font-bold">battler</b>.</h5>
+                        <p class="card-text font-light-italic">"An eye for an eye. A
+                            meme for a meme."</p>
                     </div>
                     <ul class="list-group list-group-flush">
                         {{!-- <li class="list-group-item">
                             <p><b>Id:</b> {{user.id}}</p>
                         </li> --}}
-                        <li class="list-group-item">
-                            <p><b>Email:</b> {{user.email}}</p>
+                        <li class="list-group-item shady">
+                            <p><b class="font-bold">EMAIL:</b> <span class="meme-email font-semi">{{user.email}}</span></p>
+                        </li>
+                        <li class="list-group-item shady">
+                            <p>meme<b class="font-bold">tokens <i class="fas fa-coins meme-tokens"></i>
+                                    : </b> <span class="token-points">{{user.points}}</span></p>
                         </li>
                         <li class="list-group-item">
-                            <p>meme<b>Tokens:</b> {{user.points}}</p>
-                        </li>
-                        <li class="list-group-item">
-                            <p><b>Joined at:</b></p>
+                            <p><b class="font-bold">JOINED AT:</b></p>
                             <p><i>{{user.createdAt}}</i></p>
                         </li>
                         <li class="list-group-item">
-                            <p><b>Last active at:</b></p>
+                            <p><b class="font-bold">LAST ACTIVE AT:</b></p>
                             <p><i>{{user.updatedAt}}</i></p>
                         </li>
                     </ul>
@@ -99,16 +104,14 @@
             <div class="col-12 col-md-8">
 
                 <div class="card topdog card-profile">
-                    <div class="card-header">
-                        meme<b>battle</b> STATION
+                    <div class="card-header"><b class="font-bold">BATTLE STATION</b>
                     </div>
                     <div class="card-body">
                         {{!-- <h5 class="card-title">Meme of the line!</h5> --}}
                         <p class="card-text">Choose a level to start:</p>
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Start a meme<b>battle</b>
+                            <button class="btn btn-secondary dropdown-toggle battle-dropdown shady" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Start a meme<b class="font-bold">battle</b>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="../battle/select/1" value="1">Lv. 1</a>
@@ -132,9 +135,9 @@
                     </div> --}}
                     <div class="card-body">
                         {{!-- <h5 class="card-title"></h5> --}}
-                        <p class="card-text"><b>Current Rank:</b> {{user.wins}} / 10</p>
+                        <p class="card-text font-light"><b class="font-bold">RANK:</b> {{user.wins}} / 10</p>
                         <div class="container">
-                            <h2>meme<b>Progress</b></h2>
+                            <h2>meme<b class="font-bold">progress</b> bar</h2>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
                                     aria-valuemax="100" style="width:70%">
@@ -151,7 +154,7 @@
                     </div> --}}
                     <div class="card-body">
                         {{!-- <h5 class="card-title"></h5> --}}
-                        <p class="card-text"><b>Current Click Power:</b> {{user.clickPower}}</p>
+                        <p class="card-text font-light"><b class="font-bold">CLICK POWER:</b> {{user.clickPower}}</p>
                     </div>
                 </div>
                 <div class="card card-profile">
@@ -160,7 +163,7 @@
                     </div> --}}
                     <div class="card-body">
                         {{!-- <h5 class="card-title"></h5> --}}
-                        <p class="card-text"><b>Total Wins:</b>
+                        <p class="card-text font-light"><b class="font-bold">TOTAL WINS:</b>
                             {{!-- {{user.wins}} --}}
                         </p>
                     </div>
@@ -171,12 +174,12 @@
                     </div> --}}
                     <div class="card-body">
                         {{!-- <h5 class="card-title"></h5> --}}
-                        <p class="card-text"><b>Total Losses:</b>
+                        <p class="card-text font-light"><b class="font-bold">TOTAL LOSSES:</b>
                             {{!-- {{user.losses}} --}}
                         </p>
                     </div>
                 </div>
-                <div class="card topdog">
+                <div class="card topdog font-reg">
                     {{!-- <div class="card-header">
 
                     </div> --}}

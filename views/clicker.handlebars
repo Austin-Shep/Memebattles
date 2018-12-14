@@ -16,7 +16,7 @@
         <div class="navbar navbar-expand-lg navbar-dark justify-content-center ">
             <a class="navbar-brand" href="/home">
                 <i class="fas fa-meteor"></i>
-                <span class="name-title">meme<b>battles</b></span>
+                <span class="name-title">meme<b class="font-bold">battles</b></span>
             </a>
         </div>
     </div>
@@ -31,33 +31,41 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown meme-nav-item">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                        aria-expanded="false"><b class="meme-email">{{page.user.email}}</b><span class="sr-only">(current)</span></a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/profile">Profile<span class="sr-only">(current)</span></a>
-                        <a class="dropdown-item purchased" href="/purchased">myMemes<span class="sr-only">(current)</span></a>
+                        aria-expanded="false"><b class="meme-email font-semi">{{page.user.email}}</b><span class="sr-only">(current)</span></a>
+                    <div class="dropdown-menu font-reg">
+                        <a class="dropdown-item" href="/profile">meme<b class="font-bold">profile</b><span class="sr-only">(current)</span></a>
+                        <a class="dropdown-item purchased" href="/purchased">meme<b class="font-bold">library</b><span
+                                class="sr-only">(current)</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                        <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active" href="#"><i class="fas fa-coins meme-tokens"></i> : <span id="meme-points"></span></a>
+                    <a class="nav-item nav-link active font-med" href="#"><i class="fas fa-coins meme-tokens"></i> :
+                        <span id="meme-points"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active meme-nav-item" href="/home">meme<b>Mart</b><span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active meme-nav-item" href="/home">meme<b class="font-bold">mart</b><span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active more-points meme-nav-item" href="/more-points">meme<b>Mining</b><span
+                    <a class="nav-item nav-link active more-points meme-nav-item" href="/more-points">meme<b class="font-bold">mining</b><span
                             class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
     </nav>
 
+    <div class="container text-center">
+        <h2 class="lead font-red"><span class="font-light-italic">Heigh ho! Heigh ho!</span> MEME<b class="font-bold">MOUNTAIN</b>
+            HERE WE GO.</h2>
+    </div>
+
     <div class="container">
         {{!-- this allows me to pass the click power to the html document --}}
-        <h1 class="text-center" id="tokensPerClick"></h1>
+        <h1 class="text-center font-semi" id="tokensPerClick"></h1>
         <div class="row">
-            <div class="col text-center">
+            <div class="col-md-12 text-center">
                 <button id="get-points" type="button" class="text-center meme-mtn"><i class="fas fa-mountain"></i></button>
             </div>
         </div>
@@ -67,7 +75,7 @@
             </div>
             <div class="col-md-4 text-center">
                 <div class="card upgrade-card">
-                    <div class="card-body">
+                    <div class="card-body font-light">
                         {{#each page.clickUpgrades}}
                         <p> <b class="meme-plus">+</b> <span class="mining-points">{{this.morePerClick}}</span> per
                             click

@@ -2,11 +2,18 @@
   background-color: rgb(59, 58, 58);
 } */
 
+
+.lead {
+    color: rgb(172, 171, 171);
+    font-size: 25px;
+    margin: 70px 0px 50px 0px;
+}
+
 h1 {
+  z-index: -99;
   color: whitesmoke;
   opacity: .95;
   margin: 0px;
-  z-index: -10000;
 }
 
 .mining-points {
