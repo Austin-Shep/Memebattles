@@ -10,6 +10,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/manager.css">
     <link rel="stylesheet" href="../styles/nav.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         <div class="navbar navbar-expand-lg navbar-dark justify-content-center ">
             <a class="navbar-brand" href="/manager">
                 <i class="fas fa-meteor"></i>
-                <span class="name-title">meme<b>manager</b></span>
+                <span class="name-title">meme<b class="font-bold">manager</b></span>
             </a>
         </div>
     </div>
@@ -32,13 +33,18 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown meme-nav-item">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                        aria-expanded="false"><b class="meme-email">{{user.email}}</b><span class="sr-only">(current)</span></a>
+                        aria-expanded="false"><b class="meme-email font-semi">{{user.email}}</b><span class="sr-only">(current)</span></a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/logout">Logout<span class="sr-only">(current)</span></a>
+                        <a class="dropdown-item font-reg" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link active meme-nav-item" href="/manager-buttons"><span class="sr-only">(current)</span>mining<b>Buttons</b></a>
+                    <a class="nav-item nav-link active meme-nav-item" href="/manager"><span class="sr-only">(current)</span>meme<b
+                            class="font-semi">create</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link active meme-nav-item" href="/manager-buttons"><span class="sr-only">(current)</span>mining<b
+                            class="font-semi">buttons</b></a>
                 </li>
             </ul>
         </div>
@@ -50,36 +56,36 @@
             </div>
             <div class="col-md-6">
                 <div class="card add-meme-card">
-                    <div class="card-body">
+                    <div class="card-body font-reg">
                         <form id="form" role="form" data-toggle="validator">
                             <div class="form-row">
-                                <label for="validationDefault01"><strong>Name</strong> </label>
+                                <label for="validationDefault01"><strong>NAME</strong> </label>
                                 <input type="text" class="form-control name" id="validationDefault01" placeholder="Doge"
                                     required>
-                                <label for="validationDefault02"><strong>Link to Meme</strong></label>
+                                <label for="validationDefault02"><strong>LINK TO MEME</strong></label>
                                 <input type="text" class="form-control link" id="validationDefault02" placeholder="Http://"
                                     required>
-                                <label for="validationDefault02"><strong>Power Level (1-10)</strong></label>
+                                <label for="validationDefault02"><strong>POWER LEVEL (1-10)</strong></label>
                                 <input type="text" class="form-control lvl" id="validationDefault02" placeholder="1-10"
                                     required>
-                                <label for="validationDefault02"><strong>Armor Class</strong></label>
+                                <label for="validationDefault02"><strong>ARMOR CLASS</strong></label>
                                 <input type="text" class="form-control ac" id="validationDefault02" placeholder="1"
                                     required>
-                                <label for="validationDefault02"><strong>Attack Power</strong></label>
+                                <label for="validationDefault02"><strong>ATTACK POWER</strong></label>
                                 <input type="text" class="form-control attack-power" id="validationDefault02"
                                     placeholder="50" required>
-                                <label for="validationDefault04"><strong>Health Points</strong></label>
+                                <label for="validationDefault04"><strong>HEALTH POINTS</strong></label>
                                 <input type="text" class="form-control health-points" id="validationDefault04"
                                     placeholder="100" required>
-                                <label for="validationDefault05"><strong>Cost</strong></label>
+                                <label for="validationDefault05"><strong>COST</strong></label>
                                 <input type="text" class="form-control cost" id="validationDefault05" placeholder="500"
                                     required>
-                                <label for="validationDefault06"><strong>Dice Value</strong></label>
+                                <label for="validationDefault06"><strong>DICE VALUES</strong></label>
                                 <input type="text" class="form-control dice-value" id="validationDefault06" placeholder="1"
                                     required>
                             </div>
                             <div class="container text-center">
-                                <button id="submit" class="btn btn-outline-light text-center" type="submit">+ <b>meme</b></button>
+                                <button id="submit" class="btn btn-outline-light text-center" type="submit">+ <b class="font-semi">meme</b></button>
                             </div>
                     </div>
                     </form>

@@ -50,3 +50,7 @@ input {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+strong {
+    text-shadow: 0px 0px 7px black;
+}

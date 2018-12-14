@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>home.</title>
+    <title>meme mart.</title>
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/nav.css">
     <link rel="stylesheet" href="../styles/home.css">
@@ -13,93 +13,104 @@
 
 <body>
     <div class="container">
-        <div class="navbar navbar-expand-lg navbar-dark justify-content-center ">
-            <a class="navbar-brand" href="/home">
-                <i class="fas fa-meteor"></i>
-                <span class="name-title">meme<b>battles</b></span>
-            </a>
+        <div class="container">
+            <div class="navbar navbar-expand-lg navbar-dark justify-content-center ">
+                <a class="navbar-brand" href="/home">
+                    <i class="fas fa-meteor"></i>
+                    <span class="name-title">meme<b class="font-bold">battles</b></span>
+                </a>
+            </div>
         </div>
-    </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark meme-nav">
-        <button class="navbar-toggler justify-content-center" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-lg navbar-dark meme-nav">
+            <button class="navbar-toggler justify-content-center" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown meme-nav-item">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                        aria-expanded="false"><b class="meme-email">{{page.user.email}}</b><span class="sr-only">(current)</span></a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/profile">Profile<span class="sr-only">(current)</span></a>
-                        <a class="dropdown-item purchased" href="/purchased">myMemes<span class="sr-only">(current)</span></a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/logout">Logout<span class="sr-only">(current)</span></a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link active" href="#">meme<b>Tokens: </b><span id="meme-points"></span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link active more-points meme-nav-item" href="/more-points">meme<b>Mining</b><span
-                            class="sr-only">(current)</span></a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown meme-nav-item">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                            aria-expanded="false"><b class="meme-email font-semi">{{page.user.email}}</b><span class="sr-only">(current)</span></a>
+                        <div class="dropdown-menu font-reg">
+                            <a class="dropdown-item" href="/profile">meme<b class="font-bold">profile</b><span class="sr-only">(current)</span></a>
+                            <a class="dropdown-item purchased" href="/purchased">meme<b class="font-bold">library</b><span
+                                    class="sr-only">(current)</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout">LOGOUT<span class="sr-only">(current)</span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link active font-med" href="#"><i class="fas fa-coins meme-tokens"></i>
+                            : <span id="meme-points"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link active meme-nav-item" href="/home">meme<b class="font-bold">mart</b><span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link active more-points meme-nav-item" href="/more-points">meme<b class="font-bold">mining</b><span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container text-center">
+            <h2 class="lead font-light">Shop for your memes here. <span class="font-bold-italic">Buy any memes
+                    necessary.</span></h2>
         </div>
-    </nav>
 
-    <div class="container text-center">
-        <h2 class="lead">Welcome to the meme<b>Mart</b>!! Shop for your memes here.</h2>
-    </div>
+        <div class="container">
+            <div class="form-check">
+                <form>
+                    <input type="radio" name="exampleRadios1" value="1"> Level 1
+                    <input type="radio" name="exampleRadios1" value="2"> Level 2
+                    <input type="radio" name="exampleRadios1" value="3"> Level 3
+                    <input type="radio" name="exampleRadios1" value="4"> Level 4
+                    <input type="radio" name="exampleRadios1" value="5"> Level 5
+                    <input type="radio" name="exampleRadios1" value="6"> Level 6
+                    <input type="radio" name="exampleRadios1" value="7"> Level 7
+                    <input type="radio" name="exampleRadios1" value="8"> Level 8
+                    <input type="radio" name="exampleRadios1" value="9"> Level 9
+                    <input type="radio" name="exampleRadios1" value="10"> Level 10
 
-    <div class="container">
-    <div class= "form-check">
-        <form>
-            <input type="radio" name="exampleRadios1" value="1"> Level 1
-            <input type="radio" name="exampleRadios1" value="2"> Level 2
-            <input type="radio" name="exampleRadios1" value="3"> Level 3
-            <input type="radio" name="exampleRadios1" value="4"> Level 4
-            <input type="radio" name="exampleRadios1" value="5"> Level 5
-            <input type="radio" name="exampleRadios1" value="6"> Level 6
-            <input type="radio" name="exampleRadios1" value="7"> Level 7
-            <input type="radio" name="exampleRadios1" value="8"> Level 8
-            <input type="radio" name="exampleRadios1" value="9"> Level 9
-            <input type="radio" name="exampleRadios1" value="10"> Level 10
-            
-            <input id="refreshButton" type="submit" value="Submit">
-        </form>
-    </div>
-    </div>
+                    <input id="refreshButton" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
 
-    <div class="container text-center">
-        <div class="row">
-            {{#each page.meme}}
-            <div class="col-md-4">
-                <div class="card text-center home-cards">
-                    <h2>{{this.name}}</h2>
+        <div class="container text-center">
+            <div class="row">
+                {{#each page.meme}}
+                <div class="col-md-4">
+                    <div class="card text-center home-cards font-reg">
+                        <h2 class="meme-title">{{this.name}}</h2>
 
-                    <div class="card-body">
-                        <img class="meme-link" src={{this.link}} alt="">
-                        <p>Health Points: {{this.health_points}}</p>
-                        <p>Attack Power: {{this.attack_power}}</p>
-                        <p>Cost: {{this.cost}}</p>
-                        <p>Dice Value: {{this.dice_value}}</p>
-                        <button type="button" class="btn btn-outline-dark buy" data-UserId={{this.id}} name="{{this.name}}"
-                            link={{this.link}} lvl={{this.lvl}} ac={{this.ac}} attack={{this.attack_power}} health={{this.health_points}}
-                            dice={{this.dice_value}} cost={{this.cost}} UserId="">Buy
-                            Meme</button>
+                        <div class="card-body">
+                            <img class="meme-link" src={{this.link}} alt="">
+                            <p class="meme-deets"><b class="meme-stats">HP</b> <i class="fas fa-heart"></i> :
+                                {{this.health_points}}</p>
+                            <p class="meme-deets"><b class="meme-stats">AP</b> <i class="fas fa-fist-raised"></i> :
+                                {{this.attack_power}}</p>
+                            <p class="meme-deets"><i class="fas fa-dice"></i> : {{this.dice_value}}</p>
+                            <br>
+                            <p><i class="fas fa-coins meme-card-tokens"></i> : <span class="meme-cost">{{this.cost}}</span></p>
+                            <button type="button" class="btn btn-outline-light buy" data-UserId={{this.id}} name="{{this.name}}"
+                                link={{this.link}} lvl={{this.lvl}} ac={{this.ac}} attack={{this.attack_power}} health={{this.health_points}}
+                                dice={{this.dice_value}} cost={{this.cost}} UserId=""><b>+
+                                    meme</b></button>
+                        </div>
                     </div>
                 </div>
+                {{/each}}
             </div>
-            {{/each}}
         </div>
-    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <script src="../js/home.js"></script>
+        <script src="../js/home.js"></script>
 </body>
 
 </html>

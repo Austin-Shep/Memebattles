@@ -30,7 +30,7 @@ $(document).ready(function () {
       //sets the text for how much money a user has
       $("#meme-points").text(currentPoints);
       //sets text for the users click power on the html page
-      $("#tokensPerClick").text("Tokens Per Click: " + tokensPerClick);
+      $("#tokensPerClick").html('<i class="fas fa-coins mining-tokens"></i> <span class="mining-text">per click</span> : ' + '<span class="mining-points">' + tokensPerClick + '</span>');
       //validation for the click buttons
       checkButtons(currentClickPower);
     });
