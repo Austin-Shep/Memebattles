@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="./styles/battle.css">
 <div class="container">
 <div id="selectScreen">
     <div class="row">
-        <div class="col-6">
+        <div class="col-4 offset-md-1">
             {{#each memes.enemies}}
-                <div class="card">
+                <div class="card selectCard">
                     <img src="{{this.link}}" alt="memeimg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title"></h5>
@@ -16,9 +17,9 @@
                 </div>
             {{/each}}
         </div>
-        <div class="col-6">
+        <div class="col-4  offset-md-2">
             {{#each memes.heros}}
-                <div class="card">
+                <div class="card selectCard">
                     <img src="{{this.link}}" alt="memeimg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title"></h5>

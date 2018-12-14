@@ -1,12 +1,6 @@
-#attackerBlock{ 
-
+.selectCard{
+    padding-top: 2rem;
 }
-#attackerStats{
-    
-}
-#defenderBlock{
-
-}
-#defenderStats{
-
+body{
+    background-color: rgb(59, 58, 58);
 }
