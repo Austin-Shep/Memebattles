@@ -103,3 +103,7 @@ p {
 .fa-coins:before {
   z-index: -10000;
 }
+
+.battle-dropdown {
+    background-color: #f0933c;
+}

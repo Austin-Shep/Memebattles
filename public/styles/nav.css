@@ -1,7 +1,3 @@
-.nav-bar {
-    z-index: 999;
-}
-
 .meme-nav-item::after {
     content: ' ';
     display: block;
@@ -35,8 +31,7 @@
 }
 
 .navbar-brand {
-    margin-top: 25px;
-    transition: 1s;
+    margin: 0;
 }
 
 .meme-nav {
@@ -77,53 +72,4 @@
 .meme-tokens {
     color: #f0933c;
     font-size: 20px;
-}
-
-
-/* SHADOW */
-.shady {
-    text-shadow: 0px 0px 10px black;
-}
-
-
-
-/* FONT STYLING */
-.font-bold {
-    font-family: "ChakraPetch-Bold";
-}
-
-.font-bold-italic {
-    font-family: "ChakraPetch-BoldItalic";
-}
-
-.font-semi {
-    font-family: "ChakraPetch-SemiBold";
-}
-
-.font-semi-italic {
-    font-family: "ChakraPetch-SemiBoldItalic";
-}
-
-.font-light {
-    font-family: "ChakraPetch-Light";
-}
-
-.font-light-italic {
-    font-family: "ChakraPetch-LightItalic";
-}
-
-.font-med {
-    font-family: "ChakraPetch-Medium";
-}
-
-.font-med-italic {
-    font-family: "ChakraPetch-MediumItalic";
-}
-
-.font-reg {
-    font-family: "ChakraPetch-Regular";
-}
-
-.font-italic {
-    font-family: "ChakraPetch-Italic";
 }

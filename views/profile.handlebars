@@ -18,7 +18,7 @@
 
 <body>
     <div class="container">
-        <div class="navbar navbar-expand-lg navbar-dark justify-content-center ">
+        <div class="navbar navbar-expand-lg navbar-dark justify-content-center">
             <a class="navbar-brand" href="/home">
                 <i class="fas fa-meteor"></i>
                 <span class="name-title">meme<b class="font-bold">battles</b></span>
@@ -57,6 +57,24 @@
                     <a class="nav-item nav-link active more-points meme-nav-item" href="/more-points">meme<b class="font-bold">mining</b><span
                             class="sr-only">(current)</span></a>
                 </li>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle battle-dropdown shady" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">meme<b class="font-bold">battle</b>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="../battle/select/1" value="1">Lv. 1</a>
+                        <a class="dropdown-item" href="../battle/select/2" value="2" link="/battle/select/2">Lv.
+                            2</a>
+                        <a class="dropdown-item" href="../battle/select/3" value="3">Lv. 3</a>
+                        <a class="dropdown-item" href="../battle/select/4" value="4">Lv. 4</a>
+                        <a class="dropdown-item" href="../battle/select/5" value="5">Lv. 5</a>
+                        <a class="dropdown-item" href="../battle/select/6" value="6">Lv. 6</a>
+                        <a class="dropdown-item" href="../battle/select/7" value="7">Lv. 7</a>
+                        <a class="dropdown-item" href="../battle/select/8" value="8">Lv. 8</a>
+                        <a class="dropdown-item" href="../battle/select/9" value="9">Lv. 9</a>
+                        <a class="dropdown-item" href="../battle/select/10" value="10">Lv. 10</a>
+                    </div>
+                </div>
             </ul>
         </div>
     </nav>
@@ -74,28 +92,31 @@
             <div class="col-6 col-md-4">
 
                 <div class="card card-profile" style="width: 22rem;">
-                    <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
+                    <img class="card-img-top font-semi-italic" src="{{user.avatar}}" alt="Finding meme-mo...">
 
-                    <form class="avatarAdd">
-                    <label for="validationDefault01">Choose a Avatar </label>
-                    <input type="text" class="form-control name" id="profileAvatar" placeholder="httl://" required>
-                    <button id="submitPa" class="btn btn-outline-light text-center" type="submit">+ <b>Avatar me!</b></button>
+                    <form class="avatarAdd font-light text-center">
+                        <label class="add-avatar" for="validationDefault01">update meme<b class="font-bold">avatar</b>
+                            :</label>
+                        <input type="text" class="form-control name" id="profileAvatar" placeholder="httl://" required>
+                        <button id="submitPa" class="btn btn-outline-light meme-avatar-btn" type="submit">+ meme<b
+                                class="font-bold">avatar</b></button>
                     </form>
 
-                    <div class="card-body">
+                    {{!-- <div class="card-body">
                         <h5 class="card-title shady">Greetings meme<b class="font-bold">battler</b>.</h5>
                         <p class="card-text font-light-italic">"An eye for an eye. A
                             meme for a meme."</p>
-                    </div>
+                    </div> --}}
                     <ul class="list-group list-group-flush">
                         {{!-- <li class="list-group-item">
                             <p><b>Id:</b> {{user.id}}</p>
                         </li> --}}
                         <li class="list-group-item shady">
                             <p><b class="font-bold">EMAIL:</b> <span class="meme-email font-semi">{{user.email}}</span></p>
-                        <li class="list-group-item">
-                            {{!-- <p>Current Level: {{user.level}}</p> --}}
                         </li>
+                        {{!-- <li class="list-group-item">
+                            <p>Current Level: {{user.level}}</p>
+                        </li> --}}
                         <li class="list-group-item shady">
                             <p>meme<b class="font-bold">tokens <i class="fas fa-coins meme-tokens"></i>
                                     : </b> <span class="token-points">{{user.points}}</span></p>
@@ -113,32 +134,6 @@
             </div>
             <div class="col-12 col-md-8">
 
-                <div class="card topdog card-profile">
-                    <div class="card-header"><b class="font-bold">BATTLE STATION</b>
-                    </div>
-                    <div class="card-body">
-                        {{!-- <h5 class="card-title">Meme of the line!</h5> --}}
-                        <p class="card-text">Choose a level to start:</p>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle battle-dropdown shady" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Start a meme<b class="font-bold">battle</b>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="../battle/select/1" value="1">Lv. 1</a>
-                                <a class="dropdown-item" href="../battle/select/2" value="2" link="/battle/select/2">Lv.
-                                    2</a>
-                                <a class="dropdown-item" href="../battle/select/3" value="3">Lv. 3</a>
-                                <a class="dropdown-item" href="../battle/select/4" value="4">Lv. 4</a>
-                                <a class="dropdown-item" href="../battle/select/5" value="5">Lv. 5</a>
-                                <a class="dropdown-item" href="../battle/select/6" value="6">Lv. 6</a>
-                                <a class="dropdown-item" href="../battle/select/7" value="7">Lv. 7</a>
-                                <a class="dropdown-item" href="../battle/select/8" value="8">Lv. 8</a>
-                                <a class="dropdown-item" href="../battle/select/9" value="9">Lv. 9</a>
-                                <a class="dropdown-item" href="../battle/select/10" value="10">Lv. 10</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="card card-profile">
                     {{!-- <div class="card-header">
 

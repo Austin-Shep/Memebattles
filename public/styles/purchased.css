@@ -22,7 +22,7 @@ body {
 
 .card {
     width: 100%;
-    height: 480px;
+    height: 500px;
     float: left;
     color: whitesmoke;
     background-color: #f0933c;
@@ -67,6 +67,7 @@ img {
 }
 
 .fa-fist-raised,
+.fa-shield-alt,
 .fa-heart {
     font-size: 20px;
     margin-top: 5px;
@@ -102,4 +103,8 @@ img {
 .filter-lvl-button-lib {
     margin: 10px;
     color: #f0933c;
+}
+
+.battle-dropdown {
+    background-color: #f0933c;
 }
