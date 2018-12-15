@@ -41,7 +41,6 @@ $(document).ready(function () {
         // If there's an error, log the error
       })
       .catch(function (err) {
-        console.log(err);
         if (err.status == 401) {
           alert("INCORRECT OR UNKNOWN EMAIL/PASSWORD COMBINATION. PLEASE TRY AGAIN OR MAKE A NEW ACCOUNT.");
         }

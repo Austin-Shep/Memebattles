@@ -25,8 +25,6 @@ module.exports = function(app) {
   app.post("/api/manager", function(req, res) {
     //send this data to the meme table
     db.Memes.create(req.body).then(function(data) {
-      console.log("================================");
-      console.log(data);
       res.json(data);
     });
   });
@@ -45,7 +43,6 @@ module.exports = function(app) {
         id: req.user.id
       }
     }).then(function(data) {
-      console.log(data);
       res.json(data);
     });
   });
@@ -82,7 +79,6 @@ module.exports = function(app) {
   });
   //allows us to update the currently signed in users points
   app.put("/api/user/id", function(req, res) {
-    console.log(req.body);
     db.User.update(
       {
         points: req.body.points
@@ -138,10 +134,6 @@ module.exports = function(app) {
   });
   //this route handles upgrading the click power
   app.put("/upgrade-click", function(req, res) {
-    console.log("\n\n\n\n\n\n\n");
-    console.log("clickPower");
-    console.log(req.body.clickPower);
-
     db.User.update(
       {
         clickPower: req.body.clickPower,
@@ -170,7 +162,6 @@ module.exports = function(app) {
   });
   //creates a new upgradable button
   app.post("/api/manager-click-check", function(req, res) {
-    console.log(req.body);
     db.ClickerUpgrades.create(req.body).then(function(data) {
       res.json(data);
     });
@@ -229,8 +220,8 @@ module.exports = function(app) {
   app.put("/api/user/wins", function(req, res) {
     db.User.update(
       {
-        points: req.body.points,
-        wins: req.body.points
+        wins: req.body.wins,
+        points: req.body.points
       },
       {
         where: {
@@ -246,7 +237,7 @@ module.exports = function(app) {
     db.User.update(
       {
         points: req.body.points,
-        loss: req.body.points
+        loss: req.body.loss
       },
       {
         where: {
