@@ -21,7 +21,7 @@ var avatarAdd = $("form.avatarAdd");
 var PaInput = $("input#profileAvatar");
 
 // When the signup button is clicked, we validate the email and password are not blank
-avatarAdd.on("submitPa", function (event) {
+avatarAdd.on("submit", function (event) {
       event.preventDefault();
       if (!userData.avatar) {
         return;
