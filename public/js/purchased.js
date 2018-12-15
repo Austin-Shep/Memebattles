@@ -21,25 +21,22 @@ var avatarAdd = $("form.avatarAdd");
 var PaInput = $("input#profileAvatar");
 
 // When the signup button is clicked, we validate the email and password are not blank
-avatarAdd.on("submitPa", function(event) {
+avatarAdd.on("submit", function(event) {
   event.preventDefault();
-  if (!userData.avatar) {
-    return;
-  }
   var userData = {
     avatar: PaInput.val().trim()
   }; 
+  if (!userData.avatar) {
+    return;
+  }
 
     $.ajax({
-      url: "/api/get-current-user-points",
+      url: "/api/user/avatar",
       type: "PUT",
       data: userData
     }).then(function(data) {
       console.log(`avatar updated with ${data[0].avatar}`)
     }
-
-  // If we have an avatar address, run the signUpUser function
-  PaInput.val("");
 });
 
 //// for profile survey from https://surveyjs.io/Examples/Builder/

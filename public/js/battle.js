@@ -175,7 +175,7 @@ $(document).ready(function() {
     $(`#hp-${pos}`).text(`Hp: ${meme.hp}`);
     $(`#name-${pos}`).text(meme.name);
     $(`#ac-${pos}`).text(`Ac: ${meme.ac}`);
-    $(`#ap-${pos}`).text(`roll: 1d${meme.diceVal}+${meme.ap}`);
+    $(`#ap-${pos}`).text(`Roll: 1d${meme.diceVal}+${meme.ap}`);
   }
   //called each turn to post the current hp
   function updateHP(meme, pos) {
