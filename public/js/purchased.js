@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
   //on page load, get the id so we can assign it to all the nav bars
   getId();
 
   function getId() {
     $.ajax("/api/user/id", {
       type: "GET"
-    }).then(function(user) {
+    }).then(function (user) {
       $("#meme-points").text(user[0].points);
     });
   }
@@ -17,7 +17,7 @@ var avatarAdd = $("form.avatarAdd");
 var PaInput = $("input#profileAvatar");
 
 // When the signup button is clicked, we validate the email and password are not blank
-avatarAdd.on("submit", function(event) {
+avatarAdd.on("submit", function (event) {
   event.preventDefault();
   var userData = {
     avatar: PaInput.val().trim()
@@ -30,8 +30,8 @@ avatarAdd.on("submit", function(event) {
     url: "/api/user/avatar",
     type: "PUT",
     data: userData
-  }).then(function(data) {
-    console.log(`avatar updated with ${data[0].avatar}`);
+  }).then(function (data) {
+    location.reload();
   });
 });
 

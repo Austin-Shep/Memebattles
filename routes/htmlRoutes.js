@@ -42,7 +42,9 @@ module.exports = function (app) {
     //remember to store the id variable somewhere
     var meme;
     var user;
-    db.Memes.findAll().then(function (data) {
+    db.Memes.findAll({
+      order: [["cost", "ASC"]]
+    }).then(function (data) {
 
       meme = data;
       db.User.findOne({
@@ -67,7 +69,9 @@ module.exports = function (app) {
     db.Memes.findAll({
       where: {
         lvl: req.params.lvl
-      }
+      },
+      order: [["cost", "ASC"]]
+
     }).then(function (data) {
 
       meme = data;
