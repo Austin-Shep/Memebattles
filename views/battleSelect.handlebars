@@ -1,47 +1,64 @@
 <link rel="stylesheet" href="../../styles/battle.css">
+<link rel="stylesheet" href="../../styles/styles.css">
 
-<div class="container d-flex">
+<div class="container">
     <div id="selectScreen">
-        <h1 class="name-title text-center">CHOOSE YOUR CONTENDERS</h1>
+        <h1 class="name-title text-center font-bold">CHOOSE YOUR CONTENDERS</h1>
         <hr>
         <div class="row">
-            <div class="col-4 offset-md-1">
-                <h3 class="text-center">HEROS</h3>
+            <div class="col-1">
+            </div>
+            <div class="col-4 text-center">
+                <h3 class="text-center font-reg shady">BATTLE<b class="font-bold">MEMES</b></h3>
                 <hr>
                 {{#each memes.heros}}
-                <div class="card selectCard">
-                    <h4 class="card-title text-center">{{this.name}}</h5>
+                <div class="card selectCard font-reg shady">
+                    <h4 class="card-title text-center">{{this.name}}</h4>
+                    <div class="card-body">
                         <img src="{{this.link}}" alt="memeimg" class="card-img-top">
-                        <div class="card-body">
-                            <ul class="card-text">
-                                <li>HEALTH POINTS: {{this.health_points}}</li>
-                                <li>ARMOR CLASS: {{this.ac}}</li>
-                                <li>ATTACK DICE: 1d{{this.dice_value}}</li>
-                                <li>ATTACK POWER: +{{this.attack_power}}</li>
-                            </ul>
-                            <a id="{{this.id}}" class="fighterSelect btn btn-primary btn-block">LET ME FIGHT FOR YOU!</a>
-                        </div>
+                        <p class="meme-deets"><b class="meme-lvl font-bold">LEVEL</b> :
+                            {{this.lvl}}</p>
+                        <p class="meme-deets"><b class="meme-stats">HP</b> <i class="fas fa-heart"></i> :
+                            {{this.health_points}}</p>
+                        <p class="meme-deets"><b class="meme-stats">AP</b> <i class="fas fa-fist-raised"></i> :
+                            {{this.attack_power}}</p>
+                        <p class="meme-deets"><b class="meme-stats">AC</b> <i class="fas fa-shield-alt"></i> :
+                            {{this.ac}}</p>
+                        <p class="meme-deets"><i class="fas fa-dice"></i> : {{this.dice_value}}</p>
+                        <br>
+                        <a id="{{this.id}}" class="fighterSelect btn btn-outline-dark btn-block">PICK THIS BATTLE<b
+                                class="font-bold">MEME</b></a>
+                    </div>
                 </div>
                 {{/each}}
             </div>
-            <div class="col-4  offset-md-2">
-                <h3 class="text-center">ENEMIES</h3>
+            <div class="col-2">
+                <h3 class="text-center font-bold">VS</h3>
+            </div>
+            <div class="col-4 text-center">
+                <h3 class="text-center font-light shady">ENE<b class="font-bold">MEMES</b></h3>
                 <hr>
                 {{#each memes.enemies}}
-                <div class="card selectCard">
-                    <h4 class="card-title text-center">{{this.name}}</h5>
-                        <img src="{{this.link}}" alt="memeimg" class="card-img-top">
-                        <div class="card-body">
-                            <ul class="card-text">
-                                <li>HEALTH POINTS: {{this.health_points}}</li>
-                                <li>ARMOR CLASS: {{this.ac}}</li>
-                                <li>ATTACK DICE: 1d{{this.dice_value}}</li>
-                                <li>ATTACK POWER: +{{this.attack_power}}</li>
-                            </ul>
-                            <a id="{{this.id}}" class="defendSelect btn btn-primary btn-block">FIGHT ME!</a>
-                        </div>
+                <div class="card select-enemy-Card font-reg shady">
+                    <h4 class="card-title text-center">{{this.name}}</h4>
+                    <div class="card-body">
+                        <img src="{{this.link}}" alt="memeimg" class="text-center">
+                        <p class="meme-deets"><b class="meme-lvl font-bold">LEVEL</b> :
+                            {{this.lvl}}</p>
+                        <p class="meme-deets"><b class="meme-stats">HP</b> <i class="fas fa-heart"></i> :
+                            {{this.health_points}}</p>
+                        <p class="meme-deets"><b class="meme-stats">AP</b> <i class="fas fa-fist-raised"></i> :
+                            {{this.attack_power}}</p>
+                        <p class="meme-deets"><b class="meme-stats">AC</b> <i class="fas fa-shield-alt"></i> :
+                            {{this.ac}}</p>
+                        <p class="meme-deets"><i class="fas fa-dice"></i> : {{this.dice_value}}</p>
+                        <br>
+                        <a id="{{this.id}}" class="defendSelect btn btn-outline-dark btn-block">FIGHT THIS ENE<b class="font-bold">MEME</b></a>
+                    </div>
                 </div>
                 {{/each}}
+            </div>
+            <div class="col-1">
             </div>
         </div>
     </div>
@@ -53,61 +70,76 @@
         </div>
         <div class="col-md-4">
             <div class="card enemy-stats-card" id="defenderStats">
-                <h4 class="card-title" id="name-En"></h4>
-                <p class="card-text" id="hp-En"></p>
-                <p class="card-text" id="ac-En"></p>
-                <p class="card-text" id="ap-En"></p>
+                <div class="card-body font-reg en-shady">
+                    <h6 class="text-center font-light shady">ENE<b class="font-bold">MEME</b> :</h6>
+                    <h4 class="card-title font-bold" id="name-En"></h4>
+                    <p class="card-text" id="hp-En"></p>
+                    <p class="card-text" id="ac-En"></p>
+                    <p class="card-text" id="ap-En"></p>
+                </div>
             </div>
         </div>
         <div class="col-md-4">
-            <img class="enemy-battle-img" id="imgPost-En" src="" alt="enemy img">
+            <div class="card en-img-card">
+                <div class="card-body">
+                    <img class="enemy-battle-img" id="imgPost-En" src="" alt="enemy img">
+                </div>
+            </div>
         </div>
     </div>
     <div class="row attack-btn-row">
         <div class="col-md-4">
         </div>
         <div class="col-md-4">
-            <a id="attackButton" class="btn-lg btn-primary">ATTACK!</a>
+            <a id="attackButton" class="btn btn-outline-light btn-block"><i class="fas fa-fist-raised battle-fist"></i></a>
         </div>
         <div class="col-md-4">
         </div>
     </div>
     <div class="row user-row">
         <div class="col-md-4">
-            <img id="imgPost-He" src="" alt="hero img">
-        </div>
-        <div class="col-md-4">
-            <div class="card" id="attackerStats">
-                <h4 class="card-title" id="name-He"></h4>
-                <p class="card-text" id="hp-He"></p>
-                <p class="card-text" id="ac-He"></p>
-                <p class="card-text" id="ap-He"></p>
+            <div class="card us-img-card">
+                <div class="card-body">
+                    <img class="user-battle-img" id="imgPost-He" src="" alt="hero img">
+                </div>
             </div>
         </div>
         <div class="col-md-4">
+            <div class="card user-stats-card" id="attackerStats">
+                <div class="card-body font-reg us-shady">
+                    <h6 class="text-center font-light shady">BATTLE<b class="font-bold">MEME</b> :</h6>
+                    <h4 class="card-title font-bold" id="name-He"></h4>
+                    <p class="card-text" id="hp-He"></p>
+                    <p class="card-text" id="ac-He"></p>
+                    <p class="card-text" id="ap-He"></p>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="col-md-4">
+    </div>
+</div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="winlossPost">{{!-- You won/lost! --}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        <li id="expPost">{{! this is where the exp gain/loss is posted}}</li>
-                        <li id="coinPost">{{! this is where the coin loss/gain is posted}}</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="postBattleDismiss">Done</button>
-                    {{!this should redirect to the meme page?}}
-                </div>
+<!-- Modal -->
+<div class="modal fade font-bold" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="winlossPost">{{!-- You won/lost! --}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body font-reg">
+                <ul>
+                    <li id="expPost">{{! this is where the exp gain/loss is posted}}</li>
+                    <li id="coinPost">{{! this is where the coin loss/gain is posted}}</li>
+                    <li id="coinPostTotal">{{! this is where the coin loss/gain is posted}}</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" id="postBattleDismiss">DONE</button>
+                {{!this should redirect to the meme page?}}
             </div>
         </div>
     </div>
