@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
   $("#form")
     .validator()
-    .on("submit", function(e) {
+    .on("submit", function (e) {
       if (e.isDefaultPrevented()) {
         // handle the invalid form...
       } else {
@@ -39,10 +39,10 @@ $(document).ready(function() {
         $.ajax("/api/manager", {
           type: "POST",
           data: meme
-        }).then(function(data) {
+        }).then(function (data) {
           console.log(data);
-          alert("Meme added to database");
-          setTimeout(function() {
+          alert("MEME ADDED TO DATABASE.");
+          setTimeout(function () {
             location.reload();
           }, 1000);
         });

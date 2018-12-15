@@ -1,6 +1,6 @@
 .card {
     color: whitesmoke;
-    background-color: rgb(114, 114, 114);
+    background-color: rgb(89, 73, 158);
     margin: 0px 15px 15px 15px;
     /* border-radius: 150px 3px 150px 3px;
     -moz-border-radius: 150px 3px 150px 3px;
@@ -19,7 +19,8 @@
 
 .list-group,
 .list-group-item {
-    background-color: rgb(114, 114, 114);
+    /* background-color: rgb(114, 114, 114); */
+    background-color: rgb(89, 73, 158);
 }
 
 .card-link {
@@ -35,4 +36,8 @@
     font-size: 25px;
     margin: 0;
     margin-top: 70px;
+}
+
+.battle-dropdown {
+    background-color: #f0933c;
 }

@@ -186,6 +186,21 @@ module.exports = function(app) {
     });
   });
 
+  app.put("/api/user/avatar", function(req, res) {
+    db.User.update(
+      {
+        avatar: req.body.avatar
+      },
+      {
+        where: {
+          id: req.user.id
+        }
+      }
+    ).then(function(data) {
+      res.json(data);
+    });
+  });
+
   //=====================================BATTLE STUFFFFFFFF====================//////////////////
   //used to grab the enemy meme from the battle select screen, queries the whole meme database
   app.get("/combatants/:opId", function(req, res) {
