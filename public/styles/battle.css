@@ -6,18 +6,11 @@
 
 .selectCard {
     width: 100%;
-    height: 500px;
-    /* float: left; */
+    height: 550px;
     color: whitesmoke;
     background-color: #f0933c;
     padding: 30px;
     margin: 0px 0px 50px 0px;
-    /* border-radius: 150px 3px 150px 3px;
-    -moz-border-radius: 150px 3px 150px 3px;
-    -webkit-border-radius: 150px 3px 150px 3px; */
-    /* -webkit-box-shadow: -12px 14px 28px 0px rgba(26,26,26,1);
-    -moz-box-shadow: -12px 14px 28px 0px rgba(26,26,26,1);
-    box-shadow: -12px 14px 28px 0px rgba(26,26,26,1); */
     -webkit-box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
     box-shadow: -5px 4px 35px 0px rgba(0,0,0,0.75);
@@ -27,21 +20,53 @@ h3{
 
 }
 img {
-    width: 100%;
-    height: auto;
+    width: 250px;
+    height: 250px;
     margin-bottom: 20px;
     -webkit-box-shadow: -7px 7px 54px -6px rgba(0,0,0,0.75);
     -moz-box-shadow: -7px 7px 54px -6px rgba(0,0,0,0.75);
     box-shadow: -7px 7px 54px -6px rgba(0,0,0,0.75);
 }
+
 ul{
     list-style: none;
 }
+
 body{
     background-color: rgb(59, 58, 58);
 }
+
 .defendSelect, .fighterSelect {
     background-color: #30afc5;
     border-color: #f0933c;
 
+}
+
+/* BATTLE IMG */
+.enemy-battle-img {
+    margin-top: 20px;
+}
+
+/* BATTLE BUTTON */
+#attackButton {
+    font-size: 20px;
+}
+
+/* BATTLE CARDS */
+.enemy-stats-card {
+    margin-top: 123px;
+}
+
+
+/* BATTLE ROWS */
+.enemy-row {
+    margin: 10px;
+}
+
+.attack-btn-row {
+    margin: 50px;
+}
+
+.user-row {
+    margin: 10px;
 }
