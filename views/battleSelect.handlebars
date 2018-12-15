@@ -46,41 +46,47 @@
         </div>
     </div>
 </div>
-    <div id="battleScreen" style="display: none; width:100%; height: 100%;">
-        <div class="container-fluid">
-        <div class="row d-flex flex-row-reverse">
-            <div class="col-8 offset-md-4 align-self-start">
-                <div class="col-4 offset-md-8 float-right">
-                    <img id="imgPost-En" src="" alt="enemy img">
-                </div>
-                <div class="card col-4 float-left" id="defenderStats">
-                    <h4 class="card-title" id="name-En"></h4>
-                    <p class="card-text" id="hp-En"></p>
-                    <p class="card-text" id="ac-En"></p>
-                    <p class="card-text" id="ap-En"></p>
-                </div>
+
+<div id="battleScreen" class="container text-center" style="display: none; width:100%; height: 100%;">
+    <div class="row enemy-row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div class="card enemy-stats-card" id="defenderStats">
+                <h4 class="card-title" id="name-En"></h4>
+                <p class="card-text" id="hp-En"></p>
+                <p class="card-text" id="ac-En"></p>
+                <p class="card-text" id="ap-En"></p>
             </div>
         </div>
-
-        <div class="row justify-content-md-center" style="padding: 10px 0;">
-            <a id="attackButton" class="btn-lg btn-primary">ATTACK!</a>
-        </div>
-
-        <div class="row d-flex flex-row">
-            <div class="col-md-8 fixed-bottom">
-                <div class="card col-4 float-right" id="attackerStats">
-                    <h4 class="card-title" id="name-He"></h4>
-                    <p class="card-text" id="hp-He"></p>
-                    <p class="card-text" id="ac-He"></p>
-                    <p class="card-text" id="ap-He"></p>
-                </div>
-                <div class="col-4">
-                    <img id="imgPost-He" src="" alt="hero img">
-                </div>
-            </div>
+        <div class="col-md-4">
+            <img class="enemy-battle-img" id="imgPost-En" src="" alt="enemy img">
         </div>
     </div>
-
+    <div class="row attack-btn-row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <a id="attackButton" class="btn-lg btn-primary">ATTACK!</a>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+    <div class="row user-row">
+        <div class="col-md-4">
+            <img id="imgPost-He" src="" alt="hero img">
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="attackerStats">
+                <h4 class="card-title" id="name-He"></h4>
+                <p class="card-text" id="hp-He"></p>
+                <p class="card-text" id="ac-He"></p>
+                <p class="card-text" id="ap-He"></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
@@ -106,4 +112,5 @@
         </div>
     </div>
 </div>
+
 <script src="../../js/battle.js"></script>
