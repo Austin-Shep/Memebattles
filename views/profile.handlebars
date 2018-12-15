@@ -77,9 +77,9 @@
                     <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
 
                     <form class="avatarAdd">
-                    <label for="validationDefault01">Choose a Avatar </label>
-                    <input type="text" class="form-control name" id="profileAvatar" placeholder="httl://" required>
-                    <button id="submitPa" class="btn btn-outline-light text-center" type="submit">+ <b>Avatar me!</b></button>
+                        <label for="validationDefault01">Choose a Avatar </label>
+                        <input type="text" class="form-control name" id="profileAvatar" placeholder="httl://" required>
+                        <button id="submitPa" class="btn btn-outline-light text-center" type="submit">+ <b>Avatar me!</b></button>
                     </form>
 
                     <div class="card-body">
@@ -171,8 +171,9 @@
                     
                     <div class="card-body">
                         {{!-- <h5 class="card-title"></h5> --}}
-                        <p class="card-text font-light"><b class="font-bold">TOTAL WINS:</b>
-                            {{user.wins}}
+
+                        <p class="card-text font-light"><b class="font-bold">TOTAL WINS:</b> {{user.wins}}
+                            {{!-- {{user.wins}} --}}
                         </p>
                     </div>
                 </div>
@@ -182,8 +183,10 @@
                     </div> --}}
                     <div class="card-body">
                         {{!-- <h5 class="card-title"></h5> --}}
-                        <p class="card-text font-light"><b class="font-bold">TOTAL LOSSES:</b>
-                            {{user.loss}}
+
+                        <p class="card-text font-light"><b class="font-bold">TOTAL LOSSES:</b> {{user.loss}}
+                            {{!-- {{user.losses}} --}}
+
                         </p>
                     </div>
                 </div>
