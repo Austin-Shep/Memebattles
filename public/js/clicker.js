@@ -11,7 +11,6 @@ $(document).ready(function () {
   $(".click-upgrade").on("click", function () {
     //stores the button clicked in an object and passses it to function so it can be referenced
     var currentClickedButton = $(this);
-    console.log("test");
     //executes the buying process with validation
     buyClickerUpgrade(currentClickedButton);
   });
@@ -99,7 +98,6 @@ $(document).ready(function () {
           data: upgradeClickPower
         }).then(function (data) {
           //now we are going to do an association so that click belongs to the user
-          console.log(data);
           var purchasedPointUpgrade = {
             clickPower: currentClickedButton.attr("data-clickPower"),
             morePerClick: currentClickedButton.attr("data-morePerClick"),
@@ -137,7 +135,6 @@ $(document).ready(function () {
         if (morePoints === 0) {
           morePoints = 0.01;
         }
-        console.log(morePoints);
         //adds points per click to the users current points
         currentPoints += morePoints;
         //store points as an object because that is how the req.body accepts variables

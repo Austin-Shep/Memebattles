@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  console.log("test");
-
   //on page load, get the id so we can assign it to all the nav bars
   getId();
 
@@ -8,8 +6,6 @@ $(document).ready(function() {
     $.ajax("/api/user/id", {
       type: "GET"
     }).then(function(user) {
-      console.log(user[0].id);
-
       $("#meme-points").text(user[0].points);
     });
   }
@@ -21,25 +17,22 @@ var avatarAdd = $("form.avatarAdd");
 var PaInput = $("input#profileAvatar");
 
 // When the signup button is clicked, we validate the email and password are not blank
-avatarAdd.on("submitPa", function(event) {
+avatarAdd.on("submit", function(event) {
   event.preventDefault();
+  var userData = {
+    avatar: PaInput.val().trim()
+  };
   if (!userData.avatar) {
     return;
   }
-  var userData = {
-    avatar: PaInput.val().trim()
-  }; 
 
-    $.ajax({
-      url: "/api/get-current-user-points",
-      type: "PUT",
-      data: userData
-    }).then(function(data) {
-      console.log(`avatar updated with ${data[0].avatar}`)
-    }
-
-  // If we have an avatar address, run the signUpUser function
-  PaInput.val("");
+  $.ajax({
+    url: "/api/user/avatar",
+    type: "PUT",
+    data: userData
+  }).then(function(data) {
+    console.log(`avatar updated with ${data[0].avatar}`);
+  });
 });
 
 //// for profile survey from https://surveyjs.io/Examples/Builder/

@@ -40,7 +40,6 @@ $(document).ready(function () {
           type: "POST",
           data: meme
         }).then(function (data) {
-          console.log(data);
           alert("MEME ADDED TO DATABASE.");
           setTimeout(function () {
             location.reload();

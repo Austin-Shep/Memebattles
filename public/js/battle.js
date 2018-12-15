@@ -13,10 +13,8 @@ $(document).ready(function() {
         url: "/api/get-current-user-points",
         type: "GET"
       }).then(function(data) {
-        console.log("got current values on win");
         var currentWins = parseFloat(data[0].wins);
         currentWins += 1;
-        console.log(`current profile wins: ${currentWins}`);
 
         var currentPoints = parseFloat(data[0].points);
         var pointChange = attackMeme.expCoinGain(defendMeme);
@@ -26,7 +24,6 @@ $(document).ready(function() {
           wins: currentWins,
           points: currentPoints
         };
-        console.log(update);
 
         $.ajax({
           url: "/api/user/wins",
@@ -34,13 +31,12 @@ $(document).ready(function() {
           data: update
         }).then(function(data) {
           /*modal stuff */
-          console.log("updated currency after wins");
+
           $("#winlossPost").text("YOU WON!");
           $("#expPost").text(`TOTAL WINS: ${currentWins}`);
           $("#coinPost").text(`POINTS WON: ${pointChange}
           NEW TOTAL POINTS: ${currentPoints}`);
           $("#myModal").modal("toggle");
-          console.log("triggered modal on win");
         });
       });
     },
@@ -50,10 +46,8 @@ $(document).ready(function() {
         url: "/api/get-current-user-points",
         type: "GET"
       }).then(function(data) {
-        console.log("got current values on loss");
         var currentLoss = parseFloat(data[0].loss);
         currentLoss += 1;
-        console.log(`current profile loss: ${currentLoss}`);
 
         var currentPoints = parseFloat(data[0].points);
         var pointChange = attackMeme.expCoinGain(defendMeme);
@@ -63,25 +57,21 @@ $(document).ready(function() {
           loss: currentLoss,
           points: currentPoints
         };
-        console.log(update);
 
         $.ajax({
           url: "/api/user/loss",
           type: "PUT",
           data: update
         }).then(function(data) {
-          console.log("updated currency on loss");
           $.ajax({
             url: `/api/user/memes/${attackMeme.id}`,
             type: "DELETE"
           }).then(function(data) {
-            console.log("deleted meme after loss");
             $("#winlossPost").text("YOU LOST!");
             $("#expPost").text(`TOTAL LOSSES: ${currentLoss}`);
             $("#coinPost").text(`POINTS LOST: ${pointChange}
           NEW TOTAL POINTS: ${currentPoints}`);
             $("#myModal").modal("toggle");
-            console.log("triggered modal on loss"); //modal stuff
           });
         });
       });
@@ -118,36 +108,32 @@ $(document).ready(function() {
     confirm(target) {
       //to confirm your hit, you roll a 20 sided dice and add your Attack Power(AP) to see if you can get higher than the opponents Armor Class(ac)
       let confirmVal = this.diceroll(20) + this.ap;
-      console.log(`value to beat: ${target.ac}`, `confirm roll: ${confirmVal}`);
       //conditional to check and see if you beat the targets Armor Class (ac).
       if (confirmVal >= target.ac) {
         //grab the damage value from the dmg() function
         var thisAttk = this.dmg();
         //console.log it for transparency
-        console.log(`${this.name} dealt ${thisAttk} damage!`);
+
         //subtract this attack from the targets hp
         target.hp -= thisAttk;
       } else {
         //unless you miss, should probably display all this info somewhere onscreen instead of just in the console
-        console.log(`${this.name} missed!`);
       }
     }
 
     //used to determine how many coins and how much exp you get
     expCoinGain(target) {
       var newValue = Math.pow(target.lvl, 2) + 8 * this.diceroll(10);
-      console.log(`coins value ${newValue}`);
+
       return newValue;
     }
     //this method will set of the callback chain that happens after the user loses, first it delets the meme you lost with, then it updates your profiles currency, then it redirects you to the profile page.
     concede() {
-      console.log("you lost!");
       API.pointsOnLoss();
     } //end of this.concede()
 
     //the method that sets off the callback chain for when the user wins
     win() {
-      console.log("You win!");
       API.winsCoinsOnWin();
     }
   }
@@ -175,7 +161,7 @@ $(document).ready(function() {
     $(`#hp-${pos}`).text(`Hp: ${meme.hp}`);
     $(`#name-${pos}`).text(meme.name);
     $(`#ac-${pos}`).text(`Ac: ${meme.ac}`);
-    $(`#ap-${pos}`).text(`roll: 1d${meme.diceVal}+${meme.ap}`);
+    $(`#ap-${pos}`).text(`Roll: 1d${meme.diceVal}+${meme.ap}`);
   }
   //called each turn to post the current hp
   function updateHP(meme, pos) {
@@ -188,7 +174,6 @@ $(document).ready(function() {
       $.ajax(`/heros/${id}`, {
         type: "GET"
       }).then(function(meme) {
-        console.log(`attack meme ${JSON.stringify(meme)}`);
         //build your fighter
         attackMeme = new Meme(
           meme.id,
@@ -202,7 +187,6 @@ $(document).ready(function() {
           true
         );
         //console.log the choice
-        console.log(attackMeme);
         //set boolean to true so the game can start
         heroSelected = true;
         //check run to see if the game can start
@@ -219,7 +203,6 @@ $(document).ready(function() {
       $.ajax(`/combatants/${id}`, {
         type: "GET"
       }).then(function(meme) {
-        console.log(`defend meme ${JSON.stringify(meme)}`);
         //build your opponent
         defendMeme = new Meme(
           meme.id,
@@ -233,7 +216,6 @@ $(document).ready(function() {
           false
         );
         //console.log the choice
-        console.log(defendMeme);
         //set boolean to true so the game can start
         defenderSelected = true;
         //check run to see if the game can start
