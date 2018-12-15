@@ -1,12 +1,11 @@
-$(document).ready(function () {
+$(document).ready(function() {
   //on page load, get the id so we can assign it to all the nav bars
   getId();
 
   function getId() {
     $.ajax("/api/user/id", {
       type: "GET"
-    }).then(function (user) {
-
+    }).then(function(user) {
       $("#meme-points").text(user[0].points);
     });
   }
@@ -22,18 +21,18 @@ avatarAdd.on("submit", function(event) {
   event.preventDefault();
   var userData = {
     avatar: PaInput.val().trim()
-  }; 
+  };
   if (!userData.avatar) {
     return;
   }
 
-    $.ajax({
-      url: "/api/user/avatar",
-      type: "PUT",
-      data: userData
-    }).then(function(data) {
-      console.log(`avatar updated with ${data[0].avatar}`)
-    }
+  $.ajax({
+    url: "/api/user/avatar",
+    type: "PUT",
+    data: userData
+  }).then(function(data) {
+    console.log(`avatar updated with ${data[0].avatar}`);
+  });
 });
 
 //// for profile survey from https://surveyjs.io/Examples/Builder/

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   //variables thayt will be used throughout th battle system
   var attackMeme = {}; //stores the users hero
   var defendMeme = {}; //stores the enemy hero
@@ -8,15 +8,13 @@ $(document).ready(function () {
   var defenderSelected = false; //boolean used to check if the user has slected the opponent
 
   var API = {
-    winsCoinsOnWin: function () {
+    winsCoinsOnWin: function() {
       $.ajax({
         url: "/api/get-current-user-points",
         type: "GET"
-      }).then(function (data) {
-
+      }).then(function(data) {
         var currentWins = parseFloat(data[0].wins);
         currentWins += 1;
-
 
         var currentPoints = parseFloat(data[0].points);
         var pointChange = attackMeme.expCoinGain(defendMeme);
@@ -27,12 +25,11 @@ $(document).ready(function () {
           points: currentPoints
         };
 
-
         $.ajax({
           url: "/api/user/wins",
           type: "PUT",
           data: update
-        }).then(function (data) {
+        }).then(function(data) {
           /*modal stuff */
 
           $("#winlossPost").text("YOU WON!");
@@ -40,20 +37,17 @@ $(document).ready(function () {
           $("#coinPost").text(`POINTS WON: ${pointChange}
           NEW TOTAL POINTS: ${currentPoints}`);
           $("#myModal").modal("toggle");
-
         });
       });
     },
 
-    pointsOnLoss: function () {
+    pointsOnLoss: function() {
       $.ajax({
         url: "/api/get-current-user-points",
         type: "GET"
-      }).then(function (data) {
-
+      }).then(function(data) {
         var currentLoss = parseFloat(data[0].loss);
         currentLoss += 1;
-
 
         var currentPoints = parseFloat(data[0].points);
         var pointChange = attackMeme.expCoinGain(defendMeme);
@@ -64,24 +58,20 @@ $(document).ready(function () {
           points: currentPoints
         };
 
-
         $.ajax({
           url: "/api/user/loss",
           type: "PUT",
           data: update
-        }).then(function (data) {
-
+        }).then(function(data) {
           $.ajax({
             url: `/api/user/memes/${attackMeme.id}`,
             type: "DELETE"
-          }).then(function (data) {
-
+          }).then(function(data) {
             $("#winlossPost").text("YOU LOST!");
             $("#expPost").text(`TOTAL LOSSES: ${currentLoss}`);
             $("#coinPost").text(`POINTS LOST: ${pointChange}
           NEW TOTAL POINTS: ${currentPoints}`);
             $("#myModal").modal("toggle");
-
           });
         });
       });
@@ -128,7 +118,6 @@ $(document).ready(function () {
         target.hp -= thisAttk;
       } else {
         //unless you miss, should probably display all this info somewhere onscreen instead of just in the console
-
       }
     }
 
@@ -140,18 +129,16 @@ $(document).ready(function () {
     }
     //this method will set of the callback chain that happens after the user loses, first it delets the meme you lost with, then it updates your profiles currency, then it redirects you to the profile page.
     concede() {
-
       API.pointsOnLoss();
     } //end of this.concede()
 
     //the method that sets off the callback chain for when the user wins
     win() {
-
       API.winsCoinsOnWin();
     }
   }
   //will run the functions need to start the battle, only if both have been selected
-  var run = function () {
+  var run = function() {
     if (heroSelected === true && defenderSelected === true) {
       battlestart = true;
       //populates the combatant block using specific suffixes deenoted on the "posy combatant function"
@@ -186,7 +173,7 @@ $(document).ready(function () {
     if (!heroSelected) {
       $.ajax(`/heros/${id}`, {
         type: "GET"
-      }).then(function (meme) {
+      }).then(function(meme) {
         //build your fighter
         attackMeme = new Meme(
           meme.id,
@@ -215,7 +202,7 @@ $(document).ready(function () {
     if (!defenderSelected) {
       $.ajax(`/combatants/${id}`, {
         type: "GET"
-      }).then(function (meme) {
+      }).then(function(meme) {
         //build your opponent
         defendMeme = new Meme(
           meme.id,
@@ -239,21 +226,21 @@ $(document).ready(function () {
     }
   }
   /////these functions are the event listeners to trigger the combatant set
-  $("#postBattleDismiss").on("click", function () {
+  $("#postBattleDismiss").on("click", function() {
     window.location.replace("../../profile");
   });
 
-  $(".fighterSelect").on("click", function () {
+  $(".fighterSelect").on("click", function() {
     var fighterId = $(this).attr("id");
     fighterSelect(fighterId);
   });
 
-  $(".defendSelect").on("click", function () {
+  $(".defendSelect").on("click", function() {
     var defenderId = $(this).attr("id");
     defendSelect(defenderId);
   });
   // this is the event listener to set off the attack turns
-  $("#attackButton").on("click", function () {
+  $("#attackButton").on("click", function() {
     //checks to make sure there isnt a turn in progress
     if (battlestart && !inTurn) {
       // sets the turn in progress
