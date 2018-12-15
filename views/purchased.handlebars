@@ -61,6 +61,46 @@
                 PRECIOUS.</span></h2>
     </div>
 
+    <div class="container text-center filter-bar-lib shady">
+        <div class="form-check font-light">
+            <form>
+                <span class="filter-lvl">
+                    <input type="radio" name="exampleRadios1" value="1"> LEVEL 1
+                </span>
+                <span class="filter-lvl">
+                    <input type="radio" name="exampleRadios1" value="2"> LEVEL 2
+                </span>
+                <span class="filter-lvl">
+                    <input type="radio" name="exampleRadios1" value="3"> LEVEL 3
+                </span>
+                <span class="filter-lvl">
+                    <input type="radio" name="exampleRadios1" value="4"> LEVEL 4
+                </span>
+                <span class="filter-lvl">
+                    <input type="radio" name="exampleRadios1" value="5"> LEVEL 5
+                </span>
+                <span class="filter-lvl">
+                    <input type="radio" name="exampleRadios1" value="6"> LEVEL 6
+                </span>
+                <span class="filter-lvl">
+                    <input type="radio" name="exampleRadios1" value="7"> LEVEL 7
+                </span>
+                <span class="filter-lvl">
+                    <input type="radio" name="exampleRadios1" value="8"> LEVEL 8
+                </span>
+                <span class="filter-lvl">
+                    <input type="radio" name="exampleRadios1" value="9"> LEVEL 9
+                </span>
+                <span class="filter-lvl">
+                    <input type="radio" name="exampleRadios1" value="10"> LEVEL 10
+                </span>
+
+                <input class="btn btn-outline-light filter-lvl-button-lib" id="refreshButton" type="submit" value="submit">
+            </form>
+        </div>
+    </div>
+
+
     <div class="container text-center">
         {{!-- {{#grouped_each 3 page.meme}} --}}
         <div class="row">
@@ -70,6 +110,8 @@
                     <h2 class="meme-title">{{this.name}}</h2>
                     <div class="card-body">
                         <img class="meme-link" src={{this.link}} alt="">
+                        <p class="meme-deets"><b class="meme-lvl font-bold">LEVEL</b> :
+                            {{this.lvl}}</p>
                         <p class="meme-deets"><b class="meme-stats">HP</b> <i class="fas fa-heart"></i> :
                             {{this.health_points}}</p>
                         <p class="meme-deets"><b class="meme-stats">AP</b> <i class="fas fa-fist-raised"></i> :
