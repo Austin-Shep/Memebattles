@@ -6,7 +6,6 @@ $(document).ready(function () {
   $(".buy").on("click", function () {
     var currentPoints = $("#meme-points").text();
     var cost = $(this).attr("cost");
-    console.log(currentPoints);
     if (currentPoints - cost < 0) {
       alert("Insufficent Meme Tokens");
     } else {
@@ -21,7 +20,6 @@ $(document).ready(function () {
         dice_value: $(this).attr("dice"),
         UserId: $(this).attr("UserId")
       };
-      console.log(boughtMeme);
 
       //now that we have all the data, send a post to the database
       $.ajax("/api/user/id", {
@@ -36,7 +34,6 @@ $(document).ready(function () {
           type: "PUT",
           data: newPoints
         }).then(function (data) {
-          console.log(data);
           $("#meme-points").text(data.points);
           location.reload();
         });
@@ -49,7 +46,6 @@ $(document).ready(function () {
       type: "GET"
     }).then(function (user) {
       //this needs to be an array because that is what is returned
-      console.log(user[0].id);
       //gives data to the points section
       $("#meme-points").text(user[0].points);
 
@@ -60,8 +56,8 @@ $(document).ready(function () {
     });
   }
 
-//refreshes the submit button so it filters out the memes based on the meme lvl
-  $("#refreshButton").on("click",function(e){
+  //refreshes the submit button so it filters out the memes based on the meme lvl
+  $("#refreshButton").on("click", function (e) {
     e.preventDefault();
 
     var lvl = $("input[name=exampleRadios1]:checked").val();
