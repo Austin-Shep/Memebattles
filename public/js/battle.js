@@ -172,8 +172,10 @@ $(document).ready(function() {
     pos /*pos will be the class that dictates the suffix for post points "He" or "En"*/
   ) {
     $(`#imgPost-${pos}`).attr("src", meme.imgLink);
-    $(`#hp-${pos}`).text(meme.hp);
+    $(`#hp-${pos}`).text(`Hp: ${meme.hp}`);
     $(`#name-${pos}`).text(meme.name);
+    $(`#ac-${pos}`).text(`Ac: ${meme.ac}`);
+    $(`#ap-${pos}`).text(`roll: 1d${meme.diceVal}+${meme.ap}`);
   }
   //called each turn to post the current hp
   function updateHP(meme, pos) {

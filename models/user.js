@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 500.0
     },
     avatar: {
-      type: DataTypes.STRINGS
+      type: DataTypes.STRING
     },
     wins: {
       type: DataTypes.INTEGER,
