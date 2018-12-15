@@ -229,8 +229,8 @@ module.exports = function(app) {
   app.put("/api/user/wins", function(req, res) {
     db.User.update(
       {
-        points: req.body.points,
-        wins: req.body.points
+        wins: req.body.wins,
+        points: req.body.points
       },
       {
         where: {
@@ -246,7 +246,7 @@ module.exports = function(app) {
     db.User.update(
       {
         points: req.body.points,
-        loss: req.body.points
+        loss: req.body.loss
       },
       {
         where: {
