@@ -22,6 +22,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DECIMAL(10, 2),
       defaultValue: 500.0
     },
+    avatar: {
+      type: DataTypes.STRING
+    },
     wins: {
       type: DataTypes.INTEGER,
       defaultValue: 0

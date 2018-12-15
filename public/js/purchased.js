@@ -15,6 +15,33 @@ $(document).ready(function() {
   }
 });
 
+/// for avatar upload
+// Getting references to our form and input
+var avatarAdd = $("form.avatarAdd");
+var PaInput = $("input#profileAvatar");
+
+// When the signup button is clicked, we validate the email and password are not blank
+avatarAdd.on("submitPa", function(event) {
+  event.preventDefault();
+  if (!userData.avatar) {
+    return;
+  }
+  var userData = {
+    avatar: PaInput.val().trim()
+  }; 
+
+    $.ajax({
+      url: "/api/get-current-user-points",
+      type: "PUT",
+      data: userData
+    }).then(function(data) {
+      console.log(`avatar updated with ${data[0].avatar}`)
+    }
+
+  // If we have an avatar address, run the signUpUser function
+  PaInput.val("");
+});
+
 //// for profile survey from https://surveyjs.io/Examples/Builder/
 var json = {
   title: "what's your meme?",

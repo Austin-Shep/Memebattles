@@ -66,15 +66,22 @@
                 memes. I mean... you.</span> (nope. I meant memes.)</h2>
     </div>
 
-
-    <div class="container profile-content font-reg">
+    {{!-- Stuff in the "real" body --}}
+    <div class="container profile-content">
         <br>
         <br>
         <div class="row">
             <div class="col-6 col-md-4">
 
                 <div class="card card-profile" style="width: 22rem;">
-                    <img class="card-img-top" src="https://i.imgflip.com/22jc5z.jpg?text=Image cap" alt="Card image cap">
+                    <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
+
+                    <form class="avatarAdd">
+                    <label for="validationDefault01">Choose a Avatar </label>
+                    <input type="text" class="form-control name" id="profileAvatar" placeholder="httl://" required>
+                    <button id="submitPa" class="btn btn-outline-light text-center" type="submit">+ <b>Avatar me!</b></button>
+                    </form>
+
                     <div class="card-body">
                         <h5 class="card-title shady">Greetings meme<b class="font-bold">battler</b>.</h5>
                         <p class="card-text font-light-italic">"An eye for an eye. A
