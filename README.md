@@ -1,4 +1,4 @@
-# project-2
+# Memebattles
 
 ## Technologies Used
 
